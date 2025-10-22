@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "DanaFaNum";
+    overflow-wrap: break-word;
+  }
+}
+:root {
+  --primary: #ec1e28;
+  --primary-50: #ffeaed;
+  --primary-100: #ffcad0;
+  --primary-200: #f49595;
+  --primary-300: #ec6a6c;
+  --primary-400: #f64446;
+  --primary-500: #fb2c28;
+  --primary-600: #ec1e28;
+  --primary-700: #da0c23;
+  --primary-800: #cd001b;
+  --primary-900: #bf000b;
+  --primary-950: #9b0009;
+
+  --secondary: #fce7f3;
+  --secondary-50: #fff8e3;
+  --secondary-100: #ffecb7;
+  --secondary-200: #ffe189;
+  --secondary-300: #ffd65c;
+  --secondary-400: #ffcb3d;
+  --secondary-500: #ffc32f;
+  --secondary-600: #ffb52a;
+  --secondary-700: #ffa328;
+  --secondary-800: #ff9326;
+  --secondary-900: #fd7523;
+
+  --special-1: #FFFFFF05;
+  --special-2: #ffffff00;
+  --special-3: #0000009C;
+  --special-4: #00000033;
+
+  --client-color: #466def;
+
+  ---bg: url('');
+  --visaList-bg: url('../images/visa-list-background.jpg');
+  --visa-bg: url('../images/visa-background.jpg');
+  --contact-bg: url('../images/contact-background.jpg');
+  --articleList-bg: url('../images/article-list-background.jpg');
+  --article-bg: url('../images/article-background.jpg');
+  --tourList-bg: url('../images/tour-list-background.jpg');
+  --hotelList-bg: url('../images/hotel-list-background.jpg');
+  --hotel-bg: url('../images/hotel-background.jpg');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'DanaFaNum';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/DanaFaNum-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'DanaFaNum';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/DanaFaNum-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'DanaFaNum';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/DanaFaNum-Bold.ttf') format('truetype');
+}
+
+.my-scroll-box::-webkit-scrollbar {
+  width: 4px;
+}
+
+.my-scroll-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.my-scroll-box::-webkit-scrollbar-thumb {
+  background: var(--primary-600);
+  border-radius: 3px;
+}
+
+.my-scroll-box::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-300);
+}

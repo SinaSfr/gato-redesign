@@ -1,0 +1,52 @@
+
+            <div class="pr-2 border-r border-secondary-100">
+                <a href="@link"
+                    class="font-bold transition-all duration-300 text-primary-600 hover:text-secondary-700">@title</a>
+                <ul class="flex flex-col gap-2 mt-4 text-zinc-700">
+                    <li>
+                        <a href="@link" class="hover:text-primary-600">@title</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+<basis core="group" if="'[##cms.query.mid##]' = '1'">
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="all-article">
+        <member name="cat" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"></member>
+    </basis>
+
+    <basis core="tree" datamembername="all-article.cat" idcol="catid" parentidcol="parentid"
+        nullvalue="[##cms.query.catid##]">
+        <face level="1" filter="link is null">
+            <div class="pr-2 border-r border-secondary-100">
+                <a href="/article-list.bc?catid=@catid"
+                    class="font-bold transition-all duration-300 text-primary-600 hover:text-secondary-700">@title</a>
+                <ul class="flex flex-col gap-2 mt-4 text-zinc-700">
+                    @child
+                </ul>
+            </div>
+        </face>
+        <face level="1">
+            <div class="pr-2 border-r border-secondary-100">
+                <a href="@link"
+                    class="font-bold transition-all duration-300 text-primary-600 hover:text-secondary-700">@title</a>
+                <ul class="flex flex-col gap-2 mt-4 text-zinc-700">
+                    @child
+                </ul>
+            </div>
+        </face>
+        <face level="2" filter="link is null">
+            <li>
+                <a href="/article-list.bc?catid=@catid" class="hover:text-primary-600">@title</a>
+            </li>
+        </face>
+        <face level="2">
+            <li>
+                <a href="@link" class="hover:text-primary-600">@title</a>
+            </li>
+        </face>
+
+    </basis>
+
+</basis>

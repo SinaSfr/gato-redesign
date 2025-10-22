@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/output.css">
+</head>
+
+<body>
+    <header>
+        <section class="bg-secondary-900 py-1">
+            <div class="flex items-center justify-between mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+                <div
+                    class="Login_Information overflow-hidden relative group z-10 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600 rounded-lg bg-secondary-700">
+                    <!-- <basis core="call" file="authentication/modal" lid="1"></basis> -->
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12.4009 14.5156C7.42189 14.5156 5.19189 17.2696 5.19189 19.9996C5.19189 20.1986 5.27089 20.3896 5.41189 20.5306C5.55189 20.6706 5.74289 20.7496 5.94189 20.7496L18.8599 20.7316C19.2739 20.7306 19.6089 20.3946 19.6089 19.9816C19.6089 17.2606 17.3799 14.5156 12.4009 14.5156Z"
+                                fill="#000" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12.4009 13.001C15.0889 13.001 17.2759 10.813 17.2759 8.125C17.2759 5.437 15.0889 3.25 12.4009 3.25C9.71288 3.25 7.52588 5.437 7.52588 8.125C7.52588 10.813 9.71288 13.001 12.4009 13.001Z"
+                                fill="#000" />
+                        </svg>
+                    </div>
+
+                </div>
+                <a href="" class="text-white text-sm">ارتباط با کارشناسان</a>
+            </div>
+        </section>
+        <section class="bg-white">
+            <div class="flex items-center justify-between mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+                <div class="flex items-center gap-2 h-14">
+                    <svg width="30" height="30" class="bars3">
+                        <use href="../assets/images/sprite-icons-mobile.svg#icon-menu"></use>
+                    </svg>
+                </div>
+                <a href="/">
+                    <img src="../assets/images/logo.png" alt="logo-header" width="100" height="40" loading="lazy"
+                        class="w-[100px] h-auto" />
+                </a>
+            </div>
+            <!-- header menu -->
+            <div
+                class="header-menu bg-white fixed z-30 translate-x-[1024px] inset-0 w-full transition-all duration-300 overflow-scroll">
+                <section class="px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <a href="/">
+                            <img src="../assets/images/logo.png" alt="logo-header" width="120" height="48"
+                                loading="lazy" class="w-[120px] h-auto" />
+                        </a>
+                        <svg width="48" height="48" class="header-menu-close">
+                            <use href="../assets/images/sprite-icons-mobile.svg#icon-close"></use>
+                        </svg>
+
+                    </div>
+                </section>
+                <section class="px-4 bg-white">
+                    <nav class="pt-2">
+                        <ul class="flex flex-col gap-2 text-sm">
+                            <li class="py-3"><a href="/" class="text-zinc-900">صفحه اصلی</a></li>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="" class="ttext-zinc-900">تورهای گردشگران</a>
+
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-primary-50 max-h-0">
+                                    <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="" class="ttext-zinc-900">تور های مناسبتی</a>
+
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-primary-50 max-h-0">
+                                    <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="" class="ttext-zinc-900">تور های نمایشگاهی</a>
+
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-primary-50 max-h-0">
+                                    <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="" class="ttext-zinc-900">خدمات ویزا</a>
+
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-primary-50 max-h-0">
+                                    <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                            <li class="flex items-center h-12">
+                                <a href="" class="w-full text-zinc-900">راهنمای سفر</a>
+                            </li>
+                            <li class="flex items-center py-3 ">
+                                <a href="" class="w-full text-zinc-900">چرا گردشگران؟</a>
+                            </li>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="" class="ttext-zinc-900">تورهای گردشگران</a>
+
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-primary-50 max-h-0">
+                                    <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+                <section class="border-t border-solid border-gray-400 mt-20">
+                    <div class="flex flex-col gap-2 p-4">
+                        <a href="tel:"
+                            class="flex items-center justify-center gap-2 w-full h-12 border border-solid border-primary-800 rounded-lg text-primary-800">
+                            <svg width="30" height="30">
+                                <use xlink:href="../assets/images/sprite-icons-mobile.svg#icon-phone"></use>
+                            </svg>
+                            <span>031-36166</span>
+                        </a>
+                        <button
+                            class="flex items-center justify-center gap-2 w-full h-12 bg-primary-800 rounded-lg text-white">
+                            ارتباط با کارشناسان
+                        </button>
+                    </div>
+                </section>
+            </div>
+            <!-- header menu -->
+        </section>
+    </header>
+
+    <script src="../assets/js/gato.js"></script>
+</body>
+
+</html>
