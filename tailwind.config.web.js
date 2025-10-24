@@ -1,12 +1,11 @@
 module.exports = {
-  content: ["./mobile/**/*.html", "./mobile/assets/js/**/*.js"],
+  content: ["./web/**/*.html", "./web/assets/js/**/*.js"],
   theme: {
     extend: {
       backgroundImage: {
         "border-gradient-red":
           "linear-gradient(248.18deg, #EA2124 1.36%, #FFFFFF 98.64%)",
-        footer: "var(--footer-bg)",
-        default: "var(--default-bg)",
+          footer: "var(--footer-bg)",
       },
       boxShadow: {
         'mega-menu': '0px 8px 12px 0px #00000033',

@@ -36,10 +36,13 @@
   --secondary-950: #070621;
 
   --special-1: #FFFFFF05;
+  --special-2: #ffffff00;
+  --special-3: #0000009C;
+  --special-4: #00000033;
 
-  --bg: url('');
+  ---bg: url('');
   --footer-bg: url('../images/footer-background.jpg');
-  --default-bg: url('../images/default-background.jpg');
+
 }
 
 @font-face {
@@ -63,6 +66,7 @@
   font-weight: 700;
   src: url('../fonts/IRANYekanBold.ttf') format('truetype');
 }
+
 
 .my-scroll-box::-webkit-scrollbar {
   width: 4px;

@@ -11,17 +11,29 @@
 <body>
     <header>
         <div class="bg-secondary-900 py-1">
-            <div class="flex items-center justify-between mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+            <div class="flex items-center justify-between mx-auto max-xl:w-[97%] xl:max-w-7xl">
                 <section class="flex items-center">
-                    <a href="mailto:" class="text-white text-sm">info@gato.ir</a>
-                    <svg width="48" height="48" class="text-white">
-                        <use href="../assets/images/sprite-icons-mobile.svg#icon-instagram"></use>
-                    </svg>
-                    <svg width="48" height="48" class="text-white">
-                        <use href="../assets/images/sprite-icons-mobile.svg#icon-whatsapp"></use>
-                    </svg>
+                    <a href="mailto:"
+                        class="relative group text-white text-sm transition-all duration-300 hover:text-primary-600">info@gato.ir
+                        <span
+                            class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
+                    </a>
+
+                    <a href="" rel="noopener noreferrer" aria-label="instagram">
+                        <svg width="48" height="48"
+                            class="text-white transition-all duration-300 hover:text-primary-600">
+                            <use href="../assets/images/sprite-icons.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+
+                    <a href="" rel="noopener noreferrer" aria-label="Whatsapp">
+                        <svg width="48" height="48"
+                            class="text-white transition-all duration-300 hover:text-primary-600">
+                            <use href="../assets/images/sprite-icons.svg#icon-whatsapp"></use>
+                        </svg>
+                    </a>
                 </section>
-                <section>
+                <section class="flex items-center gap-8">
                     <div
                         class="Login_Information overflow-hidden relative group z-10 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600 rounded-lg bg-secondary-700">
                         <!-- <basis core="call" file="authentication/modal" lid="1"></basis> -->
@@ -38,12 +50,36 @@
                         </div>
 
                     </div>
+                    <div
+                        class="relative group flex items-center gap-2 text-white text-sm text-center transition-all cursor-pointer duration-300">
+                        <div
+                            class="group flex text-white text-sm items-center gap-1 transition-all duration-300 hover:text-primary-400">
+                            دیگر مجموعه های ما
+                            <svg width="48" height="48"
+                                class="text-white transition-all duration-300 group-hover:rotate-180 group-hover:text-primary-400">
+                                <use href="../assets/images/sprite-icons.svg#icon-chevron-down"></use>
+                            </svg>
+                        </div>
+                        <ul
+                            class="absolute z-40 flex flex-col items-start invisible w-full gap-2 p-2 transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                            <li
+                                class="w-full py-2 px-2 text-start transition-all duration-300 text-secondary-800 hover:text-white hover:bg-primary-800 rounded-md">
+                                <a href="">شعبه مرکزی</a>
+                            </li>
+
+
+                            <li
+                                class="w-full py-2 px-2 text-start transition-all duration-300 text-secondary-800 hover:text-white hover:bg-primary-800 rounded-md">
+                                <a href="">وب سایت تورهای نمایشگاهی</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </section>
             </div>
         </div>
-        <div class="h-20 w-full justify-between">
-            <div
-                class="relative flex items-center h-full justify-between mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+        <div class="h-20 w-full shadow-header">
+            <div class="relative flex items-center h-full justify-between mx-auto max-xl:w-[97%] xl:max-w-7xl">
                 <div class="flex items-center gap-3 h-full">
                     <a href="/">
                         <img src="../assets/images/logo.png" alt="logo-header" width="120" height="34" loading="lazy"
@@ -51,11 +87,6 @@
                     </a>
                     <nav class="flex h-full">
                         <ul class="flex items-center gap-3">
-                            <li class="flex">
-                                <a href="/Articles"
-                                    class="transition-all duration-300 text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-900">صفحه
-                                    اصلی</a>
-                            </li>
                             <li class="mega-menu-li flex items-center h-full group">
                                 <!-- Main Trigger -->
                                 <a href="/tours"
@@ -63,21 +94,22 @@
                                     تورهای گردشگران
                                     <svg width="48" height="48"
                                         class="lg:w-8 lg:h-8 xl:w-12 xl:h-12 transition-all duration-300 group-hover:rotate-180">
-                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-down"></use>
                                     </svg>
                                 </a>
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl shadow-2xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
-                                        <div class="w-1/3 border-l border-solid">
+                                        <div class="flex-1 border-l border-solid">
                                             <div class="py-2 px-2 space-y-2">
                                                 <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                    data-id="@catid" data-mid="@mid" data-link="@link"
+                                                    data-name="@title" type="button">
+                                                    <div class="flex items-center">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -93,20 +125,20 @@
                                                                 stroke-linecap="round" />
                                                         </svg>
                                                         <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
+                                                            class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                            تور های خارجی
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
                                                 <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                    data-id="@catid" data-mid="@mid" data-link="@link"
+                                                    data-name="@title" type="button">
+                                                    <div class="flex items-center">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -122,13 +154,12 @@
                                                                 stroke-linecap="round" />
                                                         </svg>
                                                         <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
+                                                            class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                            تور های خارجی
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
@@ -136,26 +167,31 @@
                                         </div>
 
                                         <!-- Left: Dynamic Content -->
-                                        <div class="w-2/3">
+                                        <div class="flex-[3] pl-2">
 
                                             <div class="tab-content max-h-80 overflow-y-auto my-scroll-box">
-                                                <a href="" class="flex text-base font-bold menu-link-header"></a>
-                                                <div class="columns-5 gap-8">
-
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                <a href=""
+                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4 transition-all duration-300 hover:text-primary-800"></a>
+                                                <div class="columns-5">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
+                                                                class="group/leveltwo relative font-medium text-zinc-900 transition-all duration-300 hover:text-primary-600">helllo
+                                                                <span
+                                                                    class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+                                                            </a>
                                                         </div>
                                                         <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
                                                             <li>
                                                                 <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                                    class="inline-flex group/leveltwo relative text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii
+                                                                    <span
+                                                                        class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+                                                                </a>
                                                             </li>
                                                             <li>
                                                                 <a href="@link"
@@ -184,11 +220,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -202,11 +237,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -219,88 +253,10 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -338,11 +294,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -356,11 +311,84 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
+                                                                </use>
+                                                            </svg>
+                                                            <a href="@link"
+                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
+                                                        </div>
+                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="inline-block w-full break-inside-avoid">
+                                                        <div class="flex items-center">
+                                                            <svg width="35" height="35">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
+                                                                </use>
+                                                            </svg>
+                                                            <a href="@link"
+                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
+                                                        </div>
+                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="inline-block w-full break-inside-avoid">
+                                                        <div class="flex items-center">
+                                                            <svg width="35" height="35">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
+                                                                </use>
+                                                            </svg>
+                                                            <a href="@link"
+                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
+                                                        </div>
+                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
+                                                            <li>
+                                                                <a href="@link"
+                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="inline-block w-full break-inside-avoid">
+                                                        <div class="flex items-center">
+                                                            <svg width="35" height="35">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -389,13 +417,13 @@
                                     تور های مناسبتی
                                     <svg width="48" height="48"
                                         class="lg:w-8 lg:h-8 xl:w-12 xl:h-12 transition-all duration-300 group-hover:rotate-180">
-                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-down"></use>
                                     </svg>
                                 </a>
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl shadow-2xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
                                         <div class="w-1/3 border-l border-solid">
@@ -403,7 +431,7 @@
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -424,15 +452,14 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -453,8 +480,7 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
@@ -465,14 +491,14 @@
                                         <div class="w-2/3">
 
                                             <div class="tab-content">
-                                                <a href="" class="flex text-base font-bold menu-link-header"></a>
+                                                <a href=""
+                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
                                                 <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -510,11 +536,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -528,11 +553,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -561,13 +585,13 @@
                                     تور های نمایشگاهی
                                     <svg width="48" height="48"
                                         class="lg:w-8 lg:h-8 xl:w-12 xl:h-12 transition-all duration-300 group-hover:rotate-180">
-                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-down"></use>
                                     </svg>
                                 </a>
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl shadow-2xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
                                         <div class="w-1/3 border-l border-solid">
@@ -575,7 +599,7 @@
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -596,15 +620,14 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -625,8 +648,7 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
@@ -637,14 +659,14 @@
                                         <div class="w-2/3">
 
                                             <div class="tab-content">
-                                                <a href="" class="flex text-base font-bold menu-link-header"></a>
+                                                <a href=""
+                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
                                                 <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -682,11 +704,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -700,11 +721,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -733,13 +753,13 @@
                                     خدمات ویزا
                                     <svg width="48" height="48"
                                         class="lg:w-8 lg:h-8 xl:w-12 xl:h-12 transition-all duration-300 group-hover:rotate-180">
-                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-down"></use>
+                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-down"></use>
                                     </svg>
                                 </a>
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl shadow-2xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
                                         <div class="w-1/3 border-l border-solid">
@@ -747,7 +767,7 @@
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -768,15 +788,14 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
                                                 <button
                                                     class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
                                                     <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-tab="@title" type="button">
+                                                        data-link="@link" data-name="@title" type="button">
                                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -797,8 +816,7 @@
                                                         </span>
                                                     </div>
                                                     <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left">
+                                                        <use href="../assets/images/sprite-icons.svg#icon-chevron-left">
                                                         </use>
                                                     </svg>
                                                 </button>
@@ -809,14 +827,14 @@
                                         <div class="w-2/3">
 
                                             <div class="tab-content">
-                                                <a href="" class="flex text-base font-bold menu-link-header"></a>
+                                                <a href=""
+                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
                                                 <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -854,11 +872,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -872,11 +889,10 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="inline-block w-full break-inside-avoid mb-8">
+                                                    <div class="inline-block w-full break-inside-avoid">
                                                         <div class="flex items-center">
                                                             <svg width="35" height="35">
-                                                                <use
-                                                                    href="../assets/images/sprite-icons-mobile.svg#icon-flag">
+                                                                <use href="../assets/images/sprite-icons.svg#icon-flag">
                                                                 </use>
                                                             </svg>
                                                             <a href="@link"
@@ -900,12 +916,12 @@
                             </li>
                             <li class="flex items-center h-full">
                                 <a href=""
-                                    class="flex items-center transition-all duration-300 text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-900">راهنمای
+                                    class="flex items-center transition-all duration-300 text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-600">راهنمای
                                     سفر</a>
                             </li>
                             <li class="flex items-center h-full">
                                 <a href=""
-                                    class="flex items-center transition-all duration-300 text-zinc-900 lg:text-xs xl:text-sm  hover:text-primary-900">چرا
+                                    class="flex items-center transition-all duration-300 text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-600">چرا
                                     گردشگران؟
                                 </a>
                             </li>
@@ -917,11 +933,35 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <button
-                        class="flex items-center justify-center gap-2 w-32 h-12 bg-primary-800 rounded-lg text-white lg:text-xs xl:text-sm">
+                        class="btn-contact group relative overflow-hidden z-10 flex items-center justify-center gap-2 px-1 h-12 bg-primary-800 rounded-lg text-white lg:text-xs xl:text-sm">
                         ارتباط با کارشناسان
+                        <span
+                            class="absolute bottom-0 left-0 w-40 transition-all duration-300 ease-out translate-x-full translate-y-full rounded h-12 -z-10 bg-secondary-600 group-hover:translate-x-0 group-hover:translate-y-0"></span>
                     </button>
+                    <div class="contact-overlay fixed inset-0 z-40 hidden bg-black/40 backdrop-blur-sm"></div>
+                    <div class="form-contact fixed top-1/2 left-1/2 z-50 hidden items-stretch -translate-x-1/2 -translate-y-1/2 rounded-3xl overflow-hidden transition-all duration-300 scale-90 opacity-0">
+                        <section class="bg-white py-14 px-9">
+
+                        </section>
+                        <section class="bg-secondary-800 py-3 px-9">
+                            <div class="close-contact flex justify-end cursor-pointer">
+                                <svg width="48" height="48">
+                                    <use href="../assets/images/sprite-icons.svg#icon-x">
+                                    </use>
+                                </svg>
+                            </div>
+                            <img src="../assets/images/support-team.jpg" class="w-full h-80 object-cover rounded-3xl"
+                                alt="" width="345" height="320" loading="lazy">
+                            <h2 class="text-xl font-bold text-white mb-2 mt-4">تماس با کارشناسان ما</h2>
+                            <div class="text-sm text-white">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                                شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع لورم ایپسوم متن ساختگی با تولید سادگی
+                                نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
+                                مجله در ستون و سطرآنچنان</div>
+                        </section>
+                    </div>
                     <a href="tel:"
-                        class="flex items-center justify-center gap-2 px-3 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 lg:text-xs xl:text-sm">
+                        class="flex items-center justify-center gap-2 px-3 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 lg:text-xs xl:text-sm transition-all duration-300 hover:bg-primary-800 hover:text-white">
                         031-36166
                     </a>
                 </div>
@@ -930,6 +970,8 @@
 
         </div>
     </header>
+
+    <script src="../assets/js/gato.js"></script>
 </body>
 
 </html>
