@@ -661,6 +661,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -689,6 +693,10 @@ body {
   margin-top: 1rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -699,18 +707,6 @@ body {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
 }
 
 .mt-9 {
@@ -787,6 +783,14 @@ body {
 
 .h-full {
   height: 100%;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-3 {
+  height: 0.75rem;
 }
 
 .max-h-0 {
@@ -1029,6 +1033,10 @@ body {
   background-image: linear-gradient(180deg, rgba(24, 28, 71, 0.16) 0%, #141F37 100%);
 }
 
+.bg-tourList {
+  background-image: var(--tourList-bg);
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -1044,6 +1052,10 @@ body {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-10 {
@@ -1101,11 +1113,6 @@ body {
   padding-bottom: 1.75rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .pb-11 {
   padding-bottom: 2.75rem;
 }
@@ -1126,12 +1133,12 @@ body {
   padding-top: 0.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .pt-3 {
   padding-top: 0.75rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
@@ -1279,6 +1286,7 @@ body {
   --bg: url('');
   --footer-bg: url('../images/footer-background.jpg');
   --default-bg: url('../images/default-background.jpg');
+  --tourList-bg: url('../images/tour-list-background.jpg');
 }
 
 @font-face {
@@ -1363,35 +1371,12 @@ body {
   background-color: var(--primary-600);
 }
 
-.hover\:bg-primary-800:hover {
-  background-color: var(--primary-800);
-}
-
 .hover\:text-primary-600:hover {
   color: var(--primary-600);
-}
-
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 @media not all and (min-width: 1024px) {
   .max-lg\:w-\[90\%\] {
     width: 90%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 }

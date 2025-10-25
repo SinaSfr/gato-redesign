@@ -40,6 +40,7 @@
   --bg: url('');
   --footer-bg: url('../images/footer-background.jpg');
   --default-bg: url('../images/default-background.jpg');
+  --tourList-bg: url('../images/tour-list-background.jpg');
 }
 
 @font-face {

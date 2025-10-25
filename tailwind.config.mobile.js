@@ -9,6 +9,7 @@ module.exports = {
           "linear-gradient(180deg, rgba(24, 28, 71, 0.16) 55.77%, #141F37 100%)",
         footer: "var(--footer-bg)",
         default: "var(--default-bg)",
+        tourList: "var(--tourList-bg)",
       },
       boxShadow: {
         'mega-menu': '0px 8px 12px 0px #00000033',
