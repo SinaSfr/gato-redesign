@@ -3,14 +3,18 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "border-gradient-red":
-          "linear-gradient(248.18deg, #EA2124 1.36%, #FFFFFF 98.64%)",
+        "purple-shadow":
+          "linear-gradient(180deg, rgba(24, 28, 71, 0.16) 0%, #141F37 100%)",
+        "light-purple-shadow":
+          "linear-gradient(180deg, rgba(24, 28, 71, 0.16) 55.77%, #141F37 100%)",
         footer: "var(--footer-bg)",
         default: "var(--default-bg)",
       },
       boxShadow: {
         'mega-menu': '0px 8px 12px 0px #00000033',
-        'header': '0px 4px 8px 0px #00000040'
+        'header': '0px 4px 8px 0px #00000040',
+        'tour-cat': '0px 0px 12px 2px #00000059',
+        'tour-card': '0px 0px 16px 0px #00000040;',
       },
       colors: {
         primary: {
