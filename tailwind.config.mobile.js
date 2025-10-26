@@ -10,12 +10,18 @@ module.exports = {
         footer: "var(--footer-bg)",
         default: "var(--default-bg)",
         tourList: "var(--tourList-bg)",
+        visaList: "var(--visaList-bg)",
+        articleList: "var(--articleList-bg)",
+        contact: "var(--contact-bg)",
       },
       boxShadow: {
         'mega-menu': '0px 8px 12px 0px #00000033',
         'header': '0px 4px 8px 0px #00000040',
         'tour-cat': '0px 0px 12px 2px #00000059',
-        'tour-card': '0px 0px 16px 0px #00000040;',
+        'tour-card': '0px 0px 16px 0px #00000040',
+        'label': '0px 0px 4px 1px #00000040',
+        'visa': '0px 0px 8px 0px #00000040',
+        'contact': '0px 4px 20px 0px #00000040',
       },
       colors: {
         primary: {
