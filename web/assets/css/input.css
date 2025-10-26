@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: "IRANYekan";
+    font-family: 'IRANYekan';
     overflow-wrap: break-word;
   }
 }
@@ -35,14 +35,15 @@
   --secondary-900: #0e0c31;
   --secondary-950: #070621;
 
-  --special-1: #FFFFFF05;
-  --special-2: #ffffff00;
-  --special-3: #0000009C;
-  --special-4: #00000033;
+  --special-1: #F37321;
 
-  ---bg: url('');
+  --bg: url('');
   --footer-bg: url('../images/footer-background.jpg');
-
+  --default-bg: url('../images/default-background.jpg');
+  --tourList-bg: url('../images/tour-list-background.jpg');
+  --visaList-bg: url('../images/visa-list-background.jpg');
+  --articleList-bg: url('../images/article-list-background.jpg');
+  --contact-bg: url('../images/contact-background.jpg');
 }
 
 @font-face {
@@ -57,7 +58,7 @@
   font-family: 'IRANYekan';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/DanaFaNum.ttf') format('truetype');
+  src: url('../fonts/IRANYekanMedium.ttf') format('truetype');
 }
 @font-face {
   font-display: swap;
@@ -66,7 +67,13 @@
   font-weight: 700;
   src: url('../fonts/IRANYekanBold.ttf') format('truetype');
 }
-
+@font-face {
+  font-display: swap;
+  font-family: 'IRANYekan';
+  font-style: normal;
+  font-weight: 950;
+  src: url('../fonts/IRANYekanExtrablack.ttf') format('truetype');
+}
 
 .my-scroll-box::-webkit-scrollbar {
   width: 4px;
@@ -84,4 +91,31 @@
 
 .my-scroll-box::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-300);
+}
+
+.swiper .swiper-pagination-progressbar {
+  background-color: #a1a1aa;
+  border-radius: 8px;
+  height: 6px;
+} 
+.swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: var(--primary-800);
+  border-radius: 8px;
+  height: 6px;
+}
+
+.direction-ltr{
+  direction: ltr;
+}
+
+.h1-tag {
+  position: absolute;
+  width: 1px;
+  padding: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
 }

@@ -232,3 +232,39 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', closeForm)
   closeBtn.addEventListener('click', closeForm)
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+  const faqBoxes = document.querySelectorAll(".faq-box");
+
+  faqBoxes.forEach((box) => {
+    const btn = box.querySelector(".faq-btn");
+    const answer = box.querySelector(".faq-answer");
+
+    box.addEventListener("click", function () {
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+
+      faqBoxes.forEach((otherBox) => {
+        const otherAnswer = otherBox.querySelector(".faq-answer");
+        const otherBtn = otherBox.querySelector(".faq-btn");
+        if (otherBox !== box) {
+          otherAnswer.style.maxHeight = 0;
+          otherAnswer.classList.remove("opacity-100", "mt-2");
+          otherAnswer.classList.add("opacity-0");
+          otherBtn.classList.remove("rotate-180");
+        }
+      });
+
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        answer.classList.remove("opacity-0");
+        answer.classList.add("opacity-100", "mt-2");
+        btn.classList.add("rotate-180");
+      } else {
+        answer.style.maxHeight = 0;
+        answer.classList.remove("opacity-100", "mt-2");
+        answer.classList.add("opacity-0");
+        btn.classList.remove("rotate-180");
+      }
+    });
+  });
+});
