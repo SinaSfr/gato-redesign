@@ -13,6 +13,8 @@ module.exports = {
         visaList: "var(--visaList-bg)",
         articleList: "var(--articleList-bg)",
         contact: "var(--contact-bg)",
+        tourCategory: "var(--tourCategory-bg)",
+        parallax: "var(--parallax-bg)",
       },
       boxShadow: {
         'mega-menu': '0px 8px 12px 0px #00000033',

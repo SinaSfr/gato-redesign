@@ -35,7 +35,7 @@
   --secondary-900: #0e0c31;
   --secondary-950: #070621;
 
-  --special-1: #F37321;
+  --special-1: #f37321;
 
   --bg: url('');
   --footer-bg: url('../images/footer-background.jpg');
@@ -44,6 +44,8 @@
   --visaList-bg: url('../images/visa-list-background.jpg');
   --articleList-bg: url('../images/article-list-background.jpg');
   --contact-bg: url('../images/contact-background.jpg');
+  --tourCategory-bg: url('../images/tour-category-pc.jpg');
+  --parallax-bg: url('../images/parallax-image.jpg');
 }
 
 @font-face {
@@ -97,14 +99,18 @@
   background-color: #a1a1aa;
   border-radius: 8px;
   height: 6px;
-} 
+  width: 433px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
 .swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background-color: var(--primary-800);
   border-radius: 8px;
   height: 6px;
 }
 
-.direction-ltr{
+.direction-ltr {
   direction: ltr;
 }
 
@@ -118,4 +124,38 @@
   white-space: nowrap;
   border-width: 0;
   clip: rect(0, 0, 0, 0);
+}
+
+.articleList-card:nth-child(4n + 1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+.articleList-card:nth-child(4n + 2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.articleList-card:nth-child(4n + 3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.articleList-card:nth-child(4n + 4) {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+}
+
+.swiper-tour-cat .swiper-slide-active{
+  width: 344px;
+  height: 480px;
+}
+
+.swiper-tour-description-cat .swiper-pagination-bullet{
+  width: 14px;
+  height: 14px;
+  background-color: #A1A1AA;
+  opacity: 1;
+  margin: 10px 0 !important;
+}
+.swiper-tour-description-cat .swiper-pagination-bullet-active{
+  background-color: white;
 }

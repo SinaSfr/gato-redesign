@@ -77,7 +77,7 @@
                 <div
                     class="swiper-button-next-custom absolute z-10 left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center">
                     <svg width="11" height="23" class="text-primary-800">
-                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left-half"></use>
+                        <use href="../assets/images/sprite-icons-mobile.svg#icon-chevron-left"></use>
                     </svg>
                 </div>
             </div>
@@ -179,6 +179,9 @@
                     </div>
                 </a>
             </div>
+            <a href=""
+                class="w-full h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-zinc-900 mt-6">همه
+                تور های آفری</a>
         </section>
         <section class="mx-auto max-lg:w-[90%] mt-16">
             <h2 class="text-zinc-900 text-2xl font-bold">دسته بندی تور ها</h2>
@@ -366,7 +369,7 @@
             <h2 class="text-zinc-900 text-2xl font-bold">ویزاهای پرتقاضا</h2>
             <div class="text-zinc-900 text-sm">
                 همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه</div>
-            <div class="swiper swiper-popular-tours mt-2 pb-8 pt-4">
+            <div class="swiper swiper-visa mt-2 pb-8 pt-4">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
                         <img src="../assets/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
@@ -412,7 +415,8 @@
                     طراحی کند. از
                     انتخاب مقصد تا رزرو هتل و پرواز، ما در کنار شما هستیم.</div>
                 <button
-                    class="flex items-center justify-center h-12 text-sm text-white bg-primary-800 rounded-lg">مشاوره رایگان</button>
+                    class="flex items-center justify-center h-12 text-sm text-white bg-primary-800 rounded-lg">مشاوره
+                    رایگان</button>
                 <a href="tel:"
                     class="flex items-center justify-center gap-2 h-12 border border-solid border-primary-800 rounded-lg text-primary-800">
                     تماس با پشتیبانی
@@ -457,6 +461,22 @@
         });
         var swiperTourCat = new Swiper(".swiper-tour-cat", {
             slidesPerView: 1.4,
+            speed: 400,
+            centeredSlides: false,
+            spaceBetween: 16,
+            grabCursor: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+        });
+        var swiperVisa = new Swiper(".swiper-visa", {
+            slidesPerView: 1.45,
             speed: 400,
             centeredSlides: false,
             spaceBetween: 16,

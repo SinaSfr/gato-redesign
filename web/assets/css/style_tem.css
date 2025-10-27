@@ -1,0 +1,572 @@
+@charset "utf-8";
+@import url(./customized.ui.min.css);
+/*<!--------------------------init CSS------------------------------->*/
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("../fonts/IRANSansWeb(FaNum).ttf") format("truetype"),
+    url("../fonts/IRANSansWeb(FaNum).eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IRANSansWebEnNum";
+  font-style: normal;
+  font-weight: lighter;
+  src: url("../fonts/IRANSansWeb_Medium.eot");
+  src: url("../fonts/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/IRANSansWeb_Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "fontawesome";
+  src: url("../fonts/fontAwesome.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome.ttf") format("truetype"),
+    url("../fonts/fontAwesome.svg") format("svg"),
+    url("../fonts/fontAwesome-brands.eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fontAwesome-brands.eot");
+  src: url("../fonts/fontAwesome-brands.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-brands.ttf") format("truetype"),
+    url("../fonts/fontAwesome-brands.svg") format("svg");
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fontAwesome-regular.eot");
+  src: url("../fonts/fontAwesome-regular.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-regular.ttf") format("truetype"),
+    url("../fonts/fontAwesome-regular.svg") format("svg");
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../fonts/fontAwesome-solid.eot");
+  src: url("../fonts/fontAwesome-solid.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-solid.ttf") format("truetype"),
+    url("../fonts/fontAwesome-solid.svg") format("svg");
+}
+@font-face {
+  font-family: "fontIcon";
+  src: url("../fonts/fontIcon.eot?n1z373");
+  src: url("../fonts/fontIcon.eot?#iefixn1z373") format("embedded-opentype"),
+    url("../fonts/fontIcon.ttf?n1z373") format("truetype"),
+    url("../fonts/fontIcon.svg?n1z373#lg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.fa,
+.fas {
+  font-family: "fontawesome";
+  font-weight: 900;
+}
+.fab {
+  font-family: "fontawesome";
+  font-weight: 400;
+}
+.far {
+  font-family: "fontawesome";
+  font-weight: 400;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*<!--------------------------init CSS------------------------------->*/
+/*<!--------------------------------START CSS LIST TEMPLATE 3-------------------------------*/
+.btn_1 {
+  background-color: var(--primary);
+  color: #fff;
+}
+.btn_1:hover {
+  background-color: #000;
+}
+.login_module_prev:hover {
+  color: #000;
+  border-color: #000;
+}
+#Login_box .shine-hover {
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+  color: #fff;
+}
+#Login_box .shine-hover:hover {
+  background-color: var(--secondary);
+}
+.login_info i {
+  color: var(--secondary) !important;
+}
+.radioButton:checked + label span::after {
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+}
+.airport_filter,
+.airport_filter_des {
+  border-bottom: 1px dashed var(--secondary);
+}
+.details-btn:hover {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.btn-item button {
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+.details-btn {
+  border: 1px solid var(--secondary);
+}
+.flight-duration-stop:before {
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+.details-row-middle_1 {
+  border-left: 2px dashed var(--secondary);
+}
+.details-circle::before,
+.details-circle::after {
+  border: 2px solid var(--secondary);
+}
+.section-input_list input[type="checkbox"]:checked + label span.checkbox::after,
+.section-input_list input[type="radio"]:checked + label span.checkbox::after {
+  color: var(--secondary);
+}
+.section-input_list
+  input[type="checkbox"]:checked
+  + label
+  span.checkbox::before,
+.section-input_list input[type="radio"]:checked + label span.checkbox::before {
+  border-color: var(--secondary);
+}
+fieldset hr {
+  background-color: var(--primary);
+}
+.rangevalFirst,
+.rangevalSecond,
+.rangevalFirst_2,
+.rangevalSecond_2,
+.rangevalSecond_2 span,
+.rangevalFirst_2 span {
+  color: var(--primary);
+}
+.filter-container:not(:last-child) {
+  border-bottom: 1px dashed var(--secondary);
+}
+.sort-items li.active,
+.sort-items li:hover {
+  color: var(--secondary);
+}
+.confirm {
+  border: 1px solid var(--secondary);
+}
+.confirm:hover {
+  background-color: #fff;
+  color: var(--secondary);
+}
+.minus-btn {
+  background-color: rgb(153, 0, 0);
+  box-shadow: rgb(209, 188, 220) 0px -3px 0px 0px inset;
+}
+.plus-btn {
+  background-image: linear-gradient(rgb(154, 202, 15), rgb(115, 184, 40));
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px,
+    rgb(10, 147, 70) 0px -3px 0px 0px inset;
+}
+.after-btn:hover,
+.before-btn:hover {
+  background-color: var(--secondary);
+  color: #fff;
+  border: 1px solid var(--secondary);
+}
+.flight-summary-info .dash i {
+  color: var(--secondary);
+}
+.close-research {
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+.flight_type .active,
+.flight_type li:hover {
+  color: var(--secondary);
+}
+.btn-item button:hover {
+  background-color: #fff !important;
+  color: var(--primary) !important;
+  box-shadow: 0 10px 13px -10px #0c2d33;
+}
+.searched-item button:hover {
+  background-color: var(--primary);
+  box-shadow: 0 10px 13px -10px #0c2d33;
+}
+.exchange-icon:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+.exchange-icon {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.searched-flight {
+  border-bottom: 1px dashed var(--secondary);
+}
+.progress-bar {
+  background-color: var(--secondary) !important;
+}
+.angle-content .three {
+  color: var(--primary);
+}
+.loading-container:hover .loading {
+  border-color: transparent var(--primary) transparent var(--primary);
+}
+.loading {
+  border-color: transparent var(--secondary) transparent var(--secondary);
+}
+.section-container .dash {
+  color: var(--primary);
+}
+.close-content .fa-times::before {
+  color: var(--primary) !important;
+}
+.Basis_Calendar .month_day_list table td:hover,
+.Basis_Calendar .selected_date {
+  background-color: var(--primary);
+}
+.Basis_Calendar .month_change i:hover {
+  color: var(--secondary);
+}
+.Basis_Calendar .current_day {
+  background-color: var(--secondary) !important;
+}
+.Basis_Calendar .selected_day {
+  background-color: var(--secondary);
+}
+.ui-datepicker-today .ui-state-highlight,
+.ui-datepicker table thead th,
+.ui-datepicker .ui-datepicker-buttonpane button,
+.ui-datepicker-buttonpane .ui-datepicker-current:focus {
+  background-color: var(--secondary);
+}
+.ui-datepicker th,
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+  color: var(--secondary);
+}
+.ui-datepicker-buttonpane .ui-state-default:hover,
+.ui-datepicker-buttonpane .ui-state-default:focus,
+.ui-datepicker-buttonpane .ui-datepicker-current:hover,
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solidvar(--primary);
+  background-color: var(--primary) !important;
+}
+.name-tour {
+  color: var(--secondary);
+}
+.item-tour:hover {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.tour-info-tlt {
+  background-color: var(--primary);
+}
+.tour-completion-info i {
+  color: var(--primary);
+}
+.side-tour i {
+  color: #faa944;
+}
+.row-other-inf {
+  border-right: 3px solid var(--primary);
+}
+.tlt-table {
+  background-color: var(--primary);
+}
+.loading-img img {
+  width: 70px;
+  margin: 0em auto;
+}
+.loading-img {
+  margin-top: 0;
+}
+.has-select-input::before {
+  top: 2.2em !important;
+}
+.has-select::before {
+  top: 0.6em;
+}
+.coupon-content {
+  flex-wrap: nowrap;
+}
+.after-btn,
+.before-btn {
+  padding: 0.5em 0.75rem;
+}
+/*<!--------------------------------END CSS LIST TEMPLATE 3-------------------------------*/
+/*<!--------------------------------START CSS VIEW TEMPLATE 3-------------------------------*/
+.flight-duration-stop::before {
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+.next-btn {
+  background-color: var(--primary);
+}
+.next-btn:hover {
+  background-color: var(--secondary);
+}
+.prev-passengers {
+  border-bottom: 2px solid var(--secondary);
+  color: var(--secondary);
+}
+.prev-passengers svg {
+  fill: var(--secondary);
+}
+.prev-passengers:hover {
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
+.prev-passengers:hover svg {
+  fill: var(--secondary);
+}
+.passengers-prev-title svg {
+  fill: var(--secondary);
+}
+.passenger-title {
+  color: var(--secondary);
+}
+.details-item-title {
+  color: var(--secondary);
+}
+.nav-details li:hover,
+.nav-details li.active {
+  color: var(--secondary);
+}
+.nav-details li::before {
+  border-top: 3px solid var(--secondary);
+}
+.brief-container .head-items .title {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.buyer-type ul li.active,
+.buyer-type ul li:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+.buyer-type ul li {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.login-btn {
+  background-color: var(--secondary);
+}
+.login-link {
+  border: 1px solid var(--secondary);
+  color: var(--primary);
+}
+.login-link:hover {
+  background-color: var(--primary);
+  color: #fff !important;
+}
+.login-btn:hover {
+  background-color: var(--secondary);
+}
+.login-btn:hover {
+  box-shadow: 0 10px 13px -10px #0c2d33;
+}
+.login-title i {
+  color: var(--secondary);
+}
+.bottom-content .action-loading {
+  background-color: var(--secondary);
+}
+.select-passnger {
+  background-color: var(--secondary);
+}
+.inside-title {
+  border-right: 3px solid var(--secondary);
+}
+.duration-details {
+  border-bottom: 2px dashed var(--primary);
+}
+.duration-details::after,
+.duration-details::before {
+  background-color: var(--primary);
+}
+/*<!--------------------------------END CSS VIEW TEMPLATE 3-------------------------------*/
+/*<!--------------------------MAIN COLORS------------------------------->*/
+.background-color_1 {
+  background-color: var(--primary);
+}
+.background-color_2 {
+  background-color: var(--secondary);
+}
+.background-color_3 {
+  background-color: var(--secondary);
+}
+.background-color_white {
+  background-color: #ffffff;
+}
+.background-color_body {
+  background-color: #f3f4f5;
+}
+.color_1 {
+  color: var(--primary);
+}
+.color_2 {
+  color: var(--secondary);
+}
+.color_3 {
+  color: #252563;
+}
+.color_font {
+  color: #5c5c5c;
+}
+.color_white {
+  color: #ffffff;
+}
+.color_grey {
+  color: #040a10;
+}
+.color_grey_ {
+  color: #4d4d4d;
+} /*<!--------------------------MAIN COLORS------------------------------->*/
+.inline-block.w-12.h-12.rounded-full.border-2.border-secondary-800.group.hover\:border-white {
+  border-style: solid;
+}
+
+@font-face {
+  font-family: "flaticon";
+  src: url("../fonts/fontFlaticon.ttf") format("truetype"),
+    url("../fonts/fontFlaticon.woff") format("woff"),
+    url("../fonts/fontFlaticon.eot#iefix") format("embedded-opentype"),
+    url("../fonts/fontFlaticon.svg#flaticon") format("svg");
+}
+i[class*=" flaticon-"]:before,
+i[class^="flaticon-"]:before {
+  font-family: flaticon !important;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
