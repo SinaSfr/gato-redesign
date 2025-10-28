@@ -16,13 +16,68 @@
                 </svg>
                 <span class="text-zinc-900 text-sm">صفحه اصلی / تور های پرطرفدار / تور های استانبول</span>
             </div>
-            <button
-                class="flex items-center justify-center gap-2 w-full h-12 bg-specialcolor-1 rounded-lg text-sm text-white mt-6">
-                <svg width="34" height="34">
+            <div class="relative mt-6" id="shareWrap">
+                <button id="shareBtn" type="button"
+                class="flex items-center justify-center gap-2 w-full h-12 bg-specialcolor-1 rounded-lg text-sm text-white transition-all duration-300 hover:bg-primary-800"
+                aria-haspopup="menu" aria-expanded="false" data-title="این صفحه عالیه!"
+                data-text="این صفحه رو ببین" data-url="">
+                <svg width="34" height="34" aria-hidden="true">
                     <use href="../assets/images/sprite-icons-mobile.svg#icon-share"></use>
                 </svg>
-                اشتراک گذاری
+                اشتراک‌گذاری
             </button>
+                <div id="shareMenu" class="invisible opacity-0 w-full pointer-events-none absolute z-50 left-0
+                rounded-xl overflow-hidden bg-white shadow-xl
+                transition-opacity duration-300">
+
+                    <ul class="flex items-center gap-3 p-2" role="menu" aria-label="گزینه‌های اشتراک‌گذاری">
+                        <li class="group">
+                            <a id="shareTelegram" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="48" height="48" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-telegram"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">تلگرام</span>
+                            </a>
+                        </li>
+
+                        <li class="group">
+                            <a id="shareTwitter" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="24" height="24" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-twitter"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">توییتر</span>
+                            </a>
+                        </li>
+
+                        <li class="group">
+                            <a id="shareWhatsapp" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="48" height="48" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-whatsapp"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">واتساپ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
         <section class="mx-auto max-lg:w-[90%] mt-6">
             <h1 class="text-2xl font-bold text-zinc-900">ویزای کانادا</h1>
@@ -77,6 +132,7 @@
             </div>
         </section>
     </main>
+    <script src="../assets/js/gato.js"></script>
 </body>
 
 </html>

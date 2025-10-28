@@ -267,4 +267,93 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  document.addEventListener("click", function (event) {
+    const isClickInside = Array.from(faqBoxes).some((box) => box.contains(event.target));
+    if (!isClickInside) {
+      faqBoxes.forEach((box) => {
+        const answer = box.querySelector(".faq-answer");
+        const btn = box.querySelector(".faq-btn");
+        answer.style.maxHeight = 0;
+        answer.classList.remove("opacity-100", "mt-2");
+        answer.classList.add("opacity-0");
+        btn.classList.remove("rotate-180");
+      });
+    }
+  });
 });
+
+
+(function () {
+    const btn = document.getElementById('shareBtn');
+    const menu = document.getElementById('shareMenu');
+    const wrap = document.getElementById('shareWrap');
+
+    function getSharePayload() {
+        const title = btn.dataset.title?.trim() || document.title;
+        const text = btn.dataset.text?.trim() || document.title;
+        const url = (btn.dataset.url && btn.dataset.url.trim()) || window.location.href;
+        return { title, text, url };
+    }
+
+    function setFallbackLinks() {
+        const { title, text, url } = getSharePayload();
+        const encodedUrl = encodeURIComponent(url);
+        const encodedTitle = encodeURIComponent(title);
+        const encodedText = encodeURIComponent(text);
+
+        const tg = document.getElementById('shareTelegram');
+        tg.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText || encodedTitle}`;
+
+        const tw = document.getElementById('shareTwitter');
+        tw.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText || encodedTitle}`;
+
+        const wa = document.getElementById('shareWhatsapp');
+        wa.href = `https://api.whatsapp.com/send?text=${encodedText || encodedTitle}%20${encodedUrl}`;
+    }
+
+    function openMenu() {
+        setFallbackLinks();
+        menu.classList.remove('invisible', 'pointer-events-none', 'opacity-0');
+        menu.classList.add('opacity-100');
+        btn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+        menu.classList.add('opacity-0');
+        menu.classList.remove('opacity-100');
+        setTimeout(() => {
+            menu.classList.add('invisible', 'pointer-events-none');
+        }, 200);
+        btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const payload = getSharePayload();
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: payload.title,
+                    text: payload.text,
+                    url: payload.url
+                });
+                return;
+            } catch (err) {
+                openMenu();
+            }
+        } else {
+            openMenu();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+})();

@@ -12,8 +12,8 @@
 <body>
     <main>
         <h1 class="h1-tag">dssd</h1>
-        <section class="bg-default bg-cover bg-center py-6">
-            <div class="h-[661px]"></div>
+        <section class="bg-default bg-cover bg-center py-56">
+            <div class="h-52"></div>
         </section>
         <section class="grid grid-cols-4 gap-3 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-20">
             <div class="flex flex-col items-center gap-2">
@@ -50,37 +50,52 @@
         <section class="flex items-center gap-3 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex-1 swiper swiper-article-cat">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="../assets/images/article-cat.jpg" class="w-full h-56 object-cover rounded-3xl" alt=""
-                            width="634" height="224" loading="lazy">
+                    <div
+                        class="swiper-slide relative group rounded-3xl overflow-hidden">
+                        <a href="">
+                            <img src="../assets/images/article-cat.jpg"
+                                class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-110"
+                                alt="" width="634" height="224" loading="lazy">
+                        </a>
+                        <div class="absolute inset-0 bg-purple-shadow w-full h-full opacity-0 transition-all duration-300 group-hover:opacity-100"></div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="../assets/images/article-cat.jpg" class="w-full h-56 object-cover rounded-3xl" alt=""
-                            width="634" height="224" loading="lazy">
+                    <div
+                        class="swiper-slide group rounded-3xl overflow-hidden transition-all duration-300 hover:scale-95">
+                        <a href="">
+                            <img src="../assets/images/article-cat.jpg"
+                                class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125"
+                                alt="" width="634" height="224" loading="lazy">
+                        </a>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="../assets/images/article-cat.jpg" class="w-full h-56 object-cover rounded-3xl" alt=""
-                            width="634" height="224" loading="lazy">
+                    <div
+                        class="swiper-slide group rounded-3xl overflow-hidden transition-all duration-300 hover:scale-95">
+                        <a href="">
+                            <img src="../assets/images/article-cat.jpg"
+                                class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125"
+                                alt="" width="634" height="224" loading="lazy">
+                        </a>
                     </div>
                 </div>
 
                 <div
-                    class="swiper-button-prev-custom absolute z-10 right-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center">
-                    <svg width="11" height="23" class="text-primary-800">
+                    class="group swiper-button-prev-custom absolute z-10 right-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
+                    <svg width="11" height="23" class="text-primary-800 transition-all duration-300 group-hover:text-white">
                         <use href="../assets/images/sprite-icons.svg#icon-chevron-right"></use>
                     </svg>
                 </div>
                 <div
-                    class="swiper-button-next-custom absolute z-10 left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center">
-                    <svg width="11" height="23" class="text-primary-800">
+                    class="group swiper-button-next-custom absolute z-10 left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
+                    <svg width="11" height="23" class="text-primary-800 transition-all duration-300 group-hover:text-white">
                         <use href="../assets/images/sprite-icons.svg#icon-chevron-left"></use>
                     </svg>
                 </div>
             </div>
-            <div class="flex-1">
-                <img src="../assets/images/article-cat.jpg" class="w-full h-56 object-cover rounded-3xl" alt=""
+            <a href=""
+                class="group flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
+                <img src="../assets/images/article-cat.jpg"
+                    class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125" alt=""
                     width="634" height="224" loading="lazy">
-            </div>
+            </a>
         </section>
         <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex items-center justify-between">
@@ -91,22 +106,43 @@
                     </div>
                 </div>
                 <a href=""
-                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900">همه
+                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های محبوب</a>
             </div>
             <div class="grid grid-cols-4 gap-6 mt-6">
-                <a href="" class="flex flex-col relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="../assets/images/tour-cat.png" class="w-full h-60 object-cover" alt="" width="302"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-2xl font-bold text-white right-2 bottom-2 z-20">استانبول</h2>
-                    <div class="bg-purple-shadow absolute inset-0 w-full h-full"></div>
+                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                    <img src="../assets/images/tour-cat.png" class="w-full h-60 object-cover" alt="استانبول"
+                        loading="lazy">
+                    <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                        استانبول
+                    </h2>
+                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        استانبول
+                    </h2>
+
+                    <div class="absolute inset-0 bg-purple-shadow"></div>
                 </a>
-                <a href="" class="flex flex-col relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="../assets/images/tour-cat.png" class="w-full h-60 object-cover" alt="" width="302"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-2xl font-bold text-white right-2 bottom-2 z-20">استانبول</h2>
-                    <div class="bg-purple-shadow absolute inset-0 w-full h-full"></div>
+                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                    <img src="../assets/images/tour-cat.png" class="w-full h-60 object-cover" alt="استانبول"
+                        loading="lazy">
+                    <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                        استانبول
+                    </h2>
+                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        استانبول
+                    </h2>
+
+                    <div class="absolute inset-0 bg-purple-shadow"></div>
                 </a>
+
                 <a href="" class="flex flex-col relative shadow-tour-cat rounded-3xl overflow-hidden">
                     <img src="../assets/images/tour-cat.png" class="w-full h-60 object-cover" alt="" width="302"
                         height="240" loading="lazy">
@@ -124,13 +160,13 @@
                     </div>
                 </div>
                 <a href=""
-                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg  text-sm text-zinc-900">همه
+                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های آفری</a>
             </div>
             <div class="swiper swiper-offer-tours pb-11 pt-6">
                 <div class="swiper-wrapper">
                     <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="../assets/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
                             height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
@@ -155,7 +191,7 @@
                             </div>
                             <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
                             <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
+                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
@@ -412,24 +448,44 @@
                 گردشگری در
                 گاتو</div>
             <div class="grid grid-cols-4 gap-6 mt-6">
+                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                    <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
+                        loading="lazy">
+                    <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                        استانبول
+                    </h2>
+                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        استانبول
+                    </h2>
+
+                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                </a>
                 <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
                     <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
                         height="240" loading="lazy">
                     <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
                     <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
                 </div>
-                <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
+                <a href="#" class="group relative block col-span-2 rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                    <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
+                        loading="lazy">
+                    <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                        استانبول
+                    </h2>
+                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        استانبول
+                    </h2>
+
                     <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
-                <div class="relative col-span-2 shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
+                </a>
                 <div class="relative col-span-2 shadow-tour-cat rounded-3xl overflow-hidden">
                     <img src="../assets/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
                         height="240" loading="lazy">
@@ -450,7 +506,7 @@
                 </div>
             </div>
             <a href=""
-                class="w-44 h-12 mx-auto flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-6">
+                class="w-44 h-12 mx-auto flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-6 transition-all duration-300 hover:bg-specialcolor-1">
                 مشاهده همه مقالات</a>
         </section>
         <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
@@ -462,13 +518,13 @@
                     </div>
                 </div>
                 <a href=""
-                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 text-sm rounded-lg text-zinc-900">همه
+                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های نمایشگاهی</a>
             </div>
             <div class="swiper swiper-exhibition-tours pb-11 pt-6">
                 <div class="swiper-wrapper">
                     <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="../assets/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
                             height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
@@ -493,7 +549,7 @@
                             </div>
                             <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
                             <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
+                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
@@ -723,18 +779,28 @@
                         همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه</div>
                 </div>
                 <a href=""
-                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg  text-sm text-zinc-900">ویزای
+                    class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">ویزای
                     سایر کشور ها
                 </a>
             </div>
             <div class="swiper swiper-visa mt-2 pb-8 pt-4">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
-                        <img src="../assets/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
+                    <a href="#" class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
+                        <img src="../assets/images/visa-cat.jpg" class="w-full h-full object-cover" alt="" width="288"
                             height="192" loading="lazy">
-                        <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">استانبول</h2>
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            استانبول
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            استانبول
+                        </h2>
+    
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
+                    </a>
                     <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
                         <img src="../assets/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
                             height="192" loading="lazy">
@@ -765,10 +831,10 @@
             </div>
             <div class="flex items-center justify-end gap-3 mt-6">
                 <button
-                    class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg">پیکاپ
+                    class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">پیکاپ
                     ویزا</button>
                 <a href="tel:"
-                    class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800">
+                    class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 transition-all duration-300 hover:border-secondary-700 hover:text-secondary-700">
                     وقت سفارت
                 </a>
             </div>
@@ -776,16 +842,17 @@
         <section class="flex gap-3 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex-1 border-l border-solid border-zinc-400 pl-3">
                 <h2 class="font-bold text-2xl text-zinc-900 text-center mb-3">نیاز به برنامه‌ریزی اختصاصی دارید؟</h2>
-                <div class="text-sm text-zinc-900 text-center mb-3">تیم کارشناسان ما آماده است تا سفری کاملاً منطبق با سلیقه و بودجه شما
+                <div class="text-sm text-zinc-900 text-center mb-3">تیم کارشناسان ما آماده است تا سفری کاملاً منطبق با
+                    سلیقه و بودجه شما
                     طراحی کند. از
                     انتخاب مقصد تا رزرو هتل و پرواز، ما در کنار شما هستیم.</div>
                 <div class="flex items-center justify-center gap-3">
                     <a href="tel:"
-                        class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800">
+                        class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 transition-all duration-300 hover:border-secondary-700 hover:text-secondary-700">
                         تماس با پشتیبانی
                     </a>
                     <button
-                        class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg">مشاوره
+                        class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">مشاوره
                         رایگان</button>
                 </div>
             </div>
@@ -838,7 +905,7 @@
             slidesPerView: "auto",
             spaceBetween: 16,
             autoplay: {
-                delay: 2500,
+                delay: 4000,
                 disableOnInteraction: false,
             },
             coverflowEffect: {
@@ -861,7 +928,7 @@
             spaceBetween: 16,
             grabCursor: true,
             autoplay: {
-                delay: 2500,
+                delay: 4000,
                 disableOnInteraction: false,
             },
             loop: true,
