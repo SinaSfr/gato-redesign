@@ -999,6 +999,10 @@ body {
   background-color: rgb(0 0 0 / 0.4);
 }
 
+.bg-primary {
+  background-color: var(--primary);
+}
+
 .bg-primary-100 {
   background-color: var(--primary-100);
 }
@@ -1009,6 +1013,10 @@ body {
 
 .bg-primary-800 {
   background-color: var(--primary-800);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
 }
 
 .bg-secondary-600 {
@@ -1308,7 +1316,7 @@ body {
 }
 
 :root {
-  --primary: #00b3bd;
+  --primary: #008a8c;
   --primary-50: #e0f8f8;
   --primary-100: #b3eeed;
   --primary-200: #82e3e4;
@@ -1320,7 +1328,7 @@ body {
   --primary-800: #008a8c;
   --primary-900: #036662;
   --primary-950: #01504d;
-  --secondary: #262d5d;
+  --secondary: #181c47;
   --secondary-50: #e3e5eb;
   --secondary-100: #babdcf;
   --secondary-200: #8e93ae;

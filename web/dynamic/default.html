@@ -1,3 +1,41 @@
+<basis core="dbsource" source="media" lid="1" name="slider-gallery" usedforid="2374010" sourcemid="article">
+    <member type="list" name="gallery" format="4" order="ord"></member>
+</basis>
+<basis core="dbsource" source="media" lid="1" name="fixed-gallery" usedforid="2374009" sourcemid="article">
+    <member type="list" name="gallery" format="4" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="popular-tours">
+    <member name="cat" type="tree" request="cat" parentid="213310" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="213321">
+    <member name="offer-tours" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181" perpage="8"
+        order="ord" size="284x160" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist" />
+</basis>
+<basis core="inlinesource" name="joining-offer-tours">
+    <member name="list" lefttblcol="db.offer-tours.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tourism-magazine">
+    <member name="cat" type="tree" request="cat" parentid="212956" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="213297">
+    <member name="exhibition-tours" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181" perpage="8"
+        order="ord" size="284x160" />
+</basis>
+<basis core="inlinesource" name="joining-exhibition-tours">
+    <member name="list" lefttblcol="db.exhibition-tours.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin" />
+</basis>
+<basis core="dbsource" source="basiscore" name="everything-aboutus" mid="1" lid="1" usedforid="2374014">
+    <member name="view" type="view" propertyid="7249" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="High-demand-visas">
+    <member name="cat" type="tree" request="cat" parentid="213324" order="ord"></member>
+</basis>
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -32,7 +70,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@GatoTravel">
     <meta name="twitter:creator" content="Gato (گردشگران خورشید سپاهان)">
-    <meta name="twitter:image" content="[##cms.request.:scheme##]://[##cms.request.full-url##]/images/gato_1200x630.png">
+    <meta name="twitter:image"
+        content="[##cms.request.:scheme##]://[##cms.request.full-url##]/images/gato_1200x630.png">
     <meta name="twitter:title" content="گاتو | خرید بلیط هواپیما و تورهای داخلی و خارجی">
     <meta name="twitter:description"
         content="رزرو بلیط و تور با گاتو (گردشگران خورشید سپاهان). سفری آسان، ارزان و مطمئن.">
@@ -100,54 +139,51 @@
             </div>
         </section>
         <section class="flex items-center gap-3 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
-            <div class="flex-1 swiper swiper-article-cat">
-                <div class="swiper-wrapper">
-                    <div
-                        class="swiper-slide relative group rounded-3xl overflow-hidden">
-                        <a href="">
-                            <img src="[##cms.cms.cdn##]/images/article-cat.jpg"
+            <basis core="print" datamembername="slider-gallery.gallery">
+                <layout>
+                    <div class="flex-1 swiper swiper-article-cat">
+                        <div class="swiper-wrapper">
+                            @child
+                        </div>
+                        <div
+                            class="group swiper-button-prev-custom absolute z-10 right-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
+                            <svg width="11" height="23"
+                                class="text-primary-800 transition-all duration-300 group-hover:text-white">
+                                <use href="/images/sprite-icons.svg#icon-chevron-right"></use>
+                            </svg>
+                        </div>
+                        <div
+                            class="group swiper-button-next-custom absolute z-10 left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
+                            <svg width="11" height="23"
+                                class="text-primary-800 transition-all duration-300 group-hover:text-white">
+                                <use href="/images/sprite-icons.svg#icon-chevron-left"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </layout>
+                <face>
+                    <div class="swiper-slide relative group rounded-3xl overflow-hidden">
+                        <a href="/@link">
+                            <img src="[##cms.cms.cdn##]/@largeIMG"
                                 class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-110"
-                                alt="" width="634" height="224" loading="lazy">
-                        </a>
-                        <div class="absolute inset-0 bg-purple-shadow w-full h-full opacity-0 transition-all duration-300 group-hover:opacity-100"></div>
-                    </div>
-                    <div
-                        class="swiper-slide group rounded-3xl overflow-hidden transition-all duration-300 hover:scale-95">
-                        <a href="">
-                            <img src="[##cms.cms.cdn##]/images/article-cat.jpg"
-                                class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125"
-                                alt="" width="634" height="224" loading="lazy">
+                                alt="@name" width="634" height="224" loading="lazy">
+                            <div
+                                class="absolute inset-0 bg-purple-shadow w-full h-full opacity-0 transition-all duration-300 group-hover:opacity-100">
+                            </div>
                         </a>
                     </div>
-                    <div
-                        class="swiper-slide group rounded-3xl overflow-hidden transition-all duration-300 hover:scale-95">
-                        <a href="">
-                            <img src="[##cms.cms.cdn##]/images/article-cat.jpg"
-                                class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125"
-                                alt="" width="634" height="224" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="group swiper-button-prev-custom absolute z-10 right-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
-                    <svg width="11" height="23" class="text-primary-800 transition-all duration-300 group-hover:text-white">
-                        <use href="/images/sprite-icons.svg#icon-chevron-right"></use>
-                    </svg>
-                </div>
-                <div
-                    class="group swiper-button-next-custom absolute z-10 left-3 top-1/2 -translate-y-1/2 rounded-xl bg-white/70 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:bg-specialcolor-1">
-                    <svg width="11" height="23" class="text-primary-800 transition-all duration-300 group-hover:text-white">
-                        <use href="/images/sprite-icons.svg#icon-chevron-left"></use>
-                    </svg>
-                </div>
-            </div>
-            <a href=""
-                class="group flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
-                <img src="[##cms.cms.cdn##]/images/article-cat.jpg"
-                    class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125" alt=""
-                    width="634" height="224" loading="lazy">
-            </a>
+                </face>
+            </basis>
+            <basis core="print" datamembername="fixed-gallery.gallery">
+                <face filter="ord in(1)">
+                    <a href="/@link"
+                        class="group flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
+                        <img src="[##cms.cms.cdn##]/@largeIMG"
+                            class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125" alt=""
+                            width="634" height="224" loading="lazy">
+                    </a>
+                </face>
+            </basis>
         </section>
         <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex items-center justify-between">
@@ -161,47 +197,91 @@
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های محبوب</a>
             </div>
-            <div class="grid grid-cols-4 gap-6 mt-6">
-                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                    <img src="[##cms.cms.cdn##]/images/tour-cat.png" class="w-full h-60 object-cover" alt="استانبول"
-                        loading="lazy">
-                    <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+            <basis core="tree" datamembername="popular-tours.cat" idcol="catid" parentidcol="parentid"
+                nullvalue="213310">
+                <layout>
+                    <div class="grid grid-cols-4 gap-6 mt-6">
+                        @child
+                    </div>
+                </layout>
+                <face filter="link is null and image is null">
+                    <a href="/tour-list.bc?catid=@catid"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
+                            alt="@title" loading="lazy">
+                        <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                        استانبول
-                    </h2>
-                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                        استانبول
-                    </h2>
+                            @title
+                        </h2>
 
-                    <div class="absolute inset-0 bg-purple-shadow"></div>
-                </a>
-                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                    <img src="[##cms.cms.cdn##]/images/tour-cat.png" class="w-full h-60 object-cover" alt="استانبول"
-                        loading="lazy">
-                    <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+                        <div class="absolute inset-0 bg-purple-shadow"></div>
+                    </a>
+                </face>
+                <face filter="image is null">
+                    <a href="/@link"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
+                            alt="@title" loading="lazy">
+                        <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                        استانبول
-                    </h2>
-                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                        استانبول
-                    </h2>
+                            @title
+                        </h2>
 
-                    <div class="absolute inset-0 bg-purple-shadow"></div>
-                </a>
+                        <div class="absolute inset-0 bg-purple-shadow"></div>
+                    </a>
+                </face>
+                <face filter="link is null">
+                    <a href="/tour-list.bc?catid=@catid"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title"
+                            loading="lazy">
+                        <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
 
-                <a href="" class="flex flex-col relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="[##cms.cms.cdn##]/images/tour-cat.png" class="w-full h-60 object-cover" alt="" width="302"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-2xl font-bold text-white right-2 bottom-2 z-20">استانبول</h2>
-                    <div class="bg-purple-shadow absolute inset-0 w-full h-full"></div>
-                </a>
-            </div>
+                        <div class="absolute inset-0 bg-purple-shadow"></div>
+                    </a>
+                </face>
+                <face>
+                    <a href="/@link"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title"
+                            loading="lazy">
+                        <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="absolute inset-0 bg-purple-shadow"></div>
+                    </a>
+                </face>
+            </basis>
+
         </section>
         <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex items-center justify-between">
@@ -211,195 +291,84 @@
                         بهترین قیمت‌ها و فرصت‌های تکرارنشدنی برای یک سفر هوشمندانه و اقتصادی.
                     </div>
                 </div>
-                <a href=""
+                <a href="/Last-minute-tours"
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های آفری</a>
             </div>
-            <div class="swiper swiper-offer-tours pb-11 pt-6">
-                <div class="swiper-wrapper">
-                    <a href=""
+            <basis core="list" datamembername="joining-offer-tours.list">
+                <layout>
+                    <div class="swiper swiper-offer-tours pb-11 pt-6">
+                        <div class="swiper-wrapper">
+                            @child
+                        </div>
+                        <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
+                    </div>
+                </layout>
+                <face filter="[@db.offer-tours.00284X00160prp] is null">
+                    <a href="/@db.offer-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
+                            alt="@db.offer-tours.title" width="284" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
+                            <h2 class="text-xl font-medium text-zinc-900">@db.offer-tours.title</h2>
                             <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
+                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 py-1 mt-1">
+                                <h3 class="text-sm text-zinc-900">@db.offer-tours.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-24 h-auto"
+                                    alt="@list.airline.name" width="96" height="38" loading="lazy">
                             </div>
                             <div class="flex items-center gap-1 mt-3">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-calendar"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
+                                <span class="text-zinc-900 text-sm">@db.offer-tours.prp_8077</span>
                             </div>
                             <div class="flex items-center gap-1 mt-4">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-moon"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
+                                <span class="text-zinc-900 text-sm">@db.offer-tours.prp_8076</span>
                             </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
+                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">@db.offer-tours.prp_8181</p>
                             <button
                                 class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
+                </face>
+                <face>
+                    <a href="/@db.offer-tours.link"
+                        class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <img src="[##cms.cms.cdn##]/@db.offer-tours.00284X00160prp" class="w-full h-40 object-cover"
+                            alt="@db.offer-tours.title" width="284" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
+                            <h2 class="text-xl font-medium text-zinc-900">@db.offer-tours.title</h2>
                             <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
+                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 py-1 mt-1">
+                                <h3 class="text-sm text-zinc-900">@db.offer-tours.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-24 h-auto"
+                                    alt="@list.airline.name" width="96" height="38" loading="lazy">
                             </div>
                             <div class="flex items-center gap-1 mt-3">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-calendar"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
+                                <span class="text-zinc-900 text-sm">@db.offer-tours.prp_8077</span>
                             </div>
                             <div class="flex items-center gap-1 mt-4">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-moon"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
+                                <span class="text-zinc-900 text-sm">@db.offer-tours.prp_8076</span>
                             </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
+                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">@db.offer-tours.prp_8181</p>
                             <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
+                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
-            </div>
+                </face>
+            </basis>
         </section>
         <section class="relative bg-tourCategory bg-cover bg-center pt-28 pb-10 mt-16">
             <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
@@ -499,65 +468,73 @@
             <div class="text-zinc-900 text-sm text-center"> جدیدترین مقالات، راهنماهای سفر و معرفی جاذبه‌ها از متخصصان
                 گردشگری در
                 گاتو</div>
-            <div class="grid grid-cols-4 gap-6 mt-6">
-                <a href="#" class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
-                        loading="lazy">
-                    <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+            <basis core="tree" datamembername="tourism-magazine.cat" idcol="catid" parentidcol="parentid"
+                nullvalue="212956">
+                <layout>
+                    <div class="grid grid-cols-4 gap-6 mt-6">
+                        @child
+                    </div>
+                </layout>
+                <face filter="ord in(1,2)">
+                    <a href="#"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
+                            loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            استانبول
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            استانبول
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="ord in(3,4)">
+                    <a href="#"
+                        class="group relative block col-span-2 rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
+                            loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                        استانبول
-                    </h2>
-                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                            استانبول
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                        استانبول
-                    </h2>
+                            استانبول
+                        </h2>
 
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </a>
-                <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
-                <a href="#" class="group relative block col-span-2 rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
-                        loading="lazy">
-                    <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                        استانبول
-                    </h2>
-                    <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                        استانبول
-                    </h2>
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="ord in(5,6)">
+                    <a href="#"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
+                            loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            استانبول
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            استانبول
+                        </h2>
 
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </a>
-                <div class="relative col-span-2 shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
-                <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
-                <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
-                    <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="" width="288"
-                        height="240" loading="lazy">
-                    <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">راهنمای سفر</h2>
-                    <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                </div>
-            </div>
-            <a href=""
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+            </basis>
+
+            <a href="/Tourism-Magazine"
                 class="w-44 h-12 mx-auto flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-6 transition-all duration-300 hover:bg-specialcolor-1">
                 مشاهده همه مقالات</a>
         </section>
@@ -573,191 +550,83 @@
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های نمایشگاهی</a>
             </div>
-            <div class="swiper swiper-exhibition-tours pb-11 pt-6">
-                <div class="swiper-wrapper">
-                    <a href=""
+            <basis core="list" datamembername="joining-exhibition-tours.list">
+                <layout>
+                    <div class="swiper swiper-exhibition-tours pb-11 pt-6">
+                        <div class="swiper-wrapper">
+                            @child
+                        </div>
+                        <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
+                    </div>
+                </layout>
+                <face filter="[@db.exhibition-tours.00284X00160prp] is null">
+                    <a href="/@db.exhibition-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
+                            alt="@db.exhibition-tours.title" width="284" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
+                            <h2 class="text-xl font-medium text-zinc-900">@db.exhibition-tours.title</h2>
                             <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
+                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 py-1 mt-1">
+                                <h3 class="text-sm text-zinc-900">@db.exhibition-tours.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-24 h-auto"
+                                    alt="@list.airline.name" width="96" height="38" loading="lazy">
                             </div>
                             <div class="flex items-center gap-1 mt-3">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-calendar"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
+                                <span class="text-zinc-900 text-sm">@db.exhibition-tours.prp_8077</span>
                             </div>
                             <div class="flex items-center gap-1 mt-4">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-moon"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
+                                <span class="text-zinc-900 text-sm">@db.exhibition-tours.prp_8076</span>
                             </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
+                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">@db.exhibition-tours.prp_8181
+                            </p>
                             <button
                                 class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
+                </face>
+                <face>
+                    <a href="/@db.exhibition-tours.link"
+                        class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <img src="[##cms.cms.cdn##]/@db.exhibition-tours.00284X00160prp"
+                            class="w-full h-40 object-cover" alt="@db.exhibition-tours.title" width="284" height="160"
+                            loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
+                            <h2 class="text-xl font-medium text-zinc-900">@db.exhibition-tours.title</h2>
                             <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
+                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 py-1 mt-1">
+                                <h3 class="text-sm text-zinc-900">@db.exhibition-tours.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-24 h-auto"
+                                    alt="@list.airline.name" width="96" height="38" loading="lazy">
                             </div>
                             <div class="flex items-center gap-1 mt-3">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-calendar"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
+                                <span class="text-zinc-900 text-sm">@db.exhibition-tours.prp_8077</span>
                             </div>
                             <div class="flex items-center gap-1 mt-4">
                                 <svg width="24" height="24">
                                     <use href="/images/sprite-icons.svg#icon-moon"></use>
                                 </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
+                                <span class="text-zinc-900 text-sm">@db.exhibition-tours.prp_8076</span>
                             </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
+                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">@db.exhibition-tours.prp_8181
+                            </p>
                             <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
+                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 group-hover:bg-specialcolor-1">مشاهده
                                 تور</button>
                         </div>
                     </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="swiper-slide flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/tour-card.png" class="w-full h-40 object-cover" alt="" width="284"
-                            height="160" loading="lazy">
-                        <div class="bg-white px-2 pt-1 pb-3">
-                            <h2 class="text-xl font-medium text-zinc-900">استانبول</h2>
-                            <div
-                                class="flex items-center justify-between border-b border-solid border-secondary-200 -mx-2 px-2 mt-1">
-                                <h3 class="text-sm text-zinc-900">ترکیه</h3>
-                                <img src="[##cms.cms.cdn##]/images/airline.png" class="w-24 h-auto" alt="" width="96"
-                                    height="38" loading="lazy">
-                            </div>
-                            <div class="flex items-center gap-1 mt-3">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">هفته اول شهریور</span>
-                            </div>
-                            <div class="flex items-center gap-1 mt-4">
-                                <svg width="24" height="24">
-                                    <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                </svg>
-                                <span class="text-zinc-900 text-sm">۳ شب و ۴ روز</span>
-                            </div>
-                            <p class="text-xl font-bold text-zinc-900 mt-2 text-center">12,000,000 تومان</p>
-                            <button
-                                class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">مشاهده
-                                تور</button>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
-            </div>
+                </face>
+            </basis>
         </section>
         <section class="flex items-center gap-11 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-16">
             <div class="flex flex-1 flex-col items-center">
@@ -765,8 +634,8 @@
                     <h2 class="text-primary-800 font-[950] text-2xl">چرا سفر با</h2>
                     <h3 class="text-primary-800 font-[950] text-5xl">گرشــگران!؟</h3>
                 </div>
-                <img src="[##cms.cms.cdn##]/images/slogan-image.png" class="w-[491px] h-96 object-cover" alt="" width="288"
-                    height="224" loading="lazy">
+                <img src="[##cms.cms.cdn##]/images/slogan-image.png" class="w-[491px] h-96 object-cover" alt=""
+                    width="288" height="224" loading="lazy">
             </div>
             <div class="flex flex-[1.2] flex-col gap-6 justify-between">
                 <div class="flex items-center gap-3">
@@ -830,57 +699,100 @@
                     <div class="text-zinc-900 text-sm">
                         همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه</div>
                 </div>
-                <a href=""
+                <a href="/High-demand-visas"
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">ویزای
                     سایر کشور ها
                 </a>
             </div>
-            <div class="swiper swiper-visa mt-2 pb-8 pt-4">
-                <div class="swiper-wrapper">
-                    <a href="#" class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
-                        <img src="[##cms.cms.cdn##]/images/visa-cat.jpg" class="w-full h-full object-cover" alt="" width="288"
-                            height="192" loading="lazy">
+            <basis core="tree" datamembername="High-demand-visas.cat" idcol="catid" parentidcol="parentid"
+                nullvalue="213324">
+                <layout>
+                    <div class="swiper swiper-visa mt-2 pb-8 pt-4">
+                        <div class="swiper-wrapper">
+                            @child
+                        </div>
+
+                        <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
+                    </div>
+                </layout>
+                <face filter="link is null and image is null">
+                    <a href="/visa-list.bc?catid=@catid"
+                        class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover" alt="@title"
+                            width="288" height="192" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
-                              transition-all duration-300
-                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                            استانبول
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
                         </h2>
                         <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                              transition-all duration-300
-                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                            استانبول
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
                         </h2>
-    
+
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
                     </a>
-                    <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
-                        <img src="[##cms.cms.cdn##]/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
-                            height="192" loading="lazy">
-                        <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">استانبول</h2>
-                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
-                    <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
-                        <img src="[##cms.cms.cdn##]/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
-                            height="192" loading="lazy">
-                        <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">استانبول</h2>
-                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
-                    <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
-                        <img src="[##cms.cms.cdn##]/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
-                            height="192" loading="lazy">
-                        <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">استانبول</h2>
-                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
-                    <div class="swiper-slide relative shadow-tour-cat rounded-3xl overflow-hidden">
-                        <img src="[##cms.cms.cdn##]/images/visa-cat.jpg" class="w-full h-48 object-cover" alt="" width="288"
-                            height="192" loading="lazy">
-                        <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">استانبول</h2>
-                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
-                </div>
+                </face>
+                <face filter="image is null">
+                    <a href="/@link"
+                        class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover" alt="@title"
+                            width="288" height="192" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
 
-                <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
-            </div>
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="link is null">
+                    <a href="/visa-list.bc?catid=@catid"
+                        class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title"
+                            width="288" height="192" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face>
+                    <a href="/@link"
+                        class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title"
+                            width="288" height="192" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+            </basis>
+
             <div class="flex items-center justify-end gap-3 mt-6">
                 <button
                     class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">پیکاپ
@@ -1022,7 +934,7 @@
             },
         });
     </script>
-     <basis core="call" file="footer.inc" />
+    <basis core="call" file="footer.inc" />
 </body>
 
 </html>
