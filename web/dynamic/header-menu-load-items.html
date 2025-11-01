@@ -1,0 +1,62 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="all-tours">
+    <member name="cat" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"></member>
+</basis>
+
+<basis core="tree" datamembername="all-tours.cat" idcol="catid" parentidcol="parentid"
+    nullvalue="[##cms.query.catid##]">
+    <face level="1" filter="link is null">
+        <div class="inline-block w-full break-inside-avoid">
+            <div class="flex items-center">
+                <svg width="35" height="35">
+                    <use href="/images/sprite-icons.svg#icon-flag">
+                    </use>
+                </svg>
+                <a href="/tour-list.bc?catid=@catid"
+                    class="group/leveltwo relative font-medium text-zinc-900 transition-all duration-300 hover:text-primary-600">@title
+                    <span
+                        class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+                </a>
+            </div>
+            <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
+                @child
+            </ul>
+        </div>
+    </face>
+    <face level="1">
+        <div class="inline-block w-full break-inside-avoid">
+            <div class="flex items-center">
+                <svg width="35" height="35">
+                    <use href="/images/sprite-icons.svg#icon-flag">
+                    </use>
+                </svg>
+                <a href="/@link"
+                    class="group/leveltwo relative font-medium text-zinc-900 transition-all duration-300 hover:text-primary-600">@title
+                    <span
+                        class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+                </a>
+            </div>
+            <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
+                @child
+            </ul>
+        </div>
+    </face>
+    <face level="2" filter="link is null">
+        <li>
+            <a href="/tour-list.bc?catid=@catid"
+                class="inline-flex group/leveltwo relative text-zinc-500 transition-all duration-300 hover:text-primary-600">@title
+                <span
+                    class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+            </a>
+        </li>
+    </face>
+    <face level="2">
+        <li>
+            <a href="/@link"
+                class="inline-flex group/leveltwo relative text-zinc-500 transition-all duration-300 hover:text-primary-600">@title
+                <span
+                    class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
+            </a>
+        </li>
+    </face>
+
+</basis>

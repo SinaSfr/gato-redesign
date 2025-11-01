@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
   const isDesktop = window.innerWidth > 1024
-  const requiredFiles = isDesktop ? ['gato.ui.min.css'] : ['gato-mob.ui.min.css']
+  const requiredFiles = isDesktop
+    ? ['gato.ui.min.css']
+    : ['gato-mob.ui.min.css']
 
   function checkAllResourcesLoaded() {
     const resources = performance.getEntriesByType('resource')
-    const loadedFiles = resources.map((res) => res.name.split('/').pop()).filter((name) => requiredFiles.includes(name))
+    const loadedFiles = resources
+      .map((res) => res.name.split('/').pop())
+      .filter((name) => requiredFiles.includes(name))
 
     return requiredFiles.every((file) => loadedFiles.includes(file))
   }
@@ -20,13 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
           if (this.readyState == 4 && this.status == 200) {
             const container = document.getElementById('search-box')
             container.innerHTML = xhrobj.responseText
-            ;['.Basis_Date.end_date', '.Basis_Date.start_date'].forEach((selector) => {
-              const dateInputs = document.querySelectorAll(selector)
-              dateInputs.forEach((input) => {
-                input.placeholder = ''
-              })
-            })
-            
+            ;['.Basis_Date.end_date', '.Basis_Date.start_date'].forEach(
+              (selector) => {
+                const dateInputs = document.querySelectorAll(selector)
+                dateInputs.forEach((input) => {
+                  input.placeholder = ''
+                })
+              },
+            )
+
             const r = document.querySelector('.flighttype-field')
             r.classList.add('flighttype-dropDown')
 
@@ -39,7 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
               } else {
                 scriptTag.text = scripts[i].textContent
               }
-              document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag)
+              document.head
+                .appendChild(scriptTag)
+                .parentNode.removeChild(scriptTag)
             }
           }
         }
@@ -124,13 +132,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function getLinkHref(dataLink, dataMid, dataId) {
     if (!dataLink) {
-      if (dataMid === '20') {
-        return `/tour-list.bc?catid=${dataId}`
-      } else if (dataMid === '1') {
-        return `/article-list.bc?catid=${dataId}`
-      } else {
-        return '#'
-      }
+      if (dataMid === '20') return `/tour-list.bc?catid=${dataId}`
+      if (dataMid === '1') return `/article-list.bc?catid=${dataId}`
+      return '#'
     }
     return dataLink
   }
@@ -139,18 +143,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuItems = menu.querySelectorAll('.menu-item')
     const fetchContentHeader = menu.querySelector('.fetch-content-header')
     const menuLinkHeader = menu.querySelector('.menu-link-header')
+    const menuImageHeader = menu.querySelector('.menu-image-header')
 
     function resetTabs() {
       menuItems.forEach((btn) => btn.classList.remove(ACTIVE_CLASS))
     }
-
     function activateTab(btn) {
       btn.classList.add(ACTIVE_CLASS)
     }
 
     async function loadContent(dataId, dataMid) {
       if (!fetchContentHeader || !dataId) return
-
       const cacheKey = `${dataMid}-${dataId}`
 
       if (contentCache.has(cacheKey)) {
@@ -167,9 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         )
         if (!response.ok)
           throw new Error(`HTTP error! Status: ${response.status}`)
-
         const data = await response.text()
-
         contentCache.set(cacheKey, data)
         fetchContentHeader.innerHTML = data
       } catch (error) {
@@ -178,16 +179,38 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    function updateHeaderLink(dataLink, dataMid, dataId, dataName) {
-      if (!menuLinkHeader) return
-      let href = getLinkHref(dataLink, dataMid, dataId)
-    
-      if (href && !href.startsWith('/')) {
-        href = '/' + href
+    function updateHeaderLink(
+      dataLink,
+      dataMid,
+      dataId,
+      dataName,
+      dataImage = '',
+    ) {
+      if (menuLinkHeader) {
+        let href = getLinkHref(dataLink, dataMid, dataId)
+        if (href && !href.startsWith('/')) href = '/' + href
+        menuLinkHeader.href = href
+        menuLinkHeader.textContent = dataName || ''
       }
-    
-      menuLinkHeader.href = href
-      menuLinkHeader.textContent = dataName || ''
+
+      if (menuImageHeader) {
+        if (!dataImage) {
+          const sourceBtn =
+            Array.from(menuItems).find((b) => b.dataset.id === dataId) ||
+            Array.from(menuItems).find((b) =>
+              b.classList.contains(ACTIVE_CLASS),
+            ) ||
+            menu.querySelector('.menu-item')
+          dataImage = sourceBtn?.dataset?.image || ''
+          if (!dataName) dataName = sourceBtn?.dataset?.name || ''
+        }
+
+        let src = dataImage || ''
+        if (src && !/^https?:\/\//i.test(src) && !src.startsWith('/'))
+          src = '/' + src
+        if (src) menuImageHeader.src = src
+        if (dataName) menuImageHeader.alt = dataName
+      }
     }
 
     menuItems.forEach((btn) => {
@@ -196,11 +219,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const dataMid = btn.dataset.mid
         const dataLink = btn.dataset.link
         const dataName = btn.dataset.name
+        const dataImage = btn.dataset.image || ''
 
         resetTabs()
         activateTab(btn)
         loadContent(dataId, dataMid)
-        updateHeaderLink(dataLink, dataMid, dataId, dataName)
+        updateHeaderLink(dataLink, dataMid, dataId, dataName, dataImage)
       })
     })
 
@@ -212,51 +236,52 @@ document.addEventListener('DOMContentLoaded', function () {
       const dataMid = firstBtn.dataset.mid
       const dataLink = firstBtn.dataset.link
       const dataName = firstBtn.dataset.name
+      const dataImage = firstBtn.dataset.image || ''
 
       loadContent(dataId, dataMid)
-      updateHeaderLink(dataLink, dataMid, dataId, dataName)
+      updateHeaderLink(dataLink, dataMid, dataId, dataName, dataImage)
     }
   })
 })
 
 //----------fixed header-----------
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  let placeholder = null;
-  const headerHeight = header.offsetHeight;
-  window.addEventListener("scroll", function () {
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.querySelector('header')
+  let placeholder = null
+  const headerHeight = header.offsetHeight
+  window.addEventListener('scroll', function () {
     if (window.scrollY > 100) {
       header.classList.add(
-        "fixed",
-        "top-0",
-        "left-0",
-        "w-full",
-        "z-50",
-        "bg-white"
-      );
-      header.classList.add("shadow-lg");
+        'fixed',
+        'top-0',
+        'left-0',
+        'w-full',
+        'z-50',
+        'bg-white',
+      )
+      header.classList.add('shadow-lg')
       if (!placeholder) {
-        placeholder = document.createElement("div");
-        placeholder.style.height = headerHeight + "px";
-        header.parentNode.insertBefore(placeholder, header.nextSibling);
+        placeholder = document.createElement('div')
+        placeholder.style.height = headerHeight + 'px'
+        header.parentNode.insertBefore(placeholder, header.nextSibling)
       }
     } else {
       header.classList.remove(
-        "fixed",
-        "top-0",
-        "left-0",
-        "w-full",
-        "z-50",
-        "bg-white"
-      );
-      header.classList.remove("shadow-lg");
+        'fixed',
+        'top-0',
+        'left-0',
+        'w-full',
+        'z-50',
+        'bg-white',
+      )
+      header.classList.remove('shadow-lg')
       if (placeholder) {
-        placeholder.remove();
-        placeholder = null;
+        placeholder.remove()
+        placeholder = null
       }
     }
-  });
-});
+  })
+})
 
 //-----------form contact--------
 document.addEventListener('DOMContentLoaded', () => {
@@ -294,127 +319,230 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', closeForm)
 })
 
-document.addEventListener("DOMContentLoaded", function () {
-  const faqBoxes = document.querySelectorAll(".faq-box");
+document.addEventListener('DOMContentLoaded', function () {
+  const faqBoxes = document.querySelectorAll('.faq-box')
 
   faqBoxes.forEach((box) => {
-    const btn = box.querySelector(".faq-btn");
-    const answer = box.querySelector(".faq-answer");
+    const btn = box.querySelector('.faq-btn')
+    const answer = box.querySelector('.faq-answer')
 
-    box.addEventListener("click", function () {
-      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+    box.addEventListener('click', function () {
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px'
 
       faqBoxes.forEach((otherBox) => {
-        const otherAnswer = otherBox.querySelector(".faq-answer");
-        const otherBtn = otherBox.querySelector(".faq-btn");
+        const otherAnswer = otherBox.querySelector('.faq-answer')
+        const otherBtn = otherBox.querySelector('.faq-btn')
         if (otherBox !== box) {
-          otherAnswer.style.maxHeight = 0;
-          otherAnswer.classList.remove("opacity-100", "mt-2");
-          otherAnswer.classList.add("opacity-0");
-          otherBtn.classList.remove("rotate-180");
+          otherAnswer.style.maxHeight = 0
+          otherAnswer.classList.remove('opacity-100', 'mt-2')
+          otherAnswer.classList.add('opacity-0')
+          otherBtn.classList.remove('rotate-180')
         }
-      });
+      })
 
       if (!isOpen) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-        answer.classList.remove("opacity-0");
-        answer.classList.add("opacity-100", "mt-2");
-        btn.classList.add("rotate-180");
+        answer.style.maxHeight = answer.scrollHeight + 'px'
+        answer.classList.remove('opacity-0')
+        answer.classList.add('opacity-100', 'mt-2')
+        btn.classList.add('rotate-180')
       } else {
-        answer.style.maxHeight = 0;
-        answer.classList.remove("opacity-100", "mt-2");
-        answer.classList.add("opacity-0");
-        btn.classList.remove("rotate-180");
+        answer.style.maxHeight = 0
+        answer.classList.remove('opacity-100', 'mt-2')
+        answer.classList.add('opacity-0')
+        btn.classList.remove('rotate-180')
       }
-    });
-  });
+    })
+  })
 
-  document.addEventListener("click", function (event) {
-    const isClickInside = Array.from(faqBoxes).some((box) => box.contains(event.target));
+  document.addEventListener('click', function (event) {
+    const isClickInside = Array.from(faqBoxes).some((box) =>
+      box.contains(event.target),
+    )
     if (!isClickInside) {
       faqBoxes.forEach((box) => {
-        const answer = box.querySelector(".faq-answer");
-        const btn = box.querySelector(".faq-btn");
-        answer.style.maxHeight = 0;
-        answer.classList.remove("opacity-100", "mt-2");
-        answer.classList.add("opacity-0");
-        btn.classList.remove("rotate-180");
-      });
+        const answer = box.querySelector('.faq-answer')
+        const btn = box.querySelector('.faq-btn')
+        answer.style.maxHeight = 0
+        answer.classList.remove('opacity-100', 'mt-2')
+        answer.classList.add('opacity-0')
+        btn.classList.remove('rotate-180')
+      })
     }
-  });
-});
+  })
+})
+;(function () {
+  const btn = document.getElementById('shareBtn')
+  const menu = document.getElementById('shareMenu')
+  const wrap = document.getElementById('shareWrap')
 
+  function getSharePayload() {
+    const title = btn.dataset.title?.trim() || document.title
+    const text = btn.dataset.text?.trim() || document.title
+    const url =
+      (btn.dataset.url && btn.dataset.url.trim()) || window.location.href
+    return { title, text, url }
+  }
 
-(function () {
-    const btn = document.getElementById('shareBtn');
-    const menu = document.getElementById('shareMenu');
-    const wrap = document.getElementById('shareWrap');
+  function setFallbackLinks() {
+    const { title, text, url } = getSharePayload()
+    const encodedUrl = encodeURIComponent(url)
+    const encodedTitle = encodeURIComponent(title)
+    const encodedText = encodeURIComponent(text)
 
-    function getSharePayload() {
-        const title = btn.dataset.title?.trim() || document.title;
-        const text = btn.dataset.text?.trim() || document.title;
-        const url = (btn.dataset.url && btn.dataset.url.trim()) || window.location.href;
-        return { title, text, url };
+    const tg = document.getElementById('shareTelegram')
+    tg.href = `https://t.me/share/url?url=${encodedUrl}&text=${
+      encodedText || encodedTitle
+    }`
+
+    const tw = document.getElementById('shareTwitter')
+    tw.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${
+      encodedText || encodedTitle
+    }`
+
+    const wa = document.getElementById('shareWhatsapp')
+    wa.href = `https://api.whatsapp.com/send?text=${
+      encodedText || encodedTitle
+    }%20${encodedUrl}`
+  }
+
+  function openMenu() {
+    setFallbackLinks()
+    menu.classList.remove('invisible', 'pointer-events-none', 'opacity-0')
+    menu.classList.add('opacity-100')
+    btn.setAttribute('aria-expanded', 'true')
+  }
+  function closeMenu() {
+    menu.classList.add('opacity-0')
+    menu.classList.remove('opacity-100')
+    setTimeout(() => {
+      menu.classList.add('invisible', 'pointer-events-none')
+    }, 200)
+    btn.setAttribute('aria-expanded', 'false')
+  }
+
+  btn?.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const payload = getSharePayload()
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: payload.title,
+          text: payload.text,
+          url: payload.url,
+        })
+        return
+      } catch (err) {
+        openMenu()
+      }
+    } else {
+      openMenu()
     }
+  })
 
-    function setFallbackLinks() {
-        const { title, text, url } = getSharePayload();
-        const encodedUrl = encodeURIComponent(url);
-        const encodedTitle = encodeURIComponent(title);
-        const encodedText = encodeURIComponent(text);
+  document.addEventListener('click', (e) => {
+    if (wrap && !wrap.contains(e.target)) closeMenu()
+  })
 
-        const tg = document.getElementById('shareTelegram');
-        tg.href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText || encodedTitle}`;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu()
+  })
+})()
 
-        const tw = document.getElementById('shareTwitter');
-        tw.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText || encodedTitle}`;
+// dont repeat breadcrumb
+document.addEventListener('DOMContentLoaded', function () {
+  const breadcrumbContainer = document.querySelector('.breadcrumb')
+  if (!breadcrumbContainer) return
 
-        const wa = document.getElementById('shareWhatsapp');
-        wa.href = `https://api.whatsapp.com/send?text=${encodedText || encodedTitle}%20${encodedUrl}`;
+  const items = breadcrumbContainer.querySelectorAll('li')
+  if (!items || items.length === 0) return
+
+  const uniqueLinks = new Map()
+
+  items.forEach((li) => {
+    if (!li) return
+
+    const link = li.querySelector('a')
+    if (!link) return
+
+    const text = link.textContent.trim()
+    if (!text) return
+
+    if (!uniqueLinks.has(text)) {
+      uniqueLinks.set(text, li)
+    } else {
+      li.remove()
     }
+  })
+})
 
-    function openMenu() {
-        setFallbackLinks();
-        menu.classList.remove('invisible', 'pointer-events-none', 'opacity-0');
-        menu.classList.add('opacity-100');
-        btn.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-        menu.classList.add('opacity-0');
-        menu.classList.remove('opacity-100');
-        setTimeout(() => {
-            menu.classList.add('invisible', 'pointer-events-none');
-        }, 200);
-        btn.setAttribute('aria-expanded', 'false');
-    }
+// header form
 
-    btn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const payload = getSharePayload();
+function uploadDocumentHeader(args) {
+  document.querySelector('#header-form-resize .Loading_Form').style.display =
+    'block'
+  const captcha = document
+    .querySelector('#header-form-resize')
+    .querySelector("#captchaContainer input[name='captcha']").value
+  const captchaid = document
+    .querySelector('#header-form-resize')
+    .querySelector("#captchaContainer input[name='captchaid']").value
+  const stringJson = JSON.stringify(args.source?.rows[0])
+  $bc.setSource('cms.uploadHeader', {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  })
+}
 
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: payload.title,
-                    text: payload.text,
-                    url: payload.url
-                });
-                return;
-            } catch (err) {
-                openMenu();
-            }
-        } else {
-            openMenu();
-        }
-    });
+function refreshCaptchaHeader(e) {
+  $bc.setSource('captcha.refreshHeader', true)
+}
 
-    document.addEventListener('click', (e) => {
-        if (!wrap.contains(e.target)) {
-            closeMenu();
-        }
-    });
+async function OnProcessedEditObjectHeader(args) {
+  var response = args.response
+  var json = await response.json()
+  var errorid = json.errorid
+  if (errorid == '6') {
+    document.querySelector('#header-form-resize .Loading_Form').style.display =
+      'none'
+    document.querySelector('#header-form-resize .message-api').innerHTML =
+      'درخواست شما با موفقیت ثبت شد.'
+  } else {
+    refreshCaptchaHeader()
+    setTimeout(() => {
+      document.querySelector(
+        '#header-form-resize .Loading_Form',
+      ).style.display = 'none'
+      document.querySelector('#header-form-resize .message-api').innerHTML =
+        'خطایی رخ داده, لطفا مجدد اقدام کنید.'
+    }, 2000)
+  }
+}
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-    });
-})();
+async function RenderFormHeader() {
+  var inputElementVisa7 = document.querySelector(
+    ' .name-header-form input[data-bc-text-input]',
+  )
+  inputElementVisa7.setAttribute('placeholder', 'نام')
+
+  var inputElementVisa7 = document.querySelector(
+    ' .family-header-form input[data-bc-text-input]',
+  )
+  inputElementVisa7.setAttribute('placeholder', 'نام خانوادگی')
+  var inputElementVisa7 = document.querySelector(
+    ' .email-header-form input[data-bc-text-input]',
+  )
+  inputElementVisa7.setAttribute('placeholder', 'ایمیل')
+
+  var inputElementVisa7 = document.querySelector(
+    ' .phone-header-form input[data-bc-text-input]',
+  )
+  inputElementVisa7.setAttribute('placeholder', 'شماره تماس')
+
+  var inputElementVisa7 = document.querySelector(
+    ' .message-header-form textarea[data-bc-text-input]',
+  )
+  inputElementVisa7.setAttribute('placeholder', 'متن')
+}

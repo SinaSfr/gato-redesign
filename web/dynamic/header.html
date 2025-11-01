@@ -1,6 +1,24 @@
 <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
     <member name="info" type="view" />
 </basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="gardeshgaran-tours">
+    <member name="cat" type="tree" request="cat" parentid="212953" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="occasional-tours">
+    <member name="cat" type="tree" request="cat" parentid="218281" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="exhibition-tours">
+    <member name="cat" type="tree" request="cat" parentid="213297" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="visa-services">
+    <member name="cat" type="tree" request="cat" parentid="213297" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="10" lid="1">
+    <member name="offices" type="list" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2374378">
+    <member name="contact-with" type="view" size="" propertyid="" />
+</basis>
 <basis core="group" if="'[##cms.cms.page_index##]' = 'نمایه پیش فرض'">
     <header>
         <div class="bg-secondary-900 py-1">
@@ -28,20 +46,8 @@
                 </section>
                 <section class="flex items-center gap-8">
                     <div
-                        class="Login_Information overflow-hidden relative group z-10 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600 rounded-lg bg-secondary-700">
-                        <!-- <basis core="call" file="authentication/modal" lid="1"></basis> -->
-                        <div class="w-10 h-10 flex items-center justify-center">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12.4009 14.5156C7.42189 14.5156 5.19189 17.2696 5.19189 19.9996C5.19189 20.1986 5.27089 20.3896 5.41189 20.5306C5.55189 20.6706 5.74289 20.7496 5.94189 20.7496L18.8599 20.7316C19.2739 20.7306 19.6089 20.3946 19.6089 19.9816C19.6089 17.2606 17.3799 14.5156 12.4009 14.5156Z"
-                                    fill="#000" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12.4009 13.001C15.0889 13.001 17.2759 10.813 17.2759 8.125C17.2759 5.437 15.0889 3.25 12.4009 3.25C9.71288 3.25 7.52588 5.437 7.52588 8.125C7.52588 10.813 9.71288 13.001 12.4009 13.001Z"
-                                    fill="#000" />
-                            </svg>
-                        </div>
-
+                        class="Login_Information relative z-10 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600 rounded-lg">
+                        <basis core="call" file="authentication/modal" lid="1"></basis>
                     </div>
                     <div
                         class="relative group flex items-center gap-2 text-white text-sm text-center transition-all cursor-pointer duration-300">
@@ -75,8 +81,8 @@
             <div class="relative flex items-center h-full justify-between mx-auto max-xl:w-[97%] xl:max-w-7xl">
                 <div class="flex items-center gap-3 h-full">
                     <a href="/">
-                        <img src="[##cms.cms.cdn##]/images/logo.png" alt="logo-header" width="120" height="34" loading="lazy"
-                            class="w-[120px] h-auto" />
+                        <img src="[##cms.cms.cdn##]/images/logo.png" alt="logo-header" width="120" height="34"
+                            loading="lazy" class="w-[120px] h-auto" />
                     </a>
                     <nav class="flex h-full">
                         <ul class="flex items-center gap-3">
@@ -93,72 +99,38 @@
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex w-full max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
                                         <div class="flex-1 border-l border-solid">
-                                            <div class="py-2 px-2 space-y-2">
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
-                                                    data-id="@catid" data-mid="@mid" data-link="@link"
-                                                    data-name="@title" type="button">
-                                                    <div class="flex items-center">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                        </svg>
-                                                        <span
-                                                            class="flex items-center text-lg justify-center font-bold text-primary-800">
-                                                            تور های خارجی
-                                                        </span>
+                                            <basis core="tree" datamembername="gardeshgaran-tours.cat" idcol="catid"
+                                                parentidcol="parentid" nullvalue="212953">
+                                                <layout>
+                                                    <div class="py-2 px-2 space-y-2">
+                                                        @child
                                                     </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
-                                                    data-id="@catid" data-mid="@mid" data-link="@link"
-                                                    data-name="@title" type="button">
-                                                    <div class="flex items-center">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
+                                                </layout>
+                                                <face>
+                                                    <button
+                                                        class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                        data-id="@catid" data-mid="@mid" data-link="@link"
+                                                        data-name="@title" data-image="@image" type="button">
+                                                        <div class="flex items-center">
+                                                            <img src="[##cms.cms.cdn##]/@image"
+                                                                class="w-12 h-12 object-cover" alt="@title" width="48"
+                                                                height="48px" loading="lazy">
+                                                            <span
+                                                                class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                                @title
+                                                            </span>
+                                                        </div>
+                                                        <svg width="48" height="48" class="text-specialcolor-1">
+                                                            <use href="/images/sprite-icons.svg#icon-chevron-left-half">
+                                                            </use>
                                                         </svg>
-                                                        <span
-                                                            class="flex items-center text-lg justify-center font-bold text-primary-800">
-                                                            تور های خارجی
-                                                        </span>
-                                                    </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                            </div>
+                                                    </button>
+                                                </face>
+                                            </basis>
                                         </div>
 
                                         <!-- Left: Dynamic Content -->
@@ -166,244 +138,15 @@
 
                                             <div class="tab-content max-h-80 overflow-y-auto my-scroll-box">
                                                 <div class="flex items-center mb-4">
-                                                    <img src="" alt="icon" class="w-12 h-12 object-cover" width="48"
+                                                    <img src="" alt="icon"
+                                                        class="menu-image-header w-12 h-12 object-cover" width="48"
                                                         height="48" loading="lazy">
                                                     <a href=""
                                                         class="menu-link-header flex text-base font-bold pr-2 transition-all duration-300 hover:text-primary-800"></a>
                                                 </div>
-                                                <div class="columns-5">
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="group/leveltwo relative font-medium text-zinc-900 transition-all duration-300 hover:text-primary-600">helllo
-                                                                <span
-                                                                    class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
-                                                            </a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="inline-flex group/leveltwo relative text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii
-                                                                    <span
-                                                                        class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover/leveltwo:w-full"></span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="columns-5 fetch-content-header">
 
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -411,7 +154,7 @@
                             </li>
                             <li class="mega-menu-li flex items-center h-full group">
                                 <!-- Main Trigger -->
-                                <a href="/tours"
+                                <a href="/Occasional-tours"
                                     class="flex items-center h-12 transition border-primary-800 group text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-600">
                                     تور های مناسبتی
                                     <svg width="48" height="48"
@@ -422,158 +165,54 @@
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex w-full max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
-                                        <div class="w-1/3 border-l border-solid">
-                                            <div class="py-2 px-2 space-y-2">
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                        </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
+                                        <div class="flex-1 border-l border-solid">
+                                            <basis core="tree" datamembername="occasional-tours.cat" idcol="catid"
+                                                parentidcol="parentid" nullvalue="218281">
+                                                <layout>
+                                                    <div class="py-2 px-2 space-y-2">
+                                                        @child
                                                     </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
+                                                </layout>
+                                                <face>
+                                                    <button
+                                                        class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                        data-id="@catid" data-mid="@mid" data-link="@link"
+                                                        data-name="@title" data-image="@image" type="button">
+                                                        <div class="flex items-center">
+                                                            <img src="[##cms.cms.cdn##]/@image"
+                                                                class="w-12 h-12 object-cover" alt="@title" width="48"
+                                                                height="48px" loading="lazy">
+                                                            <span
+                                                                class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                                @title
+                                                            </span>
+                                                        </div>
+                                                        <svg width="48" height="48" class="text-specialcolor-1">
+                                                            <use href="/images/sprite-icons.svg#icon-chevron-left-half">
+                                                            </use>
                                                         </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
-                                                    </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                            </div>
+                                                    </button>
+                                                </face>
+                                            </basis>
                                         </div>
 
                                         <!-- Left: Dynamic Content -->
-                                        <div class="w-2/3">
+                                        <div class="flex-[3] pl-2">
 
-                                            <div class="tab-content">
-                                                <a href=""
-                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
-                                                <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            <div class="tab-content max-h-80 overflow-y-auto my-scroll-box">
+                                                <div class="flex items-center mb-4">
+                                                    <img src="" alt="icon"
+                                                        class="menu-image-header w-12 h-12 object-cover" width="48"
+                                                        height="48" loading="lazy">
+                                                    <a href=""
+                                                        class="menu-link-header flex text-base font-bold pr-2 transition-all duration-300 hover:text-primary-800"></a>
                                                 </div>
+                                                <div class="columns-5 fetch-content-header">
 
-
-
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -581,7 +220,7 @@
                             </li>
                             <li class="mega-menu-li flex items-center h-full group">
                                 <!-- Main Trigger -->
-                                <a href="/tours"
+                                <a href="/Exhibition-tours"
                                     class="flex items-center h-12 transition border-primary-800 group text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-600">
                                     تور های نمایشگاهی
                                     <svg width="48" height="48"
@@ -592,158 +231,54 @@
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex w-full max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
-                                        <div class="w-1/3 border-l border-solid">
-                                            <div class="py-2 px-2 space-y-2">
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                        </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
+                                        <div class="flex-1 border-l border-solid">
+                                            <basis core="tree" datamembername="exhibition-tours.cat" idcol="catid"
+                                                parentidcol="parentid" nullvalue="213297">
+                                                <layout>
+                                                    <div class="py-2 px-2 space-y-2">
+                                                        @child
                                                     </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
+                                                </layout>
+                                                <face>
+                                                    <button
+                                                        class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                        data-id="@catid" data-mid="@mid" data-link="@link"
+                                                        data-name="@title" data-image="@image" type="button">
+                                                        <div class="flex items-center">
+                                                            <img src="[##cms.cms.cdn##]/@image"
+                                                                class="w-12 h-12 object-cover" alt="@title" width="48"
+                                                                height="48px" loading="lazy">
+                                                            <span
+                                                                class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                                @title
+                                                            </span>
+                                                        </div>
+                                                        <svg width="48" height="48" class="text-specialcolor-1">
+                                                            <use href="/images/sprite-icons.svg#icon-chevron-left-half">
+                                                            </use>
                                                         </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
-                                                    </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                            </div>
+                                                    </button>
+                                                </face>
+                                            </basis>
                                         </div>
 
                                         <!-- Left: Dynamic Content -->
-                                        <div class="w-2/3">
+                                        <div class="flex-[3] pl-2">
 
-                                            <div class="tab-content">
-                                                <a href=""
-                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
-                                                <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            <div class="tab-content max-h-80 overflow-y-auto my-scroll-box">
+                                                <div class="flex items-center mb-4">
+                                                    <img src="" alt="icon"
+                                                        class="menu-image-header w-12 h-12 object-cover" width="48"
+                                                        height="48" loading="lazy">
+                                                    <a href=""
+                                                        class="menu-link-header flex text-base font-bold pr-2 transition-all duration-300 hover:text-primary-800"></a>
                                                 </div>
+                                                <div class="columns-5 fetch-content-header">
 
-
-
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -751,7 +286,7 @@
                             </li>
                             <li class="mega-menu-li flex items-center h-full group">
                                 <!-- Main Trigger -->
-                                <a href="/tours"
+                                <a href="/Visa-services"
                                     class="flex items-center h-12 transition border-primary-800 group text-zinc-900 lg:text-xs xl:text-sm hover:text-primary-600">
                                     خدمات ویزا
                                     <svg width="48" height="48"
@@ -762,158 +297,54 @@
 
                                 <!-- Mega Menu -->
                                 <div
-                                    class="absolute right-0 z-40 hidden group-hover:flex max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
+                                    class="absolute right-0 z-40 hidden group-hover:flex w-full max-xl:w-[97%] xl:max-w-7xl bg-white rounded-b-3xl top-full text-sm overflow-hidden py-4 shadow-mega-menu">
                                     <div class="flex w-full h-full bg-white">
                                         <!-- Right: Menu Options -->
-                                        <div class="w-1/3 border-l border-solid">
-                                            <div class="py-2 px-2 space-y-2">
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                        </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
+                                        <div class="flex-1 border-l border-solid">
+                                            <basis core="tree" datamembername="visa-services.cat" idcol="catid"
+                                                parentidcol="parentid" nullvalue="213298">
+                                                <layout>
+                                                    <div class="py-2 px-2 space-y-2">
+                                                        @child
                                                     </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <button
-                                                    class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100">
-                                                    <div class="flex items-center" data-id="@catid" data-mid="@mid"
-                                                        data-link="@link" data-name="@title" type="button">
-                                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M15 13.065C16.17 14.1315 18.582 17.0445 18.8625 20.1705C19.05 22.263 20.0925 24.075 21.75 24.9465C22.4085 25.2915 23.163 25.491 24 25.5C25.1325 25.512 26.277 24.6945 26.274 23.562C26.274 23.2125 26.2155 22.854 26.1255 22.524C25.974 22.0184 26.0185 21.4743 26.25 21C27.165 19.1145 28.965 18.6075 30.39 17.583C31.0215 17.1285 31.599 16.6485 31.8525 16.263C32.556 15.198 33.258 13.0665 32.907 12"
-                                                                stroke="#F37321" stroke-width="1.5" />
-                                                            <path
-                                                                d="M38.9999 25.5C38.5049 26.8965 38.1569 30.5625 32.5769 30.621C32.5769 30.621 31.3874 30.621 29.9999 30.951M26.1554 33.414C24.9689 35.649 25.6604 38.0685 26.1554 39"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
-                                                            <path
-                                                                d="M16.5 36.993C18.7794 38.3113 21.3668 39.0036 24 39C32.2845 39 39 32.2845 39 24C39 15.7155 32.2845 9 24 9C15.7155 9 9 15.7155 9 24C9 26.7315 9.7305 29.295 11.007 31.5"
-                                                                stroke="#F37321" stroke-width="1.5"
-                                                                stroke-linecap="round" />
+                                                </layout>
+                                                <face>
+                                                    <button
+                                                        class="menu-item group w-full flex items-center justify-between transition-all duration-300 rounded-lg hover:bg-primary-100"
+                                                        data-id="@catid" data-mid="@mid" data-link="@link"
+                                                        data-name="@title" data-image="@image" type="button">
+                                                        <div class="flex items-center">
+                                                            <img src="[##cms.cms.cdn##]/@image"
+                                                                class="w-12 h-12 object-cover" alt="@title" width="48"
+                                                                height="48px" loading="lazy">
+                                                            <span
+                                                                class="flex items-center text-lg justify-center font-bold text-primary-800">
+                                                                @title
+                                                            </span>
+                                                        </div>
+                                                        <svg width="48" height="48" class="text-specialcolor-1">
+                                                            <use href="/images/sprite-icons.svg#icon-chevron-left-half">
+                                                            </use>
                                                         </svg>
-                                                        <span
-                                                            class="flex items-center text-base justify-center font-medium text-zinc-800 group-hover:text-primary-700">
-                                                            @title
-                                                        </span>
-                                                    </div>
-                                                    <svg width="48" height="48" class="text-orange-200">
-                                                        <use
-                                                            href="/images/sprite-icons.svg#icon-chevron-left-half">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                            </div>
+                                                    </button>
+                                                </face>
+                                            </basis>
                                         </div>
 
                                         <!-- Left: Dynamic Content -->
-                                        <div class="w-2/3">
+                                        <div class="flex-[3] pl-2">
 
-                                            <div class="tab-content">
-                                                <a href=""
-                                                    class="menu-link-header flex text-base font-bold pr-2 mb-4"></a>
-                                                <div class="my-scroll-box columns-5 gap-8 max-h-80 overflow-y-auto">
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="inline-block w-full break-inside-avoid">
-                                                        <div class="flex items-center">
-                                                            <svg width="35" height="35">
-                                                                <use href="/images/sprite-icons.svg#icon-flag">
-                                                                </use>
-                                                            </svg>
-                                                            <a href="@link"
-                                                                class="font-medium transition-all duration-300 text-zinc-900 hover:text-secondary-700">helllo</a>
-                                                        </div>
-                                                        <ul class="flex flex-col gap-2 text-zinc-700 pr-9">
-                                                            <li>
-                                                                <a href="@link"
-                                                                    class="text-zinc-500 transition-all duration-300 hover:text-primary-600">hiiii</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            <div class="tab-content max-h-80 overflow-y-auto my-scroll-box">
+                                                <div class="flex items-center mb-4">
+                                                    <img src="" alt="icon"
+                                                        class="menu-image-header w-12 h-12 object-cover" width="48"
+                                                        height="48" loading="lazy">
+                                                    <a href=""
+                                                        class="menu-link-header flex text-base font-bold pr-2 transition-all duration-300 hover:text-primary-800"></a>
                                                 </div>
+                                                <div class="columns-5 fetch-content-header">
 
-
-
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -947,7 +378,66 @@
                     <div
                         class="form-contact fixed top-1/2 left-1/2 z-50 hidden items-stretch -translate-x-1/2 -translate-y-1/2 rounded-3xl overflow-hidden transition-all duration-300 scale-90 opacity-0">
                         <section class="bg-white py-14 px-9">
+                            <div class="flex flex-col mx-auto header-form" id="header-form-resize">
 
+                                <basis core="schema" run="atclient"
+                                    schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/1E3C9E57-F6C6-496D-855C-2DC5D0D27BDB/fa/تماس-با-کارشناسان-ما"
+                                    displaymode="new" button="[data-btn-uploadHeader]"
+                                    resultsourceid="upload.dataHeader" OnRendered="RenderFormHeader">
+                                </basis>
+                                <basis core="api" if="{##cms.uploadHeader.run|(false)##}" run="atclient"
+                                    url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject"
+                                    method="post"
+                                    body="object_edit={##cms.uploadHeader.value##}&captcha={##cms.uploadHeader.captcha##}&captchaid={##cms.uploadHeader.captchaid##}"
+                                    content-type="application/x-www-form-urlencoded" triggers='cms.uploadHeader'
+                                    OnProcessed="OnProcessedEditObjectHeader">
+                                </basis>
+                                <basis core="callback" run="atclient" method="uploadDocumentHeader"
+                                    triggers="upload.dataHeader">
+                                </basis>
+
+                                <div class="captcha-button flex flex-col justify-center">
+                                    <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh w-auto"
+                                        data-bc-answer-container data-bc-schema-info-multi="0"
+                                        data-bc-schema-info-word="58" data-bc-schema-info-part="1"
+                                        data-bc-schema-info-part-0-type="text">
+                                        <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                                            triggers="captcha.refreshHeader">
+                                            <member name="code" type="scalar" request="captcha"></member>
+                                        </basis>
+                                        <basis datamembername="captcha.code" core="print" run="atclient">
+                                            <face>
+                                                <script type="text/template"><div class="d-inline-block"><div class="flex gap-8">
+                            
+                                                <div class="float-right w-full"><input type="text" class="contactUsInput codeinputm" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" /></div>
+                                                <div class="flex items-center gap-5">
+                                                    <img src="/@captcha@" loading="lazy" width="120" height="60" alt="captcha" class="w-16" />
+                                                    <svg class="inline-block align-middle cursor-pointer w-9 h-9" onclick="refreshCaptchaHeader()" width="24" height="24" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.1247 8.56165H18.1238C18.0007 8.56175 17.8788 8.5861 17.7651 8.63331C17.6514 8.68052 17.5481 8.74967 17.4611 8.8368C17.3741 8.92393 17.3052 9.02734 17.2581 9.14113C17.2111 9.25492 17.187 9.37685 17.1871 9.49997C17.1859 10.8143 16.8245 12.1032 16.1421 13.2265C15.4597 14.3498 14.4824 15.2646 13.3166 15.8714C12.1507 16.4782 10.8408 16.7538 9.52921 16.6683C8.21765 16.5827 6.95463 16.1393 5.87744 15.3862C2.63134 13.1132 1.83959 8.62309 4.11255 5.37696C6.38552 2.13083 10.8757 1.33899 14.1218 3.61204C14.6129 3.95501 15.0592 4.358 15.4504 4.81165H12.8121C12.5635 4.81165 12.325 4.91042 12.1492 5.08623C11.9734 5.26205 11.8746 5.5005 11.8746 5.74915C11.8746 5.99779 11.9734 6.23624 12.1492 6.41206C12.325 6.58787 12.5635 6.68665 12.8121 6.68665H17.1871C17.4358 6.68665 17.6742 6.58787 17.85 6.41206C18.0259 6.23624 18.1246 5.99779 18.1246 5.74915V1.37415C18.1246 1.12551 18.0259 0.887048 17.85 0.711233C17.6742 0.535418 17.4358 0.436646 17.1871 0.436646C16.9385 0.436646 16.7 0.535418 16.5242 0.711233C16.3484 0.887048 16.2496 1.12551 16.2496 1.37415V2.93536C15.9206 2.62321 15.5689 2.33596 15.1973 2.07598C14.2225 1.39342 13.1228 0.909542 11.9609 0.651979C10.7991 0.394417 9.59797 0.368213 8.42603 0.574863C7.25409 0.781513 6.13433 1.21697 5.13067 1.85637C4.12702 2.49578 3.25914 3.3266 2.57658 4.30141C1.19808 6.27013 0.658111 8.70582 1.07546 11.0727C1.49281 13.4395 2.83329 15.5436 4.80201 16.9221C6.31776 17.9898 8.12639 18.563 9.98041 18.5633C10.5144 18.5631 11.0474 18.5162 11.5732 18.4233C13.6714 18.0531 15.5722 16.9556 16.9417 15.3235C18.3112 13.6914 19.062 11.6289 19.0621 9.49833C19.0619 9.24983 18.963 9.01159 18.7873 8.83596C18.6115 8.66032 18.3732 8.56166 18.1247 8.56165Z" fill="#18181B"/></svg>
+                                                </div>
+                                                
+                                            </div></div></script>
+                                            </face>
+                                        </basis>
+                                    </div>
+                                    <button
+                                        class="w-32 px-4 mt-10 text-white transition-all duration-300 y-2 data-body-btn h-10 bg-primary-800 rounded-xl hover:bg-secondary-600"
+                                        type="button" data-btn-uploadHeader><span class="">ارسال</span></button>
+                                    <div
+                                        class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 bg-secondary-800 rounded-2xl justify-center items-center gap-2.5">
+                                        <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
+                                            <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center text-primary-600 message-api"></div>
+                            </div>
                         </section>
                         <section class="bg-secondary-800 py-3 px-9">
                             <div class="close-contact flex justify-end cursor-pointer">
@@ -956,21 +446,29 @@
                                     </use>
                                 </svg>
                             </div>
-                            <img src="[##cms.cms.cdn##]/images/support-team.jpg" class="w-full h-80 object-cover rounded-3xl"
-                                alt="" width="345" height="320" loading="lazy">
-                            <h2 class="text-xl font-bold text-white mb-2 mt-4">تماس با کارشناسان ما</h2>
-                            <div class="text-sm text-white">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                                با استفاده از طراحان
-                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
-                                شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
-                                مجله در ستون و سطرآنچنان</div>
+                            <basis core="print" datamembername="db.contact-with">
+                                <face filter="TypeID in(159)">
+                                    <img src="[##cms.cms.cdn##]/@text" class="w-full h-80 object-cover rounded-3xl"
+                                        alt="@text" width="345" height="320" loading="lazy">
+                                </face>
+                                <face filter="TypeID in(150)">
+                                    <h2 class="text-xl font-bold text-white mb-2 mt-4">@text</h2>
+                                </face>
+                                <face filter="TypeID in(129)">
+                                    <div class="text-sm text-white text-justify">@largetext</div>
+                                </face>
+                            </basis>
                         </section>
                     </div>
-                    <a href="tel:"
-                        class="flex items-center justify-center gap-2 px-3 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 lg:text-xs xl:text-sm transition-all duration-300 hover:bg-primary-800 hover:text-white">
-                        031-36166
-                    </a>
+                    <basis core="print" datamembername="db.info">
+                        <face filter="TypeID in(240)">
+                            <a href="tel:@text"
+                                class="flex items-center justify-center gap-2 px-3 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 lg:text-xs xl:text-sm transition-all duration-300 hover:bg-primary-800 hover:text-white">
+                                @text
+                            </a>
+                        </face>
+                    </basis>
+
                 </div>
             </div>
 

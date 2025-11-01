@@ -1,20 +1,9 @@
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
-    <member name="visa-list" type="list" link="visa.bc" propertyid="3088126" perpage="12" size="270x160"
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="8" size="224x176"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
-    <member name="paging" type="list" request="paging" count="3" parentname="visa-list" />
-    <member name="cat-banner" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
-        postsql="select * from [db.cat-banner] where catid in([##cms.query.catid##])">
-    </member>
+    <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
-<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
-    <member name="p-under" type="view" propertyid="7249" />
-</basis>
-
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
-    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
-</basis>
-
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
 </basis>
 
@@ -50,108 +39,108 @@
 <body>
     <basis core="call" file="header.inc" />
     <main>
-        <section>
-            <basis core="list" datamembername="db.cat-banner">
-                <face filter="image is null">
-                    <img src="[##cms.cms.cdn##]/images/visa-list-background.jpg" class="w-full h-[500px] object-cover" alt="@title" width="1920" height="500" loading="lazy">
-                </face>
-                <face>
-                    <img src="[##cms.cms.cdn##]/@image" class="w-full h-[500px] object-cover" alt="@title" width="1920" height="500" loading="lazy">
-                </face>
-            </basis>
-        </section>
+        <section class="relative bg-articleList bg-cover bg-center h-[500px]"></section>
         <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
             <svg width="24" height="24">
-                <use href="[##cms.cms.cdn##]/images/sprite-icons.svg#icon-home"></use>
+                <use href="/images/sprite-icons.svg#icon-home"></use>
             </svg>
             <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
                 <li class="inline-block font-normal" itemprop="itemListElement" itemscope
-                  itemtype="https://schema.org/ListItem">
-                  <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
-                    itemprop="item" href="/" aria-label="home">
-                    <span itemprop="name">صفحه اصلی</span>
-                    <meta itemprop="position" content="1" />
-                  </a>
+                    itemtype="https://schema.org/ListItem">
+                    <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                        itemprop="item" href="/" aria-label="home">
+                        <span itemprop="name">صفحه اصلی</span>
+                        <meta itemprop="position" content="1" />
+                    </a>
                 </li>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                    <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
                 </svg>
                 <basis core="print" datamembername="db.navigation">
-                  <face filter="RowNumber=max(RowNumber) and title <> 'ریشه'">
-                    <li class="inline-block font-normal text-primary-800" itemprop="itemListElement" itemscope
-                      itemtype="https://schema.org/ListItem">
-                      <span itemprop="name">@title</span>
-                      <meta itemprop="position" content="@rownumber" />
-                    </li>
-                  </face>
-                  <face filter="link is null and title <> 'ریشه'">
-                    <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
-                      itemtype="https://schema.org/ListItem">
-                      <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
-                        itemprop="item" href="/visa-list.bc?catid=@parentcatid" aria-label="@title">
-                        <span itemprop="name">@title</span>
-                        <meta itemprop="position" content="@rownumber" />
-                      </a>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
-                      </svg>
-                    </li>
-                  </face>
-                  <face filter="title <> 'ریشه'">
-                    <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
-                      itemtype="https://schema.org/ListItem">
-                      <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
-                        itemprop="item" href="/@link" aria-label="@title">
-                        <span class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
-                          itemprop="name">
-                          @title
-                        </span>
-                        <meta itemprop="position" content="@rownumber" />
-                      </a>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 6L9 12L15 18" stroke="#18181b" stroke-width="2"></path>
-                      </svg>
-                    </li>
-                  </face>
+                    <face filter="RowNumber=max(RowNumber) and title <> 'ریشه'">
+                        <li class="inline-block font-normal text-primary-800" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <span itemprop="name">@title</span>
+                            <meta itemprop="position" content="@rownumber" />
+                        </li>
+                    </face>
+                    <face filter="link is null and title <> 'ریشه'">
+                        <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                itemprop="item" href="/article-list.bc?catid=@parentcatid" aria-label="@title">
+                                <span itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                            </svg>
+                        </li>
+                    </face>
+                    <face filter="title <> 'ریشه'">
+                        <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                itemprop="item" href="/@link" aria-label="@title">
+                                <span
+                                    class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                    itemprop="name">
+                                    @title
+                                </span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 6L9 12L15 18" stroke="#18181b" stroke-width="2"></path>
+                            </svg>
+                        </li>
+                    </face>
                 </basis>
-              </ul>
+            </ul>
         </div>
         <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
-            <h1 class="text-2xl font-bold text-zinc-900">ویزاهای پرتقاضا</h1>
-            <div class="text-sm text-zinc-900">همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه
-            </div>
-            <basis core="list" datamembername="db.visa-list">
+            <h1 class="text-2xl font-bold text-zinc-900">پربازدید ترین مطالب</h1>
+            <div class="text-sm text-zinc-900">جدیدترین مقالات، راهنماهای سفر و معرفی جاذبه‌ها از متخصصان گردشگری
+                در گاتو</div>
+            <basis core="list" datamembername="db.article-list">
                 <layout>
-                    <div class="grid grid-cols-4 gap-6 mt-9">
+                    <div class="grid grid-cols-2 gap-6 mt-9">
                         @child
                     </div>
                 </layout>
-                <face filter="[00270X00160prp] is null">
+                <face filter="[00224X00176prp] is null">
                     <a href="/@link"
-                        class="flex flex-col group border border-solid border-zinc-400 rounded-3xl shadow-tour-card p-4 transition-all duration-300 hover:bg-secondary-400">
+                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
-                            class="w-full h-40 object-cover rounded-3xl" alt="@title" width="270" height="160"
+                            class="w-56 h-44 object-cover rounded-3xl shrink-0" alt="@title" width="224" height="176"
                             loading="lazy">
-                        <div class="flex items-center gap-2 mt-2">
-                            <img src="[##cms.cms.cdn##]/images/@prp_3088126" class="w-9 h-auto rounded-3xl" alt="@title"
-                                width="36" height="24" loading="lazy">
-                            <h2
-                                class="text-xl font-bold text-zinc-900 transition-all duration-300 group-hover:text-white">
-                                @title</h2>
+                        <div class="flex flex-col justify-between gap-2 w-full">
+                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
+                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
+                                <button
+                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
+                                    بخوانید</button>
+                            </div>
                         </div>
                     </a>
                 </face>
                 <face>
                     <a href="/@link"
-                        class="flex flex-col group border border-solid border-zinc-400 rounded-3xl shadow-tour-card p-4 transition-all duration-300 hover:bg-secondary-400">
-                        <img src="[##cms.cms.cdn##]/@00270X00160prp" class="w-full h-40 object-cover rounded-3xl"
-                            alt="@title" width="270" height="160" loading="lazy">
-                        <div class="flex items-center gap-2 mt-2">
-                            <img src="[##cms.cms.cdn##]/images/@prp_3088126" class="w-9 h-auto rounded-3xl" alt="@title"
-                                width="36" height="24" loading="lazy">
-                            <h2
-                                class="text-xl font-bold text-zinc-900 transition-all duration-300 group-hover:text-white">
-                                @title</h2>
+                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
+                        <img src="[##cms.cms.cdn##]/@00224X00176prp" class="w-56 h-44 object-cover rounded-3xl shrink-0"
+                            alt="@title" width="224" height="176" loading="lazy">
+                        <div class="flex flex-col justify-between gap-2 w-full">
+                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
+                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
+                                <button
+                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
+                                    بخوانید</button>
+                            </div>
                         </div>
                     </a>
                 </face>
@@ -249,33 +238,6 @@
                     </basis>
                 </ul>
             </div>
-        </section>
-
-        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
-            <basis core="print" datamembername="db.p-under">
-                <face filter="TypeID in(150)">
-                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
-                </face>
-            </basis>
-
-            <basis core="print" datamembername="db.p-under">
-                <layout>
-                    <div class="mb-9">
-                        @child
-                    </div>
-                </layout>
-                <face filter="TypeID in(129)">
-                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
-                        @largetext
-                    </div>
-                </face>
-                <face filter="TypeID in(250)">
-                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
-                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
-                        @largetext
-                    </div>
-                </face>
-            </basis>
         </section>
     </main>
     <basis core="call" file="footer.inc" />

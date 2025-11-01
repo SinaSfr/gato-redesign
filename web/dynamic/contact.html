@@ -1,0 +1,132 @@
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="2374067">
+    <member name="faq" type="view" propertyid="7249" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(خرید بلیط هواپیما - رزرو تور داخلی و خارجی - گاتو (گردشگران خورشید سپاهان))##]
+    </title>
+    <meta name="description"
+        content="[##cms.seo.description|(خرید بلیط هواپیما، تورهای داخلی و خارجی، رزرو پرواز و هتل با بهترین قیمت در گاتو (گردشگران خورشید سپاهان). سفر آسان، امن و مقرون‌به‌صرفه با پشتیبانی ۲۴ ساعته.)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" />
+    <main>
+        <section class="relative -z-10 bg-contact bg-cover bg-[0_20%] h-[515px]"></section>
+        <div
+            class="flex items-center gap-6 mx-auto max-xl:w-[97%] xl:max-w-7xl bg-white shadow-contact p-6 rounded-3xl -mt-56">
+            <section class="flex-1 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-6">
+                <img src="[##cms.cms.cdn##]/images/logo.png" class="w-52 h-auto" alt="logo" width="208" height="73"
+                    loading="lazy">
+                <basis core="print" datamembername="db.info">
+                    <face filter="TypeID in(144)">
+                        <div class="text-sm text-zinc-900 leading-6 text-justify mt-5">@largetext</div>
+                    </face>
+                </basis>
+            </section>
+            <section class="flex-1 bg-secondary-800 py-8 px-6 rounded-3xl">
+                <h1 class="text-white text-2xl font-bold">ارتباط با ما</h1>
+                <basis core="print" datamembername="db.info">
+                    <layout>
+                        <div class="flex flex-col gap-2 mt-1 border-b border-solid border-secondary-400 mb-7 pb-7">
+                            @child
+                        </div>
+                    </layout>
+                    <face filter="TypeID in(244)">
+                        <div class="flex items-center gap-2 text-sm text-white">
+                            <svg width="24" height="24" class="shrink-0">
+                                <use href="/images/sprite-icons.svg#icon-location"></use>
+                            </svg>
+                            @largetext
+                        </div>
+                    </face>
+                    <face filter="TypeID in(240)">
+                        <a href="tel:@text"
+                            class="group flex items-center gap-2 text-lg font-medium text-white transition-all duration-300 hover:text-primary-400">
+                            <svg width="24" height="24"
+                                class="text-white shrink-0 transition-all duration-300 group-hover:text-primary-400">
+                                <use href="/images/sprite-icons.svg#icon-phone"></use>
+                            </svg>
+                            <span>@text</span>
+                        </a>
+                    </face>
+                    <face filter="TypeID in(242)">
+                        <a href="mailto:@text"
+                            class="group flex items-center gap-2 text-lg font-medium text-primary-400 transition-all duration-300 hover:text-specialcolor-1">
+                            <svg width="24" height="24"
+                                class="shrink-0 transition-all duration-300 group-hover:text-specialcolor-1">
+                                <use href="/images/sprite-icons.svg#icon-mail"></use>
+                            </svg>
+                            <span>@text</span>
+                        </a>
+                    </face>
+                </basis>
+
+                <basis core="print" datamembername="db.info">
+                    <face filter="prpID=91462">
+                        <iframe defer title="gato-location" class="w-full h-52 object-cover rounded-3xl" width="256"
+                            height="208" loading="lazy" target="_blank" allowfullscreen
+                            src="https://maps.google.com/maps?q=@largetext,@text&z=14&output=embed">
+                        </iframe>
+                    </face>
+                </basis>
+            </section>
+        </div>
+        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-14">
+            <h2 class="text-2xl font-bold text-zinc-900 mb-2">سوالات متداول</h2>
+            <div class="text-sm text-zinc-900">بیشترین سوالاتی که شما از کارشناسان گاتو داشتید</div>
+            <basis core="print" datamembername="db.faq">
+                <layout>
+                    <div class="flex flex-col gap-3 mt-8">
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID not in(150)">
+                    <div
+                        class="faq-box group text-secondary-600 text-sm flex flex-col border border-solid border-secondary-100 py-3 px-6 rounded-lg cursor-pointer transition-all duration-300 hover:border-primary-800">
+                        <div
+                            class="flex justify-between items-center leading-6 transition-all duration-300 group-hover:text-primary-800">
+                            @text
+                            <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300">
+                                <use href="/images/sprite-icons.svg#icon-chevron-down"></use>
+                            </svg>
+                        </div>
+                        <div
+                            class="text-secondary-600 text-sm text-justify faq-answer overflow-hidden leading-6 px-4 transition-all duration-300 max-h-0 opacity-0">
+                            @largetext
+                        </div>
+                    </div>
+                </face>
+            </basis>
+
+        </section>
+        <section class="bg-secondary-800 rounded-3xl p-6 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-8">
+            <h2 class="text-2xl font-bold text-white mb-4">سوال خود را از ما بپرسید</h2>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" />
+</body>
+
+</html>

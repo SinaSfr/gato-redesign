@@ -1,0 +1,431 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="tour-list" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181,3088125"
+        perpage="6" size="299x176" pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+    <member name="paging" type="list" request="paging" count="3" parentname="tour-list" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline" type="list" request="spelist" />
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="list" lefttblcol="db.tour-list.prp_10000504" righttblcol="list.airline.name" format="join"
+        jointype="leftjoin" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
+    <member name="p-under" type="view" propertyid="7249" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(خرید بلیط هواپیما - رزرو تور داخلی و خارجی - گاتو (گردشگران خورشید سپاهان))##]
+    </title>
+    <meta name="description"
+        content="[##cms.seo.description|(خرید بلیط هواپیما، تورهای داخلی و خارجی، رزرو پرواز و هتل با بهترین قیمت در گاتو (گردشگران خورشید سپاهان). سفر آسان، امن و مقرون‌به‌صرفه با پشتیبانی ۲۴ ساعته.)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" />
+    <main>
+        <section class="relative bg-tourList bg-cover bg-center h-[500px]"></section>
+        <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <svg width="24" height="24">
+                <use href="/images/sprite-icons.svg#icon-home"></use>
+            </svg>
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
+                <li class="inline-block font-normal" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                        itemprop="item" href="/" aria-label="home">
+                        <span itemprop="name">صفحه اصلی</span>
+                        <meta itemprop="position" content="1" />
+                    </a>
+                </li>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                </svg>
+                <basis core="print" datamembername="db.navigation">
+                    <face filter="RowNumber=max(RowNumber) and title <> 'ریشه'">
+                        <li class="inline-block font-normal text-primary-800" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <span itemprop="name">@title</span>
+                            <meta itemprop="position" content="@rownumber" />
+                        </li>
+                    </face>
+                    <face filter="link is null and title <> 'ریشه'">
+                        <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                itemprop="item" href="/tour-list.bc?catid=@parentcatid" aria-label="@title">
+                                <span itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                            </svg>
+                        </li>
+                    </face>
+                    <face filter="title <> 'ریشه'">
+                        <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                itemprop="item" href="/@link" aria-label="@title">
+                                <span
+                                    class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                    itemprop="name">
+                                    @title
+                                </span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 6L9 12L15 18" stroke="#18181b" stroke-width="2"></path>
+                            </svg>
+                        </li>
+                    </face>
+                </basis>
+            </ul>
+        </div>
+        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <h1 class="text-2xl font-bold text-zinc-900">تورهای استانبول</h1>
+            <div class="text-sm text-zinc-900">بهترین قیمت‌ها و فرصت‌های تکرارنشدنی برای یک سفر هوشمندانه و اقتصادی.
+            </div>
+            <basis core="list" datamembername="joining.list">
+                <layout>
+                    <div class="flex flex-col gap-9 mt-9">
+                        @child
+                    </div>
+                </layout>
+                <face filter="[db.tour-list.00299X00176prp] is null and [db.tour-list.prp_3088125] is null">
+                    <div
+                        class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <div class="flex items-stretch gap-6 bg-white p-6">
+                            <div class="flex flex-[3.75] items-center gap-6">
+                                <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
+                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
+                                    width="299" height="176" loading="lazy">
+                                <div class="flex flex-1 flex-col">
+                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8076</span>
+                                        </div>
+                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
+                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
+                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
+                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
+                                <a href="/db.tour-list.link"
+                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
+                                    تور</a>
+                            </div>
+                        </div>
+                    </div>
+                </face>
+                <face filter="[db.tour-list.prp_3088125] is null">
+                    <div
+                        class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <div class="flex items-stretch gap-6 bg-white p-6">
+                            <div class="flex flex-[3.75] items-center gap-6">
+                                <img src="[##cms.cms.cdn##]/@db.tour-list.00299X00176prp"
+                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
+                                    width="299" height="176" loading="lazy">
+                                <div class="flex flex-1 flex-col">
+                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8076</span>
+                                        </div>
+                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
+                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
+                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
+                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
+                                <a href="/db.tour-list.link"
+                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
+                                    تور</a>
+                            </div>
+                        </div>
+                    </div>
+                </face>
+                <face filter="[db.tour-list.00299X00176prp] is null">
+                    <div
+                        class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <div class="flex absolute top-0 right-24">
+                            <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12L0 24.1244V-0.124355L18 12Z" fill="#F37321" />
+                            </svg>
+                            <span class="bg-specialcolor-1 font-bold text-white
+                            rounded-b-2xl py-3 px-4 select-none">
+                                @db.tour-list.prp_3088125
+                            </span>
+                        </div>
+                        <div class="flex items-stretch gap-6 bg-white p-6">
+                            <div class="flex flex-[3.75] items-center gap-6">
+                                <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
+                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
+                                    width="299" height="176" loading="lazy">
+                                <div class="flex flex-1 flex-col">
+                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">db.tour-list.prp_8076</span>
+                                        </div>
+                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
+                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
+                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
+                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
+                                <a href="/db.tour-list.link"
+                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
+                                    تور</a>
+                            </div>
+                        </div>
+                    </div>
+                </face>
+                <face filter="[db.tour-list.00299X00176prp] is null">
+                    <div
+                        class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
+                        <div class="flex absolute top-0 right-24">
+                            <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12L0 24.1244V-0.124355L18 12Z" fill="#F37321" />
+                            </svg>
+                            <span class="bg-specialcolor-1 font-bold text-white
+                            rounded-b-2xl py-3 px-4 select-none">
+                                @db.tour-list.prp_3088125
+                            </span>
+                        </div>
+                        <div class="flex items-stretch gap-6 bg-white p-6">
+                            <div class="flex flex-[3.75] items-center gap-6">
+                                <img src="[##cms.cms.cdn##]/@db.tour-list.00299X00176prp"
+                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
+                                    width="299" height="176" loading="lazy">
+                                <div class="flex flex-1 flex-col">
+                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <svg width="24" height="24" class="text-white">
+                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
+                                            </svg>
+                                            <span class="text-zinc-900">db.tour-list.prp_8076</span>
+                                        </div>
+                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
+                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
+                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
+                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
+                                <a href="/db.tour-list.link"
+                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
+                                    تور</a>
+                            </div>
+                        </div>
+                    </div>
+                </face>
+            </basis>
+
+            <div id="paging" class="flex items-center justify-center mt-9">
+                <ul class="flex items-center gap-3 cd-pagination no-space direction-ltr" id="wibpaging">
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="group flex items-center justify-center w-12 h-12 rounded-lg bg-zinc-400 transition-all duration-300 hover:bg-primary-800 page-no prev-page">
+                                <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-left" href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    <svg width="48" height="48" class="text-white">
+                                        <use href="/images/sprite-icons.svg#icon-chevron-left-half"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                        <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="group flex items-center justify-center w-12 h-12 rounded-lg bg-zinc-400 transition-all duration-300 hover:bg-primary-800 page-no prev-page">
+                                <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-left" href="/[##cms.cms.pageurl##]?pagenum=@page">
+                                    <svg width="48" height="48" class="text-white">
+                                        <use href="/images/sprite-icons.svg#icon-chevron-left-half"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                    </basis>
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="fflex items-center justify-center w-12 h-12 text-white font-bold rounded-lg border border-solid border-primary-800 bg-primary-800 page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    @page
+                                </a>
+                            </li>
+                        </face>
+                        <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 text-white font-bold rounded-lg border border-solid border-primary-800 bg-primary-800 page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.pageurl##]?pagenum=@page">
+                                    @page
+                                </a>
+                            </li>
+                        </face>
+                        <face
+                            filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'='') ">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 text-primary-800 font-bold rounded-lg border border-solid border-primary-800 transition-all duration-300 hover:bg-primary-800 hover:text-white page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    @page
+                                </a>
+                            </li>
+                        </face>
+                        <face
+                            filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'<>'') ">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 text-primary-800 font-bold rounded-lg border border-solid border-primary-800 transition-all duration-300 hover:bg-primary-800 hover:text-white page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.pageurl##]?pagenum=@page">
+                                    @page
+                                </a>
+                            </li>
+                        </face>
+                    </basis>
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="group flex items-center justify-center w-12 h-12 rounded-lg bg-zinc-400 transition-all duration-300 hover:bg-primary-800 page-no next-page">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-right" href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    <svg width="8" height="16" class="text-white">
+                                        <use href="/images/sprite-icons.svg#icon-chevron-right-half"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                        <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="group flex items-center justify-center w-12 h-12 rounded-lg bg-zinc-400 transition-all duration-300 hover:bg-primary-800 page-no next-page">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-right" href="/[##cms.cms.pageurl##]?pagenum=@page">
+                                    <svg width="8" height="16" class="text-white">
+                                        <use href="/images/sprite-icons.svg#icon-chevron-right-half"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                    </basis>
+                </ul>
+            </div>
+        </section>
+        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <basis core="print" datamembername="db.p-under">
+                <face filter="TypeID in(150)">
+                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="db.p-under">
+                <layout>
+                    <div class="mb-9">
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in(129)">
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
+                        @largetext
+                    </div>
+                </face>
+                <face filter="TypeID in(250)">
+                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
+                        @largetext
+                    </div>
+                </face>
+            </basis>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" />
+</body>
+
+</html>

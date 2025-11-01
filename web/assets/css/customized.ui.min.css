@@ -1186,9 +1186,8 @@ body {
   line-height: 1.75rem;
 }
 
-.text-orange-200 {
-  --tw-text-opacity: 1;
-  color: rgb(254 215 170 / var(--tw-text-opacity, 1));
+.text-specialcolor-1 {
+  color: var(--special-1);
 }
 
 .text-primary-800 {

@@ -9,7 +9,7 @@
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="213321">
     <member name="offer-tours" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181" perpage="8"
-        order="ord" size="284x160" />
+        order="ord" size="300x160" />
 </basis>
 <basis core="dbsource" source="basiscore" mid="20" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
     <member name="airline" type="list" request="spelist" />
@@ -18,19 +18,20 @@
     <member name="list" lefttblcol="db.offer-tours.prp_10000504" righttblcol="list.airline.name" format="join"
         jointype="leftjoin" />
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tourism-magazine">
-    <member name="cat" type="tree" request="cat" parentid="212956" order="ord"></member>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tours-category">
+    <member name="cat" type="tree" request="cat" parentid="213383" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="212956">
+    <member name="tourism-magazine" type="list" link="article.bc" propertyid="" perpage="6" order="ord"
+        size="284x160" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="213297">
     <member name="exhibition-tours" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181" perpage="8"
-        order="ord" size="284x160" />
+        order="ord" size="300x160" />
 </basis>
 <basis core="inlinesource" name="joining-exhibition-tours">
     <member name="list" lefttblcol="db.exhibition-tours.prp_10000504" righttblcol="list.airline.name" format="join"
         jointype="leftjoin" />
-</basis>
-<basis core="dbsource" source="basiscore" name="everything-aboutus" mid="1" lid="1" usedforid="2374014">
-    <member name="view" type="view" propertyid="7249" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="High-demand-visas">
     <member name="cat" type="tree" request="cat" parentid="213324" order="ord"></member>
@@ -208,15 +209,14 @@
                     <a href="/tour-list.bc?catid=@catid"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
-                            alt="@title" loading="lazy">
+                            width="302" height="240" alt="@title" loading="lazy">
                         <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -227,15 +227,14 @@
                     <a href="/@link"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
-                            alt="@title" loading="lazy">
+                            width="302" height="240" alt="@title" loading="lazy">
                         <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -245,16 +244,15 @@
                 <face filter="link is null">
                     <a href="/tour-list.bc?catid=@catid"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title"
-                            loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title" width="302"
+                            height="240" loading="lazy">
                         <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -264,16 +262,15 @@
                 <face>
                     <a href="/@link"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title"
-                            loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" alt="@title" width="302"
+                            height="240" loading="lazy">
                         <h2 class="absolute right-2 bottom-2 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -304,11 +301,11 @@
                         <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
                     </div>
                 </layout>
-                <face filter="[@db.offer-tours.00284X00160prp] is null">
+                <face filter="[@db.offer-tours.00300X00160prp] is null">
                     <a href="/@db.offer-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
-                            alt="@db.offer-tours.title" width="284" height="160" loading="lazy">
+                            alt="@db.offer-tours.title" width="300" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
                             <h2 class="text-xl font-medium text-zinc-900">@db.offer-tours.title</h2>
                             <div
@@ -339,8 +336,8 @@
                 <face>
                     <a href="/@db.offer-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/@db.offer-tours.00284X00160prp" class="w-full h-40 object-cover"
-                            alt="@db.offer-tours.title" width="284" height="160" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@db.offer-tours.00300X00160prp" class="w-full h-40 object-cover"
+                            alt="@db.offer-tours.title" width="300" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
                             <h2 class="text-xl font-medium text-zinc-900">@db.offer-tours.title</h2>
                             <div
@@ -377,89 +374,53 @@
             </div>
 
             <div class="flex items-center gap-6 px-9">
-                <div class="flex-1 swiper swiper-tour-description-cat h-[400px] pr-8">
-                    <div class="swiper-wrapper">
+                <basis core="tree" datamembername="tours-category.cat" idcol="catid" parentidcol="parentid"
+                    nullvalue="213383">
+                    <layout>
+                        <div class="flex-1 swiper swiper-tour-description-cat h-[400px] pr-8">
+                            <div class="swiper-wrapper">
+                                @child
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </layout>
+                    <face>
                         <div class="swiper-slide flex flex-col gap-3 justify-center h-28">
-                            <h2 class="text-2xl font-bold text-white">تفریحات ساحلی</h2>
-                            <div class="text-sm text-white">آرامش در سواحل آفتابی، ورزش‌های آبی هیجان‌انگیز و لذت بردن
-                                از نسیم دریا در بهترین مقاصد
-                                ساحلی جهان.</div>
+                            <h2 class="text-2xl font-bold text-white">@title</h2>
+                            <div class="text-sm text-white">@urldescription</div>
                         </div>
-                        <div class="swiper-slide flex flex-col gap-3 justify-center h-28">
-                            <h2 class="text-2xl font-bold text-white">تفریحات ساحلی</h2>
-                            <div class="text-sm text-white">آرامش در سواحل آفتابی، ورزش‌های آبی هیجان‌انگیز و لذت بردن
-                                از نسیم دریا در بهترین مقاصد
-                                ساحلی جهان.</div>
-                        </div>
-                        <div class="swiper-slide flex flex-col gap-3 justify-center h-28">
-                            <h2 class="text-2xl font-bold text-white">تفریحات ساحلی</h2>
-                            <div class="text-sm text-white">آرامش در سواحل آفتابی، ورزش‌های آبی هیجان‌انگیز و لذت بردن
-                                از نسیم دریا در بهترین مقاصد
-                                ساحلی جهان.</div>
-                        </div>
-                        <div class="swiper-slide flex flex-col gap-3 justify-center h-28">
-                            <h2 class="text-2xl font-bold text-white">تفریحات ساحلی</h2>
-                            <div class="text-sm text-white">آرامش در سواحل آفتابی، ورزش‌های آبی هیجان‌انگیز و لذت بردن
-                                از نسیم دریا در بهترین مقاصد
-                                ساحلی جهان.</div>
-                        </div>
-                        <div class="swiper-slide flex flex-col gap-3 justify-center h-28">
-                            <h2 class="text-2xl font-bold text-white">تفریحات ساحلی</h2>
-                            <div class="text-sm text-white">آرامش در سواحل آفتابی، ورزش‌های آبی هیجان‌انگیز و لذت بردن
-                                از نسیم دریا در بهترین مقاصد
-                                ساحلی جهان.</div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="flex-[3.5] swiper swiper-tour-cat pb-11">
-                    <div class="swiper-wrapper items-center">
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-72 rounded-3xl overflow-hidden">
-                            <a href="" class="block">
-                                <img src="[##cms.cms.cdn##]/images/tour-category.jpg"
-                                    class="w-full h-full object-cover rounded-3xl" alt="" width="288" height="392"
-                                    loading="lazy">
-                            </a>
-                        </div>
-                    </div>
+                    </face>
+                </basis>
 
-                    <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
-                </div>
+                <basis core="tree" datamembername="tours-category.cat" idcol="catid" parentidcol="parentid"
+                    nullvalue="213383">
+                    <layout>
+                        <div class="flex-[3.5] swiper swiper-tour-cat pb-11">
+                            <div class="swiper-wrapper items-center">
+                                @child
+                            </div>
+
+                            <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
+                        </div>
+                    </layout>
+                    <face filter="link is null">
+                        <div class="swiper-slide w-72 h-[392px] rounded-3xl overflow-hidden">
+                            <a href="/tour-list.bc?catid=@catid" class="block h-full">
+                                <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover rounded-3xl"
+                                    alt="@title" width="288" height="392" loading="lazy">
+                            </a>
+                        </div>
+                    </face>
+                    <face>
+                        <div class="swiper-slide w-72 h-[392px] rounded-3xl overflow-hidden">
+                            <a href="/@link" class="block h-full">
+                                <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover rounded-3xl"
+                                    alt="@title" width="288" height="392" loading="lazy">
+                            </a>
+                        </div>
+                    </face>
+                </basis>
+
             </div>
         </section>
 
@@ -468,65 +429,115 @@
             <div class="text-zinc-900 text-sm text-center"> جدیدترین مقالات، راهنماهای سفر و معرفی جاذبه‌ها از متخصصان
                 گردشگری در
                 گاتو</div>
-            <basis core="tree" datamembername="tourism-magazine.cat" idcol="catid" parentidcol="parentid"
-                nullvalue="212956">
+            <basis core="list" datamembername="db.tourism-magazine">
                 <layout>
                     <div class="grid grid-cols-4 gap-6 mt-6">
                         @child
                     </div>
                 </layout>
-                <face filter="ord in(1,2)">
-                    <a href="#"
+                <face filter="image is null and ord in(1,2)">
+                    <a href="/@link"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
-                            loading="lazy">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
+                            width="302" height="240" alt="@title" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                               transition-all duration-300
                               opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                            استانبول
+                            @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="ord in(1,2)">
+                    <a href="/@link"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" width="302" height="240"
+                            alt="@title" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                               transition-all duration-300
-                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                            استانبول
+                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="image is null and ord in(3,4)">
+                    <a href="/@link"
+                        class="group relative block col-span-2 rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
+                            width="623" height="240" alt="@title" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                          transition-all duration-300
+                          opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
                         </h2>
 
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
                     </a>
                 </face>
                 <face filter="ord in(3,4)">
-                    <a href="#"
+                    <a href="/@link"
                         class="group relative block col-span-2 rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
-                            loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" width="623" height="240"
+                            alt="@title" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                            استانبول
+                            @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                            استانبول
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
+                        </h2>
+
+                        <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
+                    </a>
+                </face>
+                <face filter="image is null and ord in(5,6)">
+                    <a href="/@link"
+                        class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
+                            width="302" height="240" alt="@title" loading="lazy">
+                        <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
+                              transition-all duration-300
+                              opacity-100 group-hover:opacity-0 group-hover:scale-50">
+                            @title
+                        </h2>
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
                         </h2>
 
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
                     </a>
                 </face>
                 <face filter="ord in(5,6)">
-                    <a href="#"
+                    <a href="/@link"
                         class="group relative block rounded-3xl overflow-hidden shadow-tour-cat transition-all duration-300 hover:-translate-y-2">
-                        <img src="[##cms.cms.cdn##]/images/magazine.jpg" class="w-full h-60 object-cover" alt="استانبول"
-                            loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-60 object-cover" width="302" height="240"
+                            alt="@title" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                               transition-all duration-300
                               opacity-100 group-hover:opacity-0 group-hover:scale-50">
-                            استانبول
+                            @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                              transition-all duration-300
-                              opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
-                            استانبول
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                            @title
                         </h2>
 
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
@@ -559,11 +570,11 @@
                         <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
                     </div>
                 </layout>
-                <face filter="[@db.exhibition-tours.00284X00160prp] is null">
+                <face filter="[@db.exhibition-tours.00300X00160prp] is null">
                     <a href="/@db.exhibition-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
-                            alt="@db.exhibition-tours.title" width="284" height="160" loading="lazy">
+                            alt="@db.exhibition-tours.title" width="300" height="160" loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
                             <h2 class="text-xl font-medium text-zinc-900">@db.exhibition-tours.title</h2>
                             <div
@@ -595,8 +606,8 @@
                 <face>
                     <a href="/@db.exhibition-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/@db.exhibition-tours.00284X00160prp"
-                            class="w-full h-40 object-cover" alt="@db.exhibition-tours.title" width="284" height="160"
+                        <img src="[##cms.cms.cdn##]/@db.exhibition-tours.00300X00160prp"
+                            class="w-full h-40 object-cover" alt="@db.exhibition-tours.title" width="300" height="160"
                             loading="lazy">
                         <div class="bg-white px-2 pt-1 pb-3">
                             <h2 class="text-xl font-medium text-zinc-900">@db.exhibition-tours.title</h2>
@@ -718,16 +729,15 @@
                 <face filter="link is null and image is null">
                     <a href="/visa-list.bc?catid=@catid"
                         class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
-                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover" alt="@title"
-                            width="288" height="192" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover"
+                            alt="@title" width="192" height="192" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -737,16 +747,15 @@
                 <face filter="image is null">
                     <a href="/@link"
                         class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
-                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover" alt="@title"
-                            width="288" height="192" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-full object-cover"
+                            alt="@title" width="192" height="192" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -756,16 +765,15 @@
                 <face filter="link is null">
                     <a href="/visa-list.bc?catid=@catid"
                         class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
-                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title"
-                            width="288" height="192" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title" width="192"
+                            height="192" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
@@ -775,16 +783,15 @@
                 <face>
                     <a href="/@link"
                         class="swiper-slide group relative block h-48 rounded-3xl overflow-hidden shadow-tour-cat">
-                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title"
-                            width="288" height="192" loading="lazy">
+                        <img src="[##cms.cms.cdn##]/@image" class="w-full h-full object-cover" alt="@title" width="192"
+                            height="192" loading="lazy">
                         <h2 class="absolute right-4 bottom-4 z-20 text-2xl font-bold text-white
                           transition-all duration-300
                           opacity-100 group-hover:opacity-0 group-hover:scale-50">
                             @title
                         </h2>
-                        <h2 class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white
-                          transition-all duration-300
-                          opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                        <h2
+                            class="absolute inset-0 z-20 grid place-items-center text-2xl font-bold text-white text-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
                             @title
                         </h2>
 
