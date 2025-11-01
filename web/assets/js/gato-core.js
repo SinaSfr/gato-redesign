@@ -546,3 +546,176 @@ async function RenderFormHeader() {
   )
   inputElementVisa7.setAttribute('placeholder', 'متن')
 }
+
+// visa form
+function uploadDocumentVisa(args) {
+  document.querySelector("#visa-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#visa-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#visa-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadVisa", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
+
+function refreshCaptchaVisa(e) {
+  $bc.setSource("captcha.refreshVisa", true);
+}
+
+async function OnProcessedEditObjectVisa(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#visa-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#visa-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+  } else {
+    refreshCaptchaVisa();
+    setTimeout(() => {
+      document.querySelector("#visa-form-resize .Loading_Form").style.display =
+        "none";
+      document.querySelector("#visa-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormVisa() {
+  var inputElementVisa7 = document.querySelector(
+    ".name-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام *");
+
+  var inputElementVisa7 = document.querySelector(
+    " .family-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام خانوادگی*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".previous-name-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute(
+    "placeholder",
+    "نام قبلی ( در صورت تغییر نام )"
+  );
+
+  var inputElementVisa7 = document.querySelector(
+    " .birth-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ تولد*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".birth-place-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "محل تولد*");
+
+  var inputElementVisa7 = document.querySelector(
+    " .nationality-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ملیت*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".previous-nationality-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ملیت قبلی ( در صورت وجود)");
+
+  var inputElementVisa8 = document.querySelector(
+    ".address-form textarea[data-bc-text-input]"
+  );
+  inputElementVisa8.setAttribute("placeholder", "آدرس محل سکونت*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".phone-number-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره تماس*");
+
+  var inputElementVisa7 = document.querySelector(
+    " .fixed-number-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره ثابت");
+
+  var inputElementVisa7 = document.querySelector(
+    ".email-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".nationality-form-two input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ملیت*");
+
+  var inputElementVisa7 = document.querySelector(
+    " .passport-number-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "شماره پاسپورت*");
+
+  var inputElementVisa7 = document.querySelector(
+    ".issue-date-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ صدور*");
+
+  var inputElementVisa7 = document.querySelector(
+    " .expire-date-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ انقضا*");
+  var inputElementVisa7 = document.querySelector(
+    " .country-passport-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "کشور صادرکننده پاسپورت*");
+  var inputElementVisa7 = document.querySelector(
+    " .destination-country-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "کشور مقصد*");
+  var inputElementVisa7 = document.querySelector(
+    " .date-in-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ ورود مورد انتظار");
+
+  var inputElementVisa7 = document.querySelector(
+    " .date-out-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ خروج مورد انتظار");
+
+  var inputElementVisa7 = document.querySelector(
+    " .sponsor-name-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام اسپانسر");
+
+  var inputElementVisa7 = document.querySelector(
+    " .componey-name-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام شرکت یا موسسه آموزشی");
+
+  var inputElementVisa7 = document.querySelector(
+    " .componey-address-form textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute(
+    "placeholder",
+    "آدرس و شماره تماس کارفرما یا دانشگاه"
+  );
+
+  var inputElementVisa7 = document.querySelector(
+    " .wife-name-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "نام و اطلاعات همسر");
+
+  var inputElementVisa7 = document.querySelector(
+    " .number-child-form textarea[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تعداد فرزندان و اطلاعات آنها");
+
+  var inputElementVisa7 = document.querySelector(
+    " .completion-date-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "تاریخ تکمیل فرم");
+}

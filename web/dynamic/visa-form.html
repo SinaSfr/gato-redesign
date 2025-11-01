@@ -1,0 +1,172 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(خرید بلیط هواپیما - رزرو تور داخلی و خارجی - گاتو (گردشگران خورشید سپاهان))##]
+    </title>
+    <meta name="description"
+        content="[##cms.seo.description|(خرید بلیط هواپیما، تورهای داخلی و خارجی، رزرو پرواز و هتل با بهترین قیمت در گاتو (گردشگران خورشید سپاهان). سفر آسان، امن و مقرون‌به‌صرفه با پشتیبانی ۲۴ ساعته.)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" />
+    <main>
+        <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-20">
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
+                <li class="inline-block font-normal" itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                    itemprop="item" href="/" aria-label="home">
+                    <span itemprop="name">صفحه اصلی</span>
+                    <meta itemprop="position" content="1" />
+                  </a>
+                </li>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                </svg>
+                <basis core="print" datamembername="db.navigation">
+                  <face filter="RowNumber=max(RowNumber) and title <> 'ریشه'">
+                    <li class="inline-block font-normal text-primary-800" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <span itemprop="name">@title</span>
+                      <meta itemprop="position" content="@rownumber" />
+                    </li>
+                  </face>
+                  <face filter="link is null and title <> 'ریشه'">
+                    <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                        itemprop="item" href="/visa-list.bc?catid=@parentcatid" aria-label="@title">
+                        <span itemprop="name">@title</span>
+                        <meta itemprop="position" content="@rownumber" />
+                      </a>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                      </svg>
+                    </li>
+                  </face>
+                  <face filter="title <> 'ریشه'">
+                    <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                        itemprop="item" href="/@link" aria-label="@title">
+                        <span class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                          itemprop="name">
+                          @title
+                        </span>
+                        <meta itemprop="position" content="@rownumber" />
+                      </a>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke="#18181b" stroke-width="2"></path>
+                      </svg>
+                    </li>
+                  </face>
+                </basis>
+              </ul>
+
+            <div class="relative pt-3 mt-7 mb-20">
+                <div class="w-full h-[6px] bg-zinc-200 mb-20"></div>
+
+                <div class="absolute left-0 right-0 top-0 z-20 flex mr-16">
+                    <h2 class=" text-2xl font-bold bg-white px-5 text-zinc-900">ویزا های پر تقاضا</h2>
+                </div>
+
+                <div class="flex flex-col mt-6 mb-4 visa-form" id="visa-form-resize">
+
+                    <basis core="schema" run="atclient"
+                        schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/74F3A5C3-846F-4F65-913D-D332BE4A484A/fa/فرم-درخواست-ویزا"
+                        displaymode="new" button="[data-btn-uploadVisa]" resultsourceid="upload.dataVisa"
+                        OnRendered="RenderFormVisa"></basis>
+                    <basis core="api" if="{##cms.uploadVisa.run|(false)##}" run="atclient"
+                        url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject" method="post"
+                        body="object_edit={##cms.uploadVisa.value##}&captcha={##cms.uploadVisa.captcha##}&captchaid={##cms.uploadVisa.captchaid##}"
+                        content-type="application/x-www-form-urlencoded" triggers='cms.uploadVisa'
+                        OnProcessed="OnProcessedEditObjectVisa"></basis>
+                    <basis core="callback" run="atclient" method="uploadDocumentVisa" triggers="upload.dataVisa">
+                    </basis>
+
+                    <div class="flex items-center gap-4 captcha-button">
+                        <div id="captchaContainer"
+                            class="captchaContainerclass flex-[3] captcha-sefaresh ml-2.5 max-xl:ml-0 max-xl:mb-[20px]"
+                            data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                            data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                            <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                                triggers="captcha.refreshVisa">
+                                <member name="code" type="scalar" request="captcha"></member>
+                            </basis>
+                            <basis datamembername="captcha.code" core="print" run="atclient">
+                                <face>
+                                    <script type="text/template"><div class="d-inline-block"><div class="flex gap-8">
+                
+                                    <div class="float-right"><input type="text" class="contactUsInput codeinputm" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" /></div>
+                                    <div class="flex items-center gap-6 shrink-0">
+                                        <img src="/@captcha@" loading="lazy" width="120" height="60" alt="captcha" class="w-16" />
+                                        <svg class="inline-block align-middle cursor-pointer w-9 h-9" onclick="refreshCaptchaVisa()" width="24" height="24" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.1247 8.56165H18.1238C18.0007 8.56175 17.8788 8.5861 17.7651 8.63331C17.6514 8.68052 17.5481 8.74967 17.4611 8.8368C17.3741 8.92393 17.3052 9.02734 17.2581 9.14113C17.2111 9.25492 17.187 9.37685 17.1871 9.49997C17.1859 10.8143 16.8245 12.1032 16.1421 13.2265C15.4597 14.3498 14.4824 15.2646 13.3166 15.8714C12.1507 16.4782 10.8408 16.7538 9.52921 16.6683C8.21765 16.5827 6.95463 16.1393 5.87744 15.3862C2.63134 13.1132 1.83959 8.62309 4.11255 5.37696C6.38552 2.13083 10.8757 1.33899 14.1218 3.61204C14.6129 3.95501 15.0592 4.358 15.4504 4.81165H12.8121C12.5635 4.81165 12.325 4.91042 12.1492 5.08623C11.9734 5.26205 11.8746 5.5005 11.8746 5.74915C11.8746 5.99779 11.9734 6.23624 12.1492 6.41206C12.325 6.58787 12.5635 6.68665 12.8121 6.68665H17.1871C17.4358 6.68665 17.6742 6.58787 17.85 6.41206C18.0259 6.23624 18.1246 5.99779 18.1246 5.74915V1.37415C18.1246 1.12551 18.0259 0.887048 17.85 0.711233C17.6742 0.535418 17.4358 0.436646 17.1871 0.436646C16.9385 0.436646 16.7 0.535418 16.5242 0.711233C16.3484 0.887048 16.2496 1.12551 16.2496 1.37415V2.93536C15.9206 2.62321 15.5689 2.33596 15.1973 2.07598C14.2225 1.39342 13.1228 0.909542 11.9609 0.651979C10.7991 0.394417 9.59797 0.368213 8.42603 0.574863C7.25409 0.781513 6.13433 1.21697 5.13067 1.85637C4.12702 2.49578 3.25914 3.3266 2.57658 4.30141C1.19808 6.27013 0.658111 8.70582 1.07546 11.0727C1.49281 13.4395 2.83329 15.5436 4.80201 16.9221C6.31776 17.9898 8.12639 18.563 9.98041 18.5633C10.5144 18.5631 11.0474 18.5162 11.5732 18.4233C13.6714 18.0531 15.5722 16.9556 16.9417 15.3235C18.3112 13.6914 19.062 11.6289 19.0621 9.49833C19.0619 9.24983 18.963 9.01159 18.7873 8.83596C18.6115 8.66032 18.3732 8.56166 18.1247 8.56165Z" fill="#71717A"/></svg>
+                                    </div>
+                                    
+                                </div></div></script>
+                                </face>
+                            </basis>
+                        </div>
+                        <button
+                            class="flex items-center justify-center w-40 h-10 text-white transition-all duration-300 bg-primary-900 rounded-xl hover:bg-secondary-500 y-2 wpx-4 data-body-btn"
+                            type="button" data-btn-uploadVisa><span class="">ارسال</span></button>
+                        <div
+                            class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 bg-secondary-800 rounded-2xl justify-center items-center gap-2.5">
+                            <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
+                                <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center message-api"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <basis core="call" file="footer.inc" />
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------

@@ -957,7 +957,7 @@
 }
 
 .FlightClass-text {
-  font-size: 14px !important;  
+    font-size: 14px !important;
 }
 
 .flighttype-dropDown-text {
@@ -1471,4 +1471,161 @@
 .reserve-search button svg {
     width: 24px !important;
     height: 24px !important;
+}
+
+/* visa-form */
+.visa-form fieldset {
+    padding: 10px 0px !important;
+}
+
+.visa-form [data-bc-answer-container] input[type="text"] {
+    background-color: #fafafa !important;
+    color: #52525b !important;
+    height: 60px !important;
+    padding: 8px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 12px !important;
+    border: 1px solid #e4e4e7 !important;
+    font-size: 16px;
+}
+
+.visa-form .contactUsInput [data-bc-answer-container] input[type="text"] {
+    background-color: #fff !important;
+    color: #52525b !important;
+    height: 60px;
+    padding: 8px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 12px !important;
+    border: 1px solid #e4e4e7 !important;
+    font-size: 16px;
+}
+
+.visa-form [data-bc-answer-container] textarea {
+    background-color: #fafafa !important;
+    color: #52525b !important;
+    height: 60px;
+    padding: 8px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 12px !important;
+    border: 1px solid #e4e4e7 !important;
+    font-size: 16px;
+}
+
+.visa-form [data-bc-answer-container] textarea::placeholder {
+    color: #52525b !important;
+}
+
+.visa-form [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #52525b !important;
+}
+
+.visa-form [data-bc-schema-column] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.visa-form [data-bc-question] {
+    width: 50% !important;
+}
+
+.visa-form [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.visa-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.visa-form [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.visa-form .visa-type [data-bc-title-container] [data-bc-question-title],
+.visa-form .gender [data-bc-title-container] [data-bc-question-title],
+.visa-form .marital-status [data-bc-title-container] [data-bc-question-title],
+.visa-form .travel-purpose [data-bc-title-container] [data-bc-question-title],
+.visa-form .residence-documents [data-bc-title-container] [data-bc-question-title],
+.visa-form .travel-expences [data-bc-title-container] [data-bc-question-title],
+.visa-form .employment-status [data-bc-title-container] [data-bc-question-title] {
+    display: block !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+.visa-form .visa-type [data-bc-answer-container],
+.visa-form .gender [data-bc-answer-container],
+.visa-form .marital-status [data-bc-answer-container],
+.visa-form .travel-purpose [data-bc-answer-container],
+.visa-form .residence-documents [data-bc-answer-container],
+.visa-form .travel-expences [data-bc-answer-container],
+.visa-form .employment-status [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.visa-form .previous-nationality,
+.visa-form .destination-country,
+.visa-form .visa-type,
+.visa-form .travel-purpose,
+.visa-form .travel-expences,
+.visa-form .sponsor-name,
+.visa-form .address,
+.visa-form .residence-documents,
+.visa-form .employment-status,
+.visa-form .completion-date {
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+}
+
+.visa-form .gender,
+.visa-form .marital-status {
+    display: flex;
+    align-items: center;
+}
+
+.visa-form .residence-documents {
+    margin-bottom: 24px;
+}
+
+.visa-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    width: auto !important;
+    flex-shrink: 0;
+    margin-left: 0 !important;
+}
+
+.visa-form div [data-sys-text] {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.visa-form input[type="radio"] {
+    width: 21px;
+    height: 21px;
+}
+
+.visa-form div [data-bc-items] {
+    display: flex;
+    gap: 16px;
+}
+
+.visa-form [data-bc-part-related-cell] [data-bc-part-radio] {
+    padding: 0.5em 0.6em;
+    border: none !important;
+}
+
+.visa-form legend {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+.visa-form [data-bc-items]> :first-child {
+    display: none;
+}
+
+.visa-form [data-bc-part-related-cell] [data-bc-part-checkbox] {
+    border: none !important;
 }
