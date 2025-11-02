@@ -50,16 +50,7 @@
 <body>
     <basis core="call" file="header.inc" />
     <main>
-        <section>
-            <basis core="list" datamembername="db.cat-banner">
-                <face filter="image is null">
-                    <img src="[##cms.cms.cdn##]/images/visa-list-background.jpg" class="w-full h-[500px] object-cover" alt="@title" width="1920" height="500" loading="lazy">
-                </face>
-                <face>
-                    <img src="[##cms.cms.cdn##]/@image" class="w-full h-[500px] object-cover" alt="@title" width="1920" height="500" loading="lazy">
-                </face>
-            </basis>
-        </section>
+        <section class="bg-visaList bg-cover bg-center h-[500px]"></section>
         <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
             <svg width="24" height="24">
                 <use href="[##cms.cms.cdn##]/images/sprite-icons.svg#icon-home"></use>

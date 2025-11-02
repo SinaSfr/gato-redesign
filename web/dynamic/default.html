@@ -164,7 +164,7 @@
                 </layout>
                 <face>
                     <div class="swiper-slide relative group rounded-3xl overflow-hidden">
-                        <a href="/@link">
+                        <a href="@name">
                             <img src="[##cms.cms.cdn##]/@largeIMG"
                                 class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-110"
                                 alt="@name" width="634" height="224" loading="lazy">
@@ -177,7 +177,7 @@
             </basis>
             <basis core="print" datamembername="fixed-gallery.gallery">
                 <face filter="ord in(1)">
-                    <a href="/@link"
+                    <a href="@name"
                         class="group flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
                         <img src="[##cms.cms.cdn##]/@largeIMG"
                             class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125" alt=""
@@ -194,7 +194,7 @@
                         دارند.
                     </div>
                 </div>
-                <a href=""
+                <a href="/Popular-tours"
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های محبوب</a>
             </div>
@@ -557,7 +557,7 @@
                         با شرکت در معتبرترین رویدادهای بین‌المللی، کسب و کار خود را جهانی کنید.
                     </div>
                 </div>
-                <a href=""
+                <a href="/Exhibition-tours"
                     class="w-44 h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-sm text-zinc-900 transition-all duration-300 hover:border-primary-800">همه
                     تور های نمایشگاهی</a>
             </div>
@@ -801,10 +801,10 @@
             </basis>
 
             <div class="flex items-center justify-end gap-3 mt-6">
-                <button
+                <a href="/Visa-pickup"
                     class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">پیکاپ
-                    ویزا</button>
-                <a href="tel:"
+                    ویزا</a>
+                <a href="/Embassy-appointment"
                     class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 transition-all duration-300 hover:border-secondary-700 hover:text-secondary-700">
                     وقت سفارت
                 </a>
@@ -818,12 +818,17 @@
                     طراحی کند. از
                     انتخاب مقصد تا رزرو هتل و پرواز، ما در کنار شما هستیم.</div>
                 <div class="flex items-center justify-center gap-3">
-                    <a href="tel:"
-                        class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 transition-all duration-300 hover:border-secondary-700 hover:text-secondary-700">
-                        تماس با پشتیبانی
-                    </a>
+                    <basis core="print" datamembername="db.info">
+                        <face filter="TypeID in(240)">
+                            <a href="tel:@text"
+                                class="flex items-center justify-center gap-2 w-44 h-12 border border-solid border-primary-800 rounded-lg text-primary-800 transition-all duration-300 hover:border-secondary-700 hover:text-secondary-700">
+                                تماس با پشتیبانی
+                            </a>
+                        </face>
+                    </basis>
+
                     <button
-                        class="flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">مشاوره
+                        class="btn-contact flex items-center justify-center w-44 h-12 text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 hover:bg-specialcolor-1">مشاوره
                         رایگان</button>
                 </div>
             </div>
@@ -831,6 +836,65 @@
                 <h2 class="font-bold text-2xl text-zinc-900 mb-6">از آخرین تورها و تخفیف‌ها باخبر شوید!</h2>
                 <div class="text-sm text-zinc-900">با عضویت در خبرنامه ما، پیشنهادهای ویژه، تورهای لحظه آخری و راهنماهای
                     سفر جدید را مستقیم در ایمیل خود دریافت کنید.</div>
+                <div class="flex flex-col mx-auto footer-form mt-6" id="footer-form-resize">
+
+                    <basis core="schema" run="atclient"
+                        schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/06161905-CD8D-41EE-9623-83B2FFF1C62C/fa/گوش-به-زنگ-باشید"
+                        displaymode="new" button="[data-btn-uploadfooter]" resultsourceid="upload.datafooter"
+                        OnRendered="RenderFormFooter"></basis>
+                    <basis core="api" if="{##cms.uploadFooter.run|(false)##}" run="atclient"
+                        url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject" method="post"
+                        body="object_edit={##cms.uploadFooter.value##}&captcha={##cms.uploadFooter.captcha##}&captchaid={##cms.uploadFooter.captchaid##}"
+                        content-type="application/x-www-form-urlencoded" triggers='cms.uploadFooter'
+                        OnProcessed="OnProcessedEditObjectFooter"></basis>
+                    <basis core="callback" run="atclient" method="uploadDocumentFooter" triggers="upload.datafooter">
+                    </basis>
+
+                    <div class="flex items-center captcha-button mt-6">
+                        <div id="captchaContainer"
+                            class="captchaContainerclass captcha-sefaresh flex items-center max-xl:ml-0 max-xl:mb-[20px]"
+                            data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                            data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                            <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                                triggers="captcha.refreshFooter">
+                                <member name="code-footer" type="scalar" request="captcha"></member>
+                            </basis>
+                            <basis datamembername="captcha.code-footer" core="print" run="atclient">
+                                <face>
+                                    <script type="text/template"><div><div class="flex gap-8">
+                    
+                                        <div class="float-right"><input type="text" class="contactUsInput codeinputm" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" /></div>
+                                        <div class="flex items-center gap-6">
+                                            <img src="/@captcha@" loading="lazy" width="120" height="60" alt="captcha" class="w-16" />
+                                            <svg width="48" height="48" onclick="refreshCaptchaFooter()" class="text-zinc-900 cursor-pointer">
+                                                <use href="/images/sprite-icons.svg#icon-refresh"></use>
+                                            </svg>
+                                        
+                                        </div>
+                                        
+                                    </div></div></script>
+                                </face>
+                            </basis>
+                        </div>
+                        <button
+                            class="w-44 px-4 text-white transition-all duration-300 data-body-btn h-12 bg-primary-800 rounded-xl hover:bg-specialcolor-1"
+                            type="button" data-btn-uploadfooter><span class="">ارسال</span></button>
+                    </div>
+                    <div
+                        class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 rounded-2xl justify-center items-center gap-2.5">
+                        <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
+                            <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                            <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center message-api"></div>
+                </div>
             </div>
         </section>
     </main>
@@ -859,6 +923,8 @@
             centeredSlides: false,
             spaceBetween: 24,
             grabCursor: true,
+            loop: true,
+            watchOverflow: false,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,

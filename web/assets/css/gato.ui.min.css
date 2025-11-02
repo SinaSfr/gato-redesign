@@ -261,6 +261,10 @@
     width: 2.25rem;
 }
 
+.\!w-\[287px\] {
+    width: 287px !important;
+}
+
 .w-\[299px\] {
     width: 299px;
 }
@@ -323,6 +327,10 @@
 
 .gap-11 {
     gap: 2.75rem;
+}
+
+.gap-16 {
+    gap: 4rem;
 }
 
 .gap-6 {
@@ -1473,44 +1481,173 @@
     height: 24px !important;
 }
 
-/* visa-form */
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.footer-form [data-bc-answer-container] input[type="text"] {
+    background-color: white !important;
+    color: #000 !important;
+    height: 45px !important;
+    padding: 10px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: 1px solid #A1A1AA !important;   
+    font-size: 16px !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.footer-form [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #A1A1AA !important;
+}
+
+.footer-form [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.footer-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+    width: 100% !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-part][data-bc-invalid] [data-bc-validation-part] {
+    direction: ltr;
+}
+
+.footer-form [data-bc-schema-column] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-form [data-bc-part-related-cell] {
+    margin-bottom: 0 !important;
+}
+
+.footer-form [data-bc-question] {
+    margin-bottom: 0 !important;
+}
+
+.contact-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+}
+
+.contact-form [data-bc-schema-direction="rtl"] [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.contact-form [data-bc-answer-container] input[type="text"] {
+    background-color: white !important;
+    color: #000 !important;
+    height: 56px !important;
+    padding: 16px 12px 16px 12px;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+
+.contact-form [data-bc-answer-container] textarea {
+    background-color: white !important;
+    color: #000 !important;
+    height: 56px;
+    padding: 16px 12px 16px 12px;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+
+.contact-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.contact-form [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #71717a !important;
+}
+
+.contact-form [data-bc-answer-container] textarea::placeholder {
+    color: #71717a !important;
+}
+
+.contact-form [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.contact-form [data-bc-schema-column] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.contact-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+    width: 100% !important;
+}
+
+.contact-form legend {
+    display: none;
+}
+
+.contact-form [data-bc-section] {
+    width: 50% !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+.contact-form [data-bc-schema-column]>div:first-child {
+    width: 287px;
+}
+
+.contact-form [data-bc-schema-column]>div:nth-child(2) {
+    flex: 3;
+}
+
 .visa-form fieldset {
     padding: 10px 0px !important;
 }
 
 .visa-form [data-bc-answer-container] input[type="text"] {
-    background-color: #fafafa !important;
-    color: #52525b !important;
+    background-color: #ffffff !important;
+    color: #000 !important;
     height: 60px !important;
     padding: 8px 12px !important;
     font-weight: 400 !important;
     outline: none !important;
     border-radius: 12px !important;
-    border: 1px solid #e4e4e7 !important;
+    border: 1px solid #A1A1AA !important;
     font-size: 16px;
 }
 
 .visa-form .contactUsInput [data-bc-answer-container] input[type="text"] {
-    background-color: #fff !important;
-    color: #52525b !important;
+    background-color: #ffffff !important;
+    color: #000 !important;
     height: 60px;
     padding: 8px 12px !important;
     font-weight: 400 !important;
     outline: none !important;
     border-radius: 12px !important;
-    border: 1px solid #e4e4e7 !important;
+    border: 1px solid #A1A1AA !important;
     font-size: 16px;
 }
 
 .visa-form [data-bc-answer-container] textarea {
-    background-color: #fafafa !important;
+    background-color: #ffffff !important;
     color: #52525b !important;
     height: 60px;
     padding: 8px 12px !important;
     font-weight: 400 !important;
     outline: none !important;
     border-radius: 12px !important;
-    border: 1px solid #e4e4e7 !important;
+    border: 1px solid #A1A1AA !important;
     font-size: 16px;
 }
 
@@ -1620,6 +1757,7 @@
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 24px;
+    color: var(--primary-800);
 }
 
 .visa-form [data-bc-items]> :first-child {
