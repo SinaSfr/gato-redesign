@@ -1,9 +1,9 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="8" size="224x176"
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="4" size="240x224"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
     <member name="cat-description" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
-    postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
+        postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
@@ -33,20 +33,21 @@
         </face>
     </basis>
     <!-- pwa metatags -->
-    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- common styles for all page -->
-    <basis core="call" file="style.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
 </head>
 
 <body>
-    <basis core="call" file="header.inc" />
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
     <main>
-        <section class="relative bg-articleList bg-cover bg-center h-[500px]"></section>
-        <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="relative bg-articleList bg-cover bg-center h-80"></section>
+        <div class="flex items-center gap-2 mx-auto max-lg:w-[90%] mt-6">
             <svg width="24" height="24">
-                <use href="/images/sprite-icons.svg#icon-home"></use>
+                <use href="/images/sprite-icons-mobile.svg#icon-home"></use>
             </svg>
-            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList"
+                class="flex flex-wrap items-center text-sm gap-1">
                 <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                     itemtype="https://schema.org/ListItem">
                     <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
@@ -101,58 +102,49 @@
                 </basis>
             </ul>
         </div>
-        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="mx-auto max-lg:w-[90%] mt-6">
             <basis core="list" datamembername="db.cat-description">
                 <face>
                     <h1 class="text-2xl font-bold text-zinc-900">@title</h1>
-                    <div class="text-sm text-zinc-900">@urldescription
+                    <div class="text-sm text-zinc-900 mb-6">@urldescription
                     </div>
                 </face>
             </basis>
             <basis core="list" datamembername="db.article-list">
                 <layout>
-                    <div class="grid grid-cols-2 gap-6 mt-9">
+                    <div class="flex flex-col gap-6">
                         @child
                     </div>
                 </layout>
-                <face filter="[00224X00176prp] is null">
+                <face filter="[00240X00224prp] is null">
                     <a href="/@link"
-                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
-                            class="w-56 h-44 object-cover rounded-3xl shrink-0" alt="@title" width="224" height="176"
-                            loading="lazy">
-                        <div class="flex flex-col justify-between gap-2 w-full">
-                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
-                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
-                                <button
-                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
-                                    بخوانید</button>
-                            </div>
-                        </div>
+                        class="flex flex-col gap-2 border border-solid border-zinc-400 rounded-3xl p-6 shadow-tour-card">
+                        <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-56 object-cover rounded-3xl" alt="@title"
+                            width="240" height="224" loading="lazy">
+                        <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
+                        <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-4">@prp_7244</div>
+                        <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
+                        <button
+                            class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">بیشتر
+                            بخوانید</button>
                     </a>
                 </face>
                 <face>
                     <a href="/@link"
-                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/@00224X00176prp" class="w-56 h-44 object-cover rounded-3xl shrink-0"
-                            alt="@title" width="224" height="176" loading="lazy">
-                        <div class="flex flex-col justify-between gap-2 w-full">
-                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
-                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
-                                <button
-                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
-                                    بخوانید</button>
-                            </div>
-                        </div>
+                        class="flex flex-col gap-2 border border-solid border-zinc-400 rounded-3xl p-6 shadow-tour-card">
+                        <img src="[##cms.cms.cdn##]/@00240X00224prp" class="w-full h-56 object-cover rounded-3xl" alt="@title"
+                            width="240" height="224" loading="lazy">
+                        <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
+                        <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-4">@prp_7244</div>
+                        <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
+                        <button
+                            class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">بیشتر
+                            بخوانید</button>
                     </a>
                 </face>
             </basis>
 
-            <div id="paging" class="flex items-center justify-center mt-9">
+            <div id="paging" class="flex items-center justify-center mt-6">
                 <ul class="flex items-center gap-3 cd-pagination no-space direction-ltr" id="wibpaging">
                     <basis core="print" datamembername="db.paging">
                         <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
@@ -246,7 +238,7 @@
             </div>
         </section>
     </main>
-    <basis core="call" file="footer.inc" />
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
 </body>
 
 </html>

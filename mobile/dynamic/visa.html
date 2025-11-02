@@ -1,0 +1,246 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member request="json-ld" type="scalar" name="json" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
+    <member name="view" type="view" propertyid="7249" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
+    <member name="navigation" type="tree" request="navigationcat" />
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(خرید بلیط هواپیما - رزرو تور داخلی و خارجی - گاتو (گردشگران خورشید سپاهان))##]
+    </title>
+    <meta name="description"
+        content="[##cms.seo.description|(خرید بلیط هواپیما، تورهای داخلی و خارجی، رزرو پرواز و هتل با بهترین قیمت در گاتو (گردشگران خورشید سپاهان). سفر آسان، امن و مقرون‌به‌صرفه با پشتیبانی ۲۴ ساعته.)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+    <main>
+        <section class="mx-auto max-lg:w-[90%] mt-6">
+            <div class="flex items-center gap-2">
+                <svg width="24" height="24">
+                    <use href="/images/sprite-icons-mobile.svg#icon-home"></use>
+                </svg>
+                <ul itemscope itemtype="https://schema.org/BreadcrumbList"
+                    class="breadcrumb flex flex-wrap items-center text-sm gap-1">
+                    <li class="inline-block font-normal" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                            itemprop="item" href="/" aria-label="home">
+                            <span itemprop="name">صفحه اصلی</span>
+                            <meta itemprop="position" content="1" />
+                        </a>
+                    </li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                    </svg>
+                    <basis core="print" datamembername="db.navigation">
+                        <face filter="RowNumber=max(RowNumber) and title <> 'ریشه'">
+                            <li class="inline-block font-normal text-primary-800" itemprop="itemListElement" itemscope
+                                itemtype="https://schema.org/ListItem">
+                                <span itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </li>
+                        </face>
+                        <face filter="link is null and title <> 'ریشه'">
+                            <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                                itemtype="https://schema.org/ListItem">
+                                <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                    itemprop="item" href="/visa-list.bc?catid=@parentcatid" aria-label="@title">
+                                    <span itemprop="name">@title</span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                                </svg>
+                            </li>
+                        </face>
+                        <face filter="title <> 'ریشه'">
+                            <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
+                                itemtype="https://schema.org/ListItem">
+                                <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                    itemprop="item" href="/@link" aria-label="@title">
+                                    <span
+                                        class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
+                                        itemprop="name">
+                                        @title
+                                    </span>
+                                    <meta itemprop="position" content="@rownumber" />
+                                </a>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 6L9 12L15 18" stroke="#18181b" stroke-width="2"></path>
+                                </svg>
+                            </li>
+                        </face>
+                    </basis>
+                </ul>
+            </div>
+            <div class="relative mt-6" id="shareWrap">
+                <button id="shareBtn" type="button"
+                    class="flex items-center justify-center gap-2 w-full h-12 bg-specialcolor-1 rounded-lg text-sm text-white transition-all duration-300 hover:bg-primary-800"
+                    aria-haspopup="menu" aria-expanded="false" data-title="این صفحه عالیه!" data-text="این صفحه رو ببین"
+                    data-url="">
+                    <svg width="34" height="34" aria-hidden="true">
+                        <use href="../assets/images/sprite-icons-mobile.svg#icon-share"></use>
+                    </svg>
+                    اشتراک‌گذاری
+                </button>
+                <div id="shareMenu" class="invisible opacity-0 w-full pointer-events-none absolute z-50 left-0
+                rounded-xl overflow-hidden bg-white shadow-xl
+                transition-opacity duration-300">
+
+                    <ul class="flex items-center gap-3 p-2" role="menu" aria-label="گزینه‌های اشتراک‌گذاری">
+                        <li class="group">
+                            <a id="shareTelegram" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="48" height="48" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-telegram"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">تلگرام</span>
+                            </a>
+                        </li>
+
+                        <li class="group">
+                            <a id="shareTwitter" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="24" height="24" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-twitter"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">توییتر</span>
+                            </a>
+                        </li>
+
+                        <li class="group">
+                            <a id="shareWhatsapp" target="_blank" rel="noopener noreferrer"
+                                class="flex flex-col items-center gap-2" role="menuitem">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 border border-solid border-secondary-600 rounded-full transition-all duration-300 group-hover:border-specialcolor-1">
+                                    <svg width="48" height="48" aria-hidden="true"
+                                        class="text-secondary-600 transition-all duration-300 group-hover:text-specialcolor-1">
+                                        <use href="../assets/images/sprite-icons-mobile.svg#icon-whatsapp"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="text-secondary-800 text-sm transition-all duration-300 group-hover:text-specialcolor-1">واتساپ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] mt-6">
+            <basis core="print" datamembername="db.view">
+                <layout>
+                    <div>
+                        @child
+                        <div class="text-sm text-zinc-900 mb-6">اطلاعات لازم جهت دریافت ویزای کانادا</div>
+                    </div>
+                </layout>
+                <face filter="TypeID in(150)">
+                    <h1 class="text-2xl font-bold text-zinc-900">@text</h1>
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="view.gallery">
+                <face filter="ord in(1)">
+                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full h-40 object-cover rounded-3xl shadow-visa" alt="@name"
+                    width="288" height="160" loading="lazy">
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="db.view">
+                <layout>
+                    <div>
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in('251') and vocabulary in('مدت-اعتبار-ویزا')">
+                    <div
+                        class="border border-solid border-zinc-400 px-3 py-4 rounded-xl font-bold text-lg shadow-visa mt-6">
+                        مدت اعتبار ویزا : <span>@Answer</span>
+                    </div>
+                </face>
+                <face filter="TypeID in('170') and vocabulary in('قیمت')">
+                    <div
+                        class="border border-solid border-zinc-400 px-3 py-4 rounded-xl font-bold text-lg shadow-visa mt-6">
+                        قیمت ویزا : <span>@Answer</span>
+                    </div>
+                </face>
+            </basis>
+
+
+
+            <basis core="print" datamembername="db.view">
+                <layout>
+                    <div class="mt-6">
+                        <h2 class="text-xl font-bold text-zinc-900">مدارک لازم</h2>
+                        <div
+                            class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-6">
+                            @child
+                        </div>
+                    </div>
+                </layout>
+                <face filter="TypeID in('140') and vocabulary in('مدارک')">
+                    <span>@text</span>
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="db.view">
+                <layout>
+                    <div class="mt-6">
+                        <h2 class="text-xl font-bold text-zinc-900">توضیحات</h2>
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in('144') and vocabulary in('توضیحات')">
+                        <div
+                            class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-6 leading-7">
+                            @largetext
+                        </div>
+                </face>
+            </basis>
+
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+
+    <script type="application/ld+json">[##db.json.Column1##]</script>
+</body>
+
+</html>

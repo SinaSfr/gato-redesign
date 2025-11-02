@@ -1,11 +1,20 @@
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244,7249" perpage="8" size="224x176"
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="visa-list" type="list" link="visa.bc" propertyid="3088126" perpage="4" size="256x160"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
-    <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
-    <member name="cat-description" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
-    postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
+    <member name="paging" type="list" request="paging" count="3" parentname="visa-list" />
+    <member name="cat-banner" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
+        postsql="select * from [db.cat-banner] where catid in([##cms.query.catid##])">
+    </member>
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
+    <member name="p-under" type="view" propertyid="7249" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
 </basis>
 
@@ -33,20 +42,20 @@
         </face>
     </basis>
     <!-- pwa metatags -->
-    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- common styles for all page -->
-    <basis core="call" file="style.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
 </head>
 
 <body>
-    <basis core="call" file="header.inc" />
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
     <main>
-        <section class="relative bg-articleList bg-cover bg-center h-[500px]"></section>
-        <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="relative bg-visaList bg-cover bg-right h-80"></section>
+        <div class="flex items-center justify-center gap-2 mx-auto max-lg:w-[90%] mt-6">
             <svg width="24" height="24">
-                <use href="/images/sprite-icons.svg#icon-home"></use>
+                <use href="/images/sprite-icons-mobile.svg#icon-home"></use>
             </svg>
-            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap items-center text-sm gap-1">
                 <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                     itemtype="https://schema.org/ListItem">
                     <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
@@ -70,7 +79,7 @@
                         <li class="flex gap-1 font-normal" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
                             <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
-                                itemprop="item" href="/article-list.bc?catid=@parentcatid" aria-label="@title">
+                                itemprop="item" href="/visa-list.bc?catid=@parentcatid" aria-label="@title">
                                 <span itemprop="name">@title</span>
                                 <meta itemprop="position" content="@rownumber" />
                             </a>
@@ -101,58 +110,48 @@
                 </basis>
             </ul>
         </div>
-        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
-            <basis core="list" datamembername="db.cat-description">
-                <face>
-                    <h1 class="text-2xl font-bold text-zinc-900">@title</h1>
-                    <div class="text-sm text-zinc-900">@urldescription
-                    </div>
-                </face>
-            </basis>
-            <basis core="list" datamembername="db.article-list">
+        <section class="mx-auto max-lg:w-[90%] mt-8">
+            <h1 class="text-2xl font-bold text-zinc-900 mb-6">ویزاهای پرتقاضا</h1>
+            <div class="text-sm text-zinc-900">همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه
+            </div>
+            <basis core="list" datamembername="db.visa-list">
                 <layout>
-                    <div class="grid grid-cols-2 gap-6 mt-9">
+                    <div class="flex flex-col gap-6 mt-6">
                         @child
                     </div>
                 </layout>
-                <face filter="[00224X00176prp] is null">
+                <face filter="[00256X00160prp] is null">
                     <a href="/@link"
-                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
+                        class="flex flex-col group border border-solid border-zinc-400 rounded-3xl shadow-tour-card p-4">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
-                            class="w-56 h-44 object-cover rounded-3xl shrink-0" alt="@title" width="224" height="176"
+                            class="w-full h-40 object-cover rounded-3xl" alt="@title" width="256" height="160"
                             loading="lazy">
-                        <div class="flex flex-col justify-between gap-2 w-full">
-                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
-                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
-                                <button
-                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
-                                    بخوانید</button>
-                            </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <img src="[##cms.cms.cdn##]/images/@prp_3088126" class="w-9 h-auto rounded-3xl" alt="@title"
+                                width="36" height="24" loading="lazy">
+                            <h2
+                                class="text-xl font-bold text-zinc-900">
+                                @title</h2>
                         </div>
                     </a>
                 </face>
                 <face>
                     <a href="/@link"
-                        class="group flex gap-2 border border-solid border-zinc-400 rounded-3xl p-4 shadow-tour-card">
-                        <img src="[##cms.cms.cdn##]/@00224X00176prp" class="w-56 h-44 object-cover rounded-3xl shrink-0"
-                            alt="@title" width="224" height="176" loading="lazy">
-                        <div class="flex flex-col justify-between gap-2 w-full">
-                            <h2 class="text-2xl font-bold text-zinc-900 line-clamp-1">@title</h2>
-                            <div class="text-sm text-zinc-900 text-justify leading-6 line-clamp-3">@prp_7244</div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xl font-medium text-zinc-900 text-end">@prp_7249</span>
-                                <button
-                                    class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg transition-all duration-300 group-hover:bg-specialcolor-1">بیشتر
-                                    بخوانید</button>
-                            </div>
+                        class="flex flex-col group border border-solid border-zinc-400 rounded-3xl shadow-tour-card p-4 transition-all duration-300 hover:bg-secondary-400">
+                        <img src="[##cms.cms.cdn##]/@00256X00160prp" class="w-full h-40 object-cover rounded-3xl"
+                            alt="@title" width="256" height="160" loading="lazy">
+                        <div class="flex items-center gap-2 mt-2">
+                            <img src="[##cms.cms.cdn##]/images/@prp_3088126" class="w-9 h-auto rounded-3xl" alt="@title"
+                                width="36" height="24" loading="lazy">
+                            <h2
+                                class="text-xl font-bold text-zinc-900 transition-all duration-300 group-hover:text-white">
+                                @title</h2>
                         </div>
                     </a>
                 </face>
             </basis>
 
-            <div id="paging" class="flex items-center justify-center mt-9">
+            <div id="paging" class="flex items-center justify-center mt-6">
                 <ul class="flex items-center gap-3 cd-pagination no-space direction-ltr" id="wibpaging">
                     <basis core="print" datamembername="db.paging">
                         <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
@@ -161,7 +160,7 @@
                                 <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
                                     aria-label="angle-left" href="/[##cms.cms.link_page##]&pagenum=@page">
                                     <svg width="48" height="48" class="text-white">
-                                        <use href="/images/sprite-icons.svg#icon-chevron-left-half"></use>
+                                        <use href="/images/sprite-icons-mobile.svg#icon-chevron-left-half"></use>
                                     </svg>
                                 </a>
                             </li>
@@ -172,7 +171,7 @@
                                 <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
                                     aria-label="angle-left" href="/[##cms.cms.pageurl##]?pagenum=@page">
                                     <svg width="48" height="48" class="text-white">
-                                        <use href="/images/sprite-icons.svg#icon-chevron-left-half"></use>
+                                        <use href="/images/sprite-icons-mobile.svg#icon-chevron-left-half"></use>
                                     </svg>
                                 </a>
                             </li>
@@ -225,7 +224,7 @@
                                 <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
                                     aria-label="angle-right" href="/[##cms.cms.link_page##]&pagenum=@page">
                                     <svg width="8" height="16" class="text-white">
-                                        <use href="/images/sprite-icons.svg#icon-chevron-right-half"></use>
+                                        <use href="/images/sprite-icons-mobile.svg#icon-chevron-right-half"></use>
                                     </svg>
                                 </a>
                             </li>
@@ -236,7 +235,7 @@
                                 <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
                                     aria-label="angle-right" href="/[##cms.cms.pageurl##]?pagenum=@page">
                                     <svg width="8" height="16" class="text-white">
-                                        <use href="/images/sprite-icons.svg#icon-chevron-right-half"></use>
+                                        <use href="/images/sprite-icons-mobile.svg#icon-chevron-right-half"></use>
                                     </svg>
                                 </a>
                             </li>
@@ -245,8 +244,34 @@
                 </ul>
             </div>
         </section>
+        <section class="mx-auto max-lg:w-[90%] mt-6">
+            <basis core="print" datamembername="db.p-under">
+                <face filter="TypeID in(150)">
+                    <h2 class="text-zinc-900 font-bold text-lg mb-6">@text</h2>
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="db.p-under">
+                <layout>
+                    <div class="mb-6">
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in(129)">
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-6">
+                        @largetext
+                    </div>
+                </face>
+                <face filter="TypeID in(250)">
+                    <h2 class="text-zinc-900 font-bold text-lg mb-6">@text</h2>
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-6">
+                        @largetext
+                    </div>
+                </face>
+            </basis>
+        </section>
     </main>
-    <basis core="call" file="footer.inc" />
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
 </body>
 
 </html>

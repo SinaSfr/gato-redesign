@@ -4,6 +4,9 @@
 <basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
     <member name="view" type="view" propertyid="7249" />
 </basis>
+<basis core="dbsource" source="media" lid="1" name="view" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member type="list" name="gallery" format="4" order="ord"></member>
+</basis>
 <basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
     <member name="navigation" type="tree" request="navigationcat" />
 </basis>
@@ -44,7 +47,8 @@
                 <svg width="24" height="24">
                     <use href="/images/sprite-icons.svg#icon-home"></use>
                 </svg>
-                <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb flex items-center text-sm gap-1">
+                <ul itemscope itemtype="https://schema.org/BreadcrumbList"
+                    class="breadcrumb flex items-center text-sm gap-1">
                     <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                         itemtype="https://schema.org/ListItem">
                         <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
@@ -216,20 +220,26 @@
                     </basis>
 
                 </div>
-                <img src="[##cms.cms.cdn##]/images/visa.png" class="flex-1 h-full object-cover rounded-3xl shadow-visa"
-                    alt="" width="628" height="439" loading="lazy">
+                <basis core="print" datamembername="view.gallery">
+                    <face filter="ord in(1)">
+                        <img src="[##cms.cms.cdn##]/@largeIMG"
+                            class="flex-1 h-full object-cover rounded-3xl shadow-visa" alt="@name" width="628"
+                            height="439" loading="lazy">
+                    </face>
+                </basis>
+
             </div>
             <basis core="print" datamembername="db.view">
                 <layout>
-                    @child
-                </layout>
-                <face filter="TypeID in('144') and vocabulary in('توضیحات')">
                     <div class="mt-9">
                         <h2 class="text-xl font-bold text-zinc-900">توضیحات</h2>
-                        <div
-                            class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-9 leading-7">
-                            @largetext
-                        </div>
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in('144') and vocabulary in('توضیحات')">
+                    <div
+                        class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-9 leading-7">
+                        @largetext
                     </div>
                 </face>
             </basis>

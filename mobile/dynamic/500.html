@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>[##cms.seo.title|(خطای ارتباط با سرور)##]</title>
+    <meta name="description" content="[##cms.seo.description|(خطای ارتباط با سرور)##]">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
+</head>
+
+<body>
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <main>
+        <section class="flex flex-col gap-6 items-center mx-auto max-lg:w-[90%] my-64">
+            <img src="[##cms.cms.cdn##]/images/500.jpg" class="w-44 h-36 object-cover" alt="500" width="176" height="144"
+                loading="lazy">
+            <h1 class="text-sm text-zinc-700">خطای ارتباط با سرور</h1>
+            <a href="/"
+                class="w-44 h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3">
+                بازگشت به صفحه اصلی</a>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"/>
+</body>
+
+</html>

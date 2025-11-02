@@ -1,9 +1,9 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
     <member name="tour-list" type="list" link="tour.bc" propertyid="10000502,10000504,8077,8076,8181,3088125"
-        perpage="6" size="299x176" pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+        perpage="6" size="264x160" pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="tour-list" />
     <member name="cat-description" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
-    postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
+        postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
 </basis>
 <basis core="dbsource" source="basiscore" mid="20" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
     <member name="airline" type="list" request="spelist" />
@@ -18,6 +18,7 @@
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
     <member name="p-under" type="view" propertyid="7249" />
 </basis>
+
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -43,20 +44,21 @@
         </face>
     </basis>
     <!-- pwa metatags -->
-    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- common styles for all page -->
-    <basis core="call" file="style.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
 </head>
 
 <body>
-    <basis core="call" file="header.inc" />
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
     <main>
-        <section class="relative bg-tourList bg-cover bg-center h-[500px]"></section>
-        <div class="flex items-center justify-center gap-2 mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="relative bg-tourList bg-cover bg-center h-80"></section>
+        <div class="flex items-center gap-2 mx-auto max-lg:w-[90%] mt-6">
             <svg width="24" height="24">
-                <use href="/images/sprite-icons.svg#icon-home"></use>
+                <use href="/images/sprite-icons-mobile.svg#icon-home"></use>
             </svg>
-            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1">
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList"
+                class="flex flex-wrap items-center text-sm gap-1">
                 <li class="inline-block font-normal" itemprop="itemListElement" itemscope
                     itemtype="https://schema.org/ListItem">
                     <a class="flex items-center text-zinc-900 text-sm transition-all duration-300 hover:text-primary-800"
@@ -111,10 +113,10 @@
                 </basis>
             </ul>
         </div>
-        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="mx-auto max-lg:w-[90%] mt-6">
             <basis core="list" datamembername="db.cat-description">
                 <face>
-                    <h1 class="text-2xl font-bold text-zinc-900">@title</h1>
+                    <h1 class="text-lg font-bold text-zinc-900">@title</h1>
                     <div class="text-sm text-zinc-900">@urldescription
                     </div>
                 </face>
@@ -122,197 +124,113 @@
 
             <basis core="list" datamembername="joining.list">
                 <layout>
-                    <div class="flex flex-col gap-9 mt-9">
+                    <div class="flex flex-col gap-6 mt-6">
                         @child
                     </div>
                 </layout>
-                <face filter="[db.tour-list.00299X00176prp] is null and [db.tour-list.prp_3088125] is null">
+                <face filter="[db.tour-list.00264X00160prp] is null and [db.tour-list.prp_3088125] is null">
                     <div
                         class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <div class="flex items-stretch gap-6 bg-white p-6">
-                            <div class="flex flex-[3.75] items-center gap-6">
-                                <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
-                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
-                                    width="299" height="176" loading="lazy">
-                                <div class="flex flex-1 flex-col">
-                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
-                                    <div class="flex items-center justify-between mt-4">
-                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8076</span>
-                                        </div>
-                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
-                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
-                                    </div>
-                                </div>
+                        <div class="flex flex-col gap-2 bg-white p-3">
+                            <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
+                                class="w-full h-40 object-cover rounded-3xl" alt="@db.tour-list.title" width="264"
+                                height="160" loading="lazy">
+                            <h2 class="text-zinc-900 font-medium">@db.tour-list.title</h2>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-16 h-auto"
+                                    alt="@list.airline.name" width="64" height="25" loading="lazy">
                             </div>
-
-                            <div
-                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
-                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
-                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
-                                <a href="/db.tour-list.link"
-                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
-                                    تور</a>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8077</span>
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8076</span>
                             </div>
+                        </div>
+                        <div class="text-zinc-900 font-medium bg-zinc-200 py-2 mt-2 text-center">@db.tour-list.prp_8181
                         </div>
                     </div>
                 </face>
                 <face filter="[db.tour-list.prp_3088125] is null">
                     <div
                         class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <div class="flex items-stretch gap-6 bg-white p-6">
-                            <div class="flex flex-[3.75] items-center gap-6">
-                                <img src="[##cms.cms.cdn##]/@db.tour-list.00299X00176prp"
-                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
-                                    width="299" height="176" loading="lazy">
-                                <div class="flex flex-1 flex-col">
-                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
-                                    <div class="flex items-center justify-between mt-4">
-                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8076</span>
-                                        </div>
-                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
-                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
-                                    </div>
-                                </div>
+                        <div class="flex flex-col gap-2 bg-white p-3">
+                            <img src="[##cms.cms.cdn##]/@db.tour-list.00264X00160prp"
+                                class="w-full h-40 object-cover rounded-3xl" alt="@db.tour-list.title" width="264"
+                                height="160" loading="lazy">
+                            <h2 class="text-zinc-900 font-medium">@db.tour-list.title</h2>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-16 h-auto"
+                                    alt="@list.airline.name" width="64" height="25" loading="lazy">
                             </div>
-
-                            <div
-                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
-                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
-                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
-                                <a href="/db.tour-list.link"
-                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
-                                    تور</a>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8077</span>
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8076</span>
                             </div>
+                        </div>
+                        <div class="text-zinc-900 font-medium bg-zinc-200 py-2 mt-2 text-center">@db.tour-list.prp_8181
                         </div>
                     </div>
                 </face>
-                <face filter="[db.tour-list.00299X00176prp] is null">
+                <face filter="[db.tour-list.00264X00160prp] is null">
                     <div
                         class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <div class="flex absolute top-0 right-24">
-                            <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 12L0 24.1244V-0.124355L18 12Z" fill="#F37321" />
-                            </svg>
-                            <span class="bg-specialcolor-1 font-bold text-white
-                            rounded-b-2xl py-3 px-4 select-none">
-                                @db.tour-list.prp_3088125
-                            </span>
+                        <span class="absolute top-0 left-10
+                        bg-specialcolor-1 text-sm text-white
+                        [writing-mode:vertical-rl]
+                        rounded-t-lg p-2 shadow-label select-none leading-none -scale-100">
+                        @db.tour-list.prp_3088125
+                 </span>
+                        <div class="flex flex-col gap-2 bg-white p-3">
+                            <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
+                                class="w-full h-40 object-cover rounded-3xl" alt="@db.tour-list.title" width="264"
+                                height="160" loading="lazy">
+                            <h2 class="text-zinc-900 font-medium">@db.tour-list.title</h2>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-16 h-auto"
+                                    alt="@list.airline.name" width="64" height="25" loading="lazy">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8077</span>
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8076</span>
+                            </div>
                         </div>
-                        <div class="flex items-stretch gap-6 bg-white p-6">
-                            <div class="flex flex-[3.75] items-center gap-6">
-                                <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg"
-                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
-                                    width="299" height="176" loading="lazy">
-                                <div class="flex flex-1 flex-col">
-                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
-                                    <div class="flex items-center justify-between mt-4">
-                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">db.tour-list.prp_8076</span>
-                                        </div>
-                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
-                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
-                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
-                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
-                                <a href="/db.tour-list.link"
-                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
-                                    تور</a>
-                            </div>
+                        <div class="text-zinc-900 font-medium bg-zinc-200 py-2 mt-2 text-center">@db.tour-list.prp_8181
                         </div>
                     </div>
                 </face>
-                <face filter="[db.tour-list.00299X00176prp] is null">
+                <face>
                     <div
                         class="relative border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
-                        <div class="flex absolute top-0 right-24">
-                            <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 12L0 24.1244V-0.124355L18 12Z" fill="#F37321" />
-                            </svg>
-                            <span class="bg-specialcolor-1 font-bold text-white
-                            rounded-b-2xl py-3 px-4 select-none">
-                                @db.tour-list.prp_3088125
-                            </span>
+                        <span class="absolute top-0 left-10
+                        bg-specialcolor-1 text-sm text-white
+                        [writing-mode:vertical-rl]
+                        rounded-t-lg p-2 shadow-label select-none leading-none -scale-100">
+                        @db.tour-list.prp_3088125
+                 </span>
+                        <div class="flex flex-col gap-2 bg-white p-3">
+                            <img src="[##cms.cms.cdn##]/@db.tour-list.00264X00160prp"
+                                class="w-full h-40 object-cover rounded-3xl" alt="@db.tour-list.title" width="264"
+                                height="160" loading="lazy">
+                            <h2 class="text-zinc-900 font-medium">@db.tour-list.title</h2>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-sm text-zinc-900">@db.tour-list.prp_10000502</h3>
+                                <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-16 h-auto"
+                                    alt="@list.airline.name" width="64" height="25" loading="lazy">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8077</span>
+                                <span class="text-sm text-zinc-900">@db.tour-list.prp_8076</span>
+                            </div>
                         </div>
-                        <div class="flex items-stretch gap-6 bg-white p-6">
-                            <div class="flex flex-[3.75] items-center gap-6">
-                                <img src="[##cms.cms.cdn##]/@db.tour-list.00299X00176prp"
-                                    class="w-[299px] h-44 object-cover rounded-3xl" alt="@db.tour-list.title"
-                                    width="299" height="176" loading="lazy">
-                                <div class="flex flex-1 flex-col">
-                                    <h2 class="text-zinc-900 font-medium text-2xl">@db.tour-list.title</h2>
-                                    <div class="flex items-center justify-between mt-4">
-                                        <h3 class="text-zinc-900">@db.tour-list.prp_10000502</h3>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-calendar"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">@db.tour-list.prp_8077</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <svg width="24" height="24" class="text-white">
-                                                <use href="/images/sprite-icons.svg#icon-moon"></use>
-                                            </svg>
-                                            <span class="text-zinc-900">db.tour-list.prp_8076</span>
-                                        </div>
-                                        <img src="[##cms.cms.cdn##]/@list.airline.pic" class="w-28 h-auto"
-                                            alt="@list.airline.name" width="112" height="44" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="flex-1 flex flex-col justify-between text-zinc-900 font-medium pr-4 text-center border-r-2 border-dashed border-zinc-400">
-                                <p class="text-zinc-900 font-medium text-lg">شروع قیمت تور از</p>
-                                <span class="text-zinc-900 font-bold text-xl">@db.tour-list.prp_8181</span>
-                                <a href="/db.tour-list.link"
-                                    class="w-full h-12 flex items-center justify-center text-sm text-white bg-primary-800 rounded-lg mt-3 transition-all duration-300 hover:bg-specialcolor-1">مشاهده
-                                    تور</a>
-                            </div>
+                        <div class="text-zinc-900 font-medium bg-zinc-200 py-2 mt-2 text-center">@db.tour-list.prp_8181
                         </div>
                     </div>
                 </face>
             </basis>
 
-            <div id="paging" class="flex items-center justify-center mt-9">
+            <div id="paging" class="flex items-center justify-center mt-6">
                 <ul class="flex items-center gap-3 cd-pagination no-space direction-ltr" id="wibpaging">
                     <basis core="print" datamembername="db.paging">
                         <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
@@ -405,34 +323,34 @@
                 </ul>
             </div>
         </section>
-        <section class="mx-auto max-xl:w-[97%] xl:max-w-7xl mt-9">
+        <section class="mx-auto max-lg:w-[90%] mt-6">
             <basis core="print" datamembername="db.p-under">
                 <face filter="TypeID in(150)">
-                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
+                    <h2 class="text-zinc-900 font-bold text-lg mb-6">@text</h2>
                 </face>
             </basis>
 
             <basis core="print" datamembername="db.p-under">
                 <layout>
-                    <div class="mb-9">
+                    <div class="mb-6">
                         @child
                     </div>
                 </layout>
                 <face filter="TypeID in(129)">
-                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-6">
                         @largetext
                     </div>
                 </face>
                 <face filter="TypeID in(250)">
-                    <h2 class="text-zinc-900 font-bold text-2xl mb-9">@text</h2>
-                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-9">
+                    <h2 class="text-zinc-900 font-bold text-lg mb-6">@text</h2>
+                    <div class="text-zinc-900 text-sm leading-7 text-justify mb-6">
                         @largetext
                     </div>
                 </face>
             </basis>
         </section>
     </main>
-    <basis core="call" file="footer.inc" />
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
 </body>
 
 </html>
