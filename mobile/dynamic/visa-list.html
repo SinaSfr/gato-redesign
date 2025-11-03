@@ -2,9 +2,8 @@
     <member name="visa-list" type="list" link="visa.bc" propertyid="3088126" perpage="4" size="256x160"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="visa-list" />
-    <member name="cat-banner" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
-        postsql="select * from [db.cat-banner] where catid in([##cms.query.catid##])">
-    </member>
+    <member name="cat-description" type="tree" request="cat" parentid="[##cms.query.catid##]" order="ord"
+    postsql="select * from [db.cat-description] where catid in([##cms.query.catid##])"></member>
 </basis>
 <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid##]">
     <member name="p-under" type="view" propertyid="7249" />
@@ -111,9 +110,13 @@
             </ul>
         </div>
         <section class="mx-auto max-lg:w-[90%] mt-8">
-            <h1 class="text-2xl font-bold text-zinc-900 mb-6">ویزاهای پرتقاضا</h1>
-            <div class="text-sm text-zinc-900">همراه شما در مسیر دریافت ویزا با کمترین دغدغه و بهترین نتیجه
-            </div>
+            <basis core="list" datamembername="db.cat-description">
+                <face>
+                    <h1 class="text-2xl font-bold text-zinc-900 mb-6">@title</h1>
+                    <div class="text-sm text-zinc-900">@urldescription
+                    </div>
+                </face>
+            </basis>
             <basis core="list" datamembername="db.visa-list">
                 <layout>
                     <div class="flex flex-col gap-6 mt-6">

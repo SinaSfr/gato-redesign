@@ -1413,12 +1413,14 @@
     display: none !important;
 }
 
-.close-passenger-box {
+.close-passenger-box,
+.close-searchList {
     width: auto !important;
     height: auto !important;
 }
 
-.close-passenger-box svg {
+.close-passenger-box svg,
+.close-searchList svg {
     width: 48px !important;
     height: 48px !important;
 }

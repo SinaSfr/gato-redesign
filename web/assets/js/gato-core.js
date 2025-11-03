@@ -941,8 +941,12 @@ if (document.querySelector('.swiper-offer-tours')) {
     },
   })
 }
+let swiperTourCat, swiperTourDescriptionCat;
+
 if (document.querySelector('.swiper-tour-cat')) {
-  var swiperTourCat = new Swiper('.swiper-tour-cat', {
+  const swiperEl = document.querySelector('.swiper-tour-cat');
+
+  swiperTourCat = new Swiper(swiperEl, {
     effect: 'coverflow',
     grabCursor: true,
     centeredSlides: true,
@@ -963,14 +967,20 @@ if (document.querySelector('.swiper-tour-cat')) {
       el: '.swiper-pagination',
       type: 'progressbar',
     },
-  })
+  });
+
+  window.addEventListener('load', () => swiperTourCat.update());
+  swiperEl.querySelectorAll('img').forEach(img => {
+    img.addEventListener('load', () => swiperTourCat.update());
+  });
+  setTimeout(() => swiperTourCat.update(), 1000);
 }
+
 if (document.querySelector('.swiper-tour-description-cat')) {
-  var swiperTourDescriptionCat = new Swiper('.swiper-tour-description-cat', {
+  swiperTourDescriptionCat = new Swiper('.swiper-tour-description-cat', {
     slidesPerView: 1,
     speed: 400,
     direction: 'vertical',
-    centeredSlides: false,
     spaceBetween: 16,
     grabCursor: true,
     autoplay: {
@@ -982,7 +992,12 @@ if (document.querySelector('.swiper-tour-description-cat')) {
       el: '.swiper-pagination',
       clickable: true,
     },
-  })
+  });
+}
+
+if (swiperTourCat && swiperTourDescriptionCat) {
+  swiperTourCat.controller.control = swiperTourDescriptionCat;
+  swiperTourDescriptionCat.controller.control = swiperTourCat;
 }
 if (document.querySelector('.swiper-exhibition-tours')) {
   var swiperExhibitionTours = new Swiper('.swiper-exhibition-tours', {

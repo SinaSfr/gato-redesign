@@ -402,24 +402,11 @@ fieldset hr {
   background-color: var(--primary);
 }
 .loading-img img {
-  width: 70px;
-  margin: 0em auto;
+  width: 82px;
+  margin: -0.5em auto;
 }
 .loading-img {
-  margin-top: 0;
-}
-.has-select-input::before {
-  top: 2.2em !important;
-}
-.has-select::before {
-  top: 0.6em;
-}
-.coupon-content {
-  flex-wrap: nowrap;
-}
-.after-btn,
-.before-btn {
-  padding: 0.5em 0.75rem;
+  margin-top: 4em;
 }
 /*<!--------------------------------END CSS LIST TEMPLATE 3-------------------------------*/
 /*<!--------------------------------START CSS VIEW TEMPLATE 3-------------------------------*/
@@ -428,7 +415,7 @@ fieldset hr {
   border: 1px solid var(--secondary);
 }
 .next-btn {
-  background-color: var(--primary);
+  background-color: var(--secondary);
 }
 .next-btn:hover {
   background-color: var(--secondary);
@@ -469,11 +456,11 @@ fieldset hr {
 }
 .buyer-type ul li.active,
 .buyer-type ul li:hover {
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: #fff;
 }
 .buyer-type ul li {
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
   color: var(--primary);
 }
 .login-btn {
@@ -521,7 +508,7 @@ fieldset hr {
   background-color: var(--secondary);
 }
 .background-color_3 {
-  background-color: var(--secondary);
+  background-color: #252563;
 }
 .background-color_white {
   background-color: #ffffff;
@@ -555,7 +542,7 @@ fieldset hr {
 }
 
 @font-face {
-  font-family: "flaticon";
+  font-family: flaticon;
   src: url("../fonts/fontFlaticon.ttf") format("truetype"),
     url("../fonts/fontFlaticon.woff") format("woff"),
     url("../fonts/fontFlaticon.eot#iefix") format("embedded-opentype"),

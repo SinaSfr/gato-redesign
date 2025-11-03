@@ -4,6 +4,9 @@
 <basis core="dbsource" source="basiscore" name="db" mid="20" lid="1" usedforid="[##cms.query.id##]">
     <member name="view" type="view" propertyid="7249" />
 </basis>
+<basis core="dbsource" source="media" lid="1" name="view" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member type="list" name="gallery" format="4" order="ord"></member>
+</basis>
 <basis core="dbsource" source="basiscore" name="db" lid="1" mid="20" usedforid="[##cms.query.id##]">
     <member name="navigation" type="tree" request="navigationcat" />
 </basis>
@@ -42,7 +45,7 @@
     <main>
         <section class="mx-auto max-lg:w-[90%] mt-6">
             <div class="flex items-center gap-2">
-                <svg width="24" height="24">
+                <svg width="24" height="24" class="shrink-0">
                     <use href="/images/sprite-icons-mobile.svg#icon-home"></use>
                 </svg>
                 <ul itemscope itemtype="https://schema.org/BreadcrumbList"
@@ -182,11 +185,11 @@
             <basis core="print" datamembername="view.gallery">
                 <else-layout>
                     <img src="[##cms.cms.cdn##]/images/visa.jpg"
-                        class="w-full h-40 object-cover rounded-3xl shadow-visa" alt="visa-image" width="288" height="160"
+                        class="w-full h-40 object-cover rounded-3xl shadow-visa mt-6" alt="visa-image" width="288" height="160"
                         loading="lazy">
                 </else-layout>
                 <face filter="ord in(1)">
-                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full h-40 object-cover rounded-3xl shadow-visa"
+                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full h-40 object-cover rounded-3xl shadow-visa mt-6"
                         alt="@name" width="288" height="160" loading="lazy">
                 </face>
             </basis>

@@ -1,0 +1,341 @@
+@charset "utf-8";
+@import url(./customized.ui.min.css);
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("../fonts/IRANSansWeb(FaNum).ttf") format("truetype"),
+    url("../fonts/IRANSansWeb(FaNum).eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IRANSansWebEnNum";
+  font-style: normal;
+  font-weight: lighter;
+  src: url("../fonts/IRANSansWeb_Medium.eot");
+  src: url("../fonts/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/IRANSansWeb_Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "fontawesome";
+  src: url("../fonts/fontAwesome.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome.ttf") format("truetype"),
+    url("../fonts/fontAwesome.svg") format("svg"),
+    url("../fonts/fontAwesome-brands.eot") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fontAwesome-brands.eot");
+  src: url("../fonts/fontAwesome-brands.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-brands.ttf") format("truetype"),
+    url("../fonts/fontAwesome-brands.svg") format("svg");
+}
+.fab {
+  font-family: "fontawesome";
+  font-weight: 400;
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fontAwesome-regular.eot");
+  src: url("../fonts/fontAwesome-regular.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-regular.ttf") format("truetype"),
+    url("../fonts/fontAwesome-regular.svg") format("svg");
+}
+.far {
+  font-family: "fontawesome";
+  font-weight: 400;
+}
+@font-face {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../fonts/fontAwesome-solid.eot");
+  src: url("../fonts/fontAwesome-solid.eot") format("embedded-opentype"),
+    url("../fonts/fontAwesome-solid.ttf") format("truetype"),
+    url("../fonts/fontAwesome-solid.svg") format("svg");
+}
+.fa,
+.fas {
+  font-family: "fontawesome";
+  font-weight: 900;
+}
+@font-face {
+  font-family: "fontIcon";
+  src: url("../fonts/fontIcon.eot?n1z373");
+  src: url("../fonts/fontIcon.eot?#iefixn1z373") format("embedded-opentype"),
+    url("../fonts/fontIcon.ttf?n1z373") format("truetype"),
+    url("../fonts/fontIcon.svg?n1z373#lg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.font-color_1 {
+  color: var(--primary);
+}
+.background-color_1 {
+  background: var(--primary) !important;
+}
+.sort-box .sort-items li.active,
+.reserve-button:hover,
+.mm-spn li:before,
+.mm-spn.mm-spn--navbar:before,
+.fa-times,
+.section-research-left button:hover,
+.after-btn:hover,
+.before-btn:hover,
+.section-filter-icon button:hover,
+.highlight,
+.selectCountry i,
+.select-arrow::before,
+.Link-Forgetpass:hover,
+.Link-Login-New:hover,
+.Link-Login-Prev:hover,
+.Link-Register:hover,
+.Link-ResendMail:hover,
+.Link-Login:hover {
+  color: var(--primary) !important;
+}
+.createChildDropdown select,
+.section-details button:hover,
+.progress-bar,
+.section-input_2 input[type="checkbox"]:checked + label span.checkbox::after,
+.section-input_2 input[type="checkbox"]:checked + label span.checkbox::after,
+.ui-datepicker-buttonpane .ui-state-default:hover,
+.ui-datepicker-buttonpane .ui-state-default:focus,
+.ui-datepicker-buttonpane .ui-datepicker-current:hover,
+.ui-datepicker-buttonpane .ui-datepicker-current:focus {
+  background: var(--primary) !important;
+}
+.radioButton:checked + label span::after {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.active_tab_tour {
+  color: #fff !important;
+  background: var(--primary);
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid#748faa;
+  background: var(--primary) !important;
+}
+.reserve-button {
+  border: 1px solid var(--primary);
+}
+.title-result {
+  border-bottom: 1px solid var(--primary);
+}
+.login_info .label {
+  color: var(--primary);
+}
+.confirm {
+  background: linear-gradient(-90deg, var(--primary) 0%, #a7e5da 100%);
+}
+.confirm:hover {
+  background: linear-gradient(-90deg, #a7e5da 0%, #748faa 100%);
+}
+.details-item-title {
+  border-bottom: 2px solid var(--primary);
+}
+.section-details button {
+  border: 2px solid var(--primary);
+}
+.item-search:before {
+  border: 1px dashed var(--primary);
+}
+.progress-bar {
+  background-image: -webkit-linear-gradient(top, var(--primary) 0, var(--primary) 100%);
+  background-image: -o-linear-gradient(top, var(--primary) 0, var(--primary) 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(var(--primary)),
+    to(var(--primary))
+  );
+  background-image: linear-gradient(to bottom, var(--primary) 0, var(--primary) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff286090', GradientType=0);
+  background-repeat: repeat-x;
+}
+.link-2:hover:after {
+  border-color: var(--primary);
+}
+.section-input_2 span.checkbox::before {
+  border: 2px solid var(--primary);
+}
+.top-menu {
+  background: linear-gradient(-135deg, var(--primary), var(--primary));
+}
+.section-input_2 span.checkbox::before {
+  border: 2px solid var(--primary);
+}
+.loader {
+  border-top: 5px solid var(--primary);
+}
+.ChangeFlight-header {
+  background: linear-gradient(-135deg, var(--primary), var(--secondary));
+}
+/*-----------------------------*/
+.font-color_2 {
+  color: var(--secondary);
+}
+.background-color_2 {
+  background: var(--secondary) !important;
+}
+.second-part-header .col1-second-part-header a:after,
+.second-part-header .col1-second-part-header a:before,
+.category-title:hover,
+.fa-angle-double-left:hover,
+.fa-angle-double-right:hover,
+.controlsPage:hover,
+.second-part-header .col1-second-part-header a:after,
+.second-part-header .col1-second-part-header a span,
+.active-item-search img,
+.row1-footer .fa,
+.row1-footer .far,
+.right-border-d::after,
+.right-border-d::before,
+.ui-datepicker-today .ui-state-highlight,
+.ui-datepicker table thead th,
+.ui-datepicker .ui-datepicker-buttonpane button,
+.ResendSMSSubmit,
+#sendSms input[type="submit"],
+#ConfirmRegister input[type="submit"] {
+  background: var(--secondary) !important;
+}
+.CountPassenger.room::before,
+.highlight,
+.active-item-search .fa-arrow-down:before,
+.circle,
+.details-button:hover,
+.Others-Button:hover,
+.row1-footer .fa:hover,
+.row1-footer .far:hover,
+.sort-box .sort-items li.active {
+  color: #ff7e0b !important;
+}
+.active-item-search .item-search:before {
+  border: 1px dashed#3f2f12 !important;
+  display: none;
+}
+.radioButton:checked + label span::after {
+  color: var(--secondary);
+  border: 3px solid var(--secondary);
+}
+.add-room {
+  background: linear-gradient(-90deg, var(--secondary) 0%, var(--secondary) 100%);
+}
+.row1-footer .fa,
+.row1-footer .far {
+  border: 1px solid var(--secondary);
+}
+.details-button,
+.Others-Button {
+  border: 1px solid var(--secondary);
+}
+.right-border-d {
+  border-left: 2px dashed var(--secondary);
+}
+/*-----------------------------*/
+.total-cost {
+  color: #00a703;
+}
+.fa.fa-user.is-login {
+  color: #00a703;
+}
+.true-result {
+  color: #00a703;
+}
+.selected {
+  color: #00a703;
+}
+.width_100 button {
+  background: #00a703;
+}
+.error-result {
+  color: red;
+}
+.submit:hover {
+  color: #34495e;
+}
+.font-color_3 {
+  color: var(--secondary);
+}
+.background-color_3 {
+  background: var(--secondary);
+}
+.font-color_4 {
+  color: #fff;
+}
+/*-----------------------------*/
+.Basis_Calendar .selected_date {
+  background: var(--secondary) !important;
+}
+.Basis_Calendar .month_day_list table td:hover {
+  background: var(--secondary);
+}
+.Basis_Calendar .month_detail {
+  background: var(--secondary);
+}
+.Basis_Calendar .basis_s_day {
+  color: var(--primary);
+}
+.Basis_Calendar .day_of_date {
+  color: var(--primary);
+}
+.Basis_Calendar .month_of_date {
+  color: var(--primary);
+}
+.Basis_Calendar .date_info_selected {
+  border-bottom: 2px solid var(--secondary);
+}
+.Basis_Calendar .month_detail {
+  border-bottom: 2px solid var(--secondary);
+}
+.Basis_Calendar .selected_day {
+  background: var(--secondary);
+}
+.warning {
+  color: red;
+}
+.col2-second-part-header img {
+  width: 100px;
+  height: auto;
+  padding: 0.2em 0;
+}
+.top-menu img {
+  width: 150px;
+  height: auto;
+  filter: none;
+  margin: 0 auto;
+}
+.fa.fa-redo-alt {
+  color: var(--primary);
+}
+.second-part-header {
+  background: var(--primary);
+}
+
+.wating-search > img {
+  margin: 0 auto;
+}

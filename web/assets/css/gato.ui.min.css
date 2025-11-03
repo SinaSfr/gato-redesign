@@ -412,10 +412,6 @@
     background-color: var(--secondary-800);
 }
 
-.bg-specialcolor-1 {
-    background-color: var(--special-1);
-}
-
 .bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
