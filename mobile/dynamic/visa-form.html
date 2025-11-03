@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title|(خرید بلیط هواپیما - رزرو تور داخلی و خارجی - گاتو (گردشگران خورشید سپاهان))##]
+    </title>
+    <meta name="description"
+        content="[##cms.seo.description|(خرید بلیط هواپیما، تورهای داخلی و خارجی، رزرو پرواز و هتل با بهترین قیمت در گاتو (گردشگران خورشید سپاهان). سفر آسان، امن و مقرون‌به‌صرفه با پشتیبانی ۲۴ ساعته.)##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+
+<body>
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+    <main>
+        <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-5">
+            <div class="flex justify-center items-center gap-1 text-sm">
+                <a href="/" class="transition-all duration-300 hover:text-primary-800">صفحه اصلی</a>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 6L9 12L15 18" stroke="#18181b " stroke-width="2"></path>
+                </svg>
+                <span>فرم ویزا</span>
+            </div>
+            <div class="relative pt-3 mt-8">
+                <h1 class=" text-2xl font-bold bg-white text-zinc-900">فرم درخواست ویزا</h1>
+                <p>جهت دریافت راهنمایی کارشناسان ما فرم دریافت ویزا را پر نمایید</p>
+            </div>
+            <div class="flex flex-col mt-16 visa-form-mobile" id="visa-form-resize">
+
+                <basis core="schema" run="atclient"
+                    schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/74F3A5C3-846F-4F65-913D-D332BE4A484A/fa/فرم-درخواست-ویزا"
+                    displaymode="new" button="[data-btn-uploadVisa]" resultsourceid="upload.dataVisa"
+                    OnRendered="RenderFormVisa"></basis>
+                <basis core="api" if="{##cms.uploadVisa.run|(false)##}" run="atclient"
+                    url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject" method="post"
+                    body="object_edit={##cms.uploadVisa.value##}&captcha={##cms.uploadVisa.captcha##}&captchaid={##cms.uploadVisa.captchaid##}"
+                    content-type="application/x-www-form-urlencoded" triggers='cms.uploadVisa'
+                    OnProcessed="OnProcessedEditObjectVisa"></basis>
+                <basis core="callback" run="atclient" method="uploadDocumentVisa" triggers="upload.dataVisa">
+                </basis>
+
+                <div class="flex flex-col items-center gap-4 captcha-button">
+                    <div id="captchaContainer"
+                        class="captchaContainerclass flex-[3] captcha-sefaresh ml-2.5 max-xl:ml-0 max-xl:mb-[20px]"
+                        data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                        data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                        <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                            triggers="captcha.refreshVisa">
+                            <member name="code" type="scalar" request="captcha"></member>
+                        </basis>
+                        <basis datamembername="captcha.code" core="print" run="atclient">
+                            <face>
+                                <script type="text/template"><div class="d-inline-block"><div class="flex gap-8">
+                      
+                                          <div class="float-right"><input type="text" class="contactUsInput codeinputm" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" /></div>
+                                          <div class="flex items-center gap-6 shrink-0">
+                                              <img src="/@captcha@" loading="lazy" width="120" height="60" alt="captcha" class="w-16" />
+                                              <svg width="48" height="48" onclick="refreshCaptchaVisa()" class="text-zinc-900 cursor-pointer">
+                                                <use href="/images/sprite-icons.svg#icon-refresh"></use>
+                                            </svg>
+                                          </div>
+                                          
+                                      </div></div></script>
+                            </face>
+                        </basis>
+                    </div>
+                    <button
+                        class="flex items-center justify-center w-full h-12 text-white transition-all duration-300 bg-primary-800 rounded-xl hover:bg-specialcolor-1 data-body-btn"
+                        type="button" data-btn-uploadVisa><span class="">ارسال</span></button>
+                </div>
+                <div
+                    class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 bg-secondary-800 rounded-2xl justify-center items-center gap-2.5">
+                    <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
+                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center message-api"></div>
+            </div>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+</body>
+
+</html>

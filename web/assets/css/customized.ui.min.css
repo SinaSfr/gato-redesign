@@ -653,6 +653,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -1523,11 +1527,19 @@ body {
   .max-lg\:w-\[90\%\] {
     width: 90%;
   }
+  
+  .hasNot-login-icon svg{
+    fill: white;
+  }
 }
 
 @media (min-width: 1024px) {
   .header-form [data-bc-question] {
     width: 49% !important;
+  }
+
+  .hasNot-login-icon {
+    display: none;
   }
 
   .lg\:h-8 {
@@ -1574,10 +1586,6 @@ body {
 
 .btnstyle:hover{
   color: var(--primary-400);
-}
-
-.hasNot-login-icon {
-  display: none;
 }
 
 .user-profile-btn{

@@ -946,7 +946,7 @@
     top: 0;
 }
 
-.FlightClass-text{
+.FlightClass-text {
     font-size: 14px !important;
 }
 
@@ -1114,7 +1114,7 @@
 
 #hotelSearch .reserve-field.departure-route,
 #tourSearch .reserve-field.departure-route,
-#insuranceSearch .reserve-field.departure-route{
+#insuranceSearch .reserve-field.departure-route {
     margin-bottom: 12px !important;
 }
 
@@ -1468,4 +1468,282 @@
 .reserve-search button svg {
     width: 24px !important;
     height: 24px !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.footer-form [data-bc-answer-container] input[type="text"] {
+    background-color: white !important;
+    color: #000000 !important;
+    height: 48px !important;
+    padding: 10px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: 1px solid #A1A1AA !important;
+    font-size: 16px !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.footer-form [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #71717a !important;
+}
+
+.footer-form [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.footer-form [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+    width: 100% !important;
+}
+
+.footer-form [data-bc-schema-direction="rtl"] [data-bc-part][data-bc-invalid] [data-bc-validation-part] {
+    direction: ltr;
+}
+
+.footer-form [data-bc-schema-column] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-form [data-bc-part-related-cell] {
+    margin-bottom: 0 !important;
+}
+
+.contact-form-mobile [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    display: none !important;
+}
+
+.contact-form-mobile [data-bc-schema-direction="rtl"] [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.contact-form-mobile [data-bc-answer-container] input[type="text"] {
+    background-color: white !important;
+    color: #000000 !important;
+    height: 56px !important;
+    padding: 16px 12px 16px 12px;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+
+.contact-form-mobile [data-bc-answer-container] textarea {
+    background-color: white !important;
+    color: #000000 !important;
+    height: 56px;
+    padding: 16px 12px 16px 12px;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+
+.contact-form-mobile [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.contact-form-mobile [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #71717A !important;
+}
+
+.contact-form-mobile [data-bc-answer-container] textarea::placeholder {
+    color: #71717A !important;
+}
+
+.contact-form-mobile [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.contact-form-mobile [data-bc-schema-column] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-form-mobile [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+    width: 100% !important;
+}
+
+.contact-form-mobile legend {
+    display: none;
+}
+
+.contact-form-mobile [data-bc-section] {
+    width: 50% !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-form [data-bc-question] {
+    margin-bottom: 0 !important;
+}
+
+.visa-form-mobile fieldset {
+    padding: 10px 0px !important;
+}
+
+.visa-form-mobile [data-bc-schema-column] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.visa-form-mobile [data-bc-question] {
+    width: 100% !important;
+}
+
+.visa-form-mobile [data-bc-answer-container] input[type="text"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    height: 60px !important;
+    padding: 18px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 12px !important;
+    border: 1px solid #A1A1AA !important;
+    font-size: 16px;
+}
+
+.visa-form-mobile .codeinputm {
+    background-color: #ffffff !important;
+}
+
+.visa-form-mobile [data-bc-answer-container] textarea {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    height: 60px;
+    padding: 18px 12px !important;
+    font-weight: 400 !important;
+    outline: none !important;
+    border-radius: 12px !important;
+    border: 1px solid #A1A1AA !important;
+    font-size: 16px;
+}
+
+.visa-form-mobile [data-bc-answer-container] textarea::placeholder {
+    color: #52525b !important;
+}
+
+.visa-form-mobile [data-bc-answer-container] input[type="text"]::placeholder {
+    color: #52525b !important;
+}
+
+.visa-form-mobile [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.visa-form-mobile [data-bc-schema-direction="rtl"] [data-bc-part-container] {
+    width: 100%;
+}
+
+.visa-form-mobile [data-bc-title-container] [data-bc-question-title] {
+    display: none !important;
+}
+
+.visa-form-mobile .visa-type [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .gender [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .marital-status [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .travel-purpose [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .residence-documents [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .travel-expences [data-bc-title-container] [data-bc-question-title],
+.visa-form-mobile .employment-status [data-bc-title-container] [data-bc-question-title] {
+    display: block !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+
+.visa-form-mobile .visa-type [data-bc-answer-container],
+.visa-form-mobile .gender [data-bc-answer-container],
+.visa-form-mobile .marital-status [data-bc-answer-container],
+.visa-form-mobile .travel-purpose [data-bc-answer-container],
+.visa-form-mobile .residence-documents [data-bc-answer-container],
+.visa-form-mobile .travel-expences [data-bc-answer-container],
+.visa-form-mobile .employment-status [data-bc-answer-container] {
+    width: 100% !important;
+}
+
+.visa-form-mobile .previous-nationality,
+.visa-form-mobile .destination-country,
+.visa-form-mobile .visa-type,
+.visa-form-mobile .travel-purpose,
+.visa-form-mobile .travel-expences,
+.visa-form-mobile .sponsor-name,
+.visa-form-mobile .address,
+.visa-form-mobile .residence-documents,
+.visa-form-mobile .employment-status,
+.visa-form-mobile .completion-date {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.visa-form-mobile .gender,
+.visa-form-mobile .marital-status,
+.visa-form-mobile .travel-purpose,
+.visa-form-mobile .visa-type {
+    display: flex;
+    flex-direction: column;
+    /* width: 50% !important; */
+}
+
+.visa-form-mobile .residence-documents {
+    margin-bottom: 24px;
+}
+
+.visa-form-mobile [data-bc-schema-direction="rtl"] [data-bc-title-container] {
+    width: auto !important;
+    flex-shrink: 0;
+    margin-left: 0 !important;
+}
+
+.visa-form-mobile div [data-sys-text] {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.visa-form-mobile input[type="radio"] {
+    width: 21px;
+    height: 21px;
+    border: 2px solid #aecfef;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.visa-form-mobile div [data-bc-items] {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.visa-form-mobile [data-bc-part-related-cell] [data-bc-part-radio] {
+    padding: 0.5em 0.6em;
+    border: none !important;
+}
+
+.visa-form-mobile legend {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: var(--primary-800);
+}
+
+.visa-form-mobile [data-bc-items]> :first-child {
+    display: none;
+}
+
+.visa-form-mobile [data-bc-part-related-cell] [data-bc-part-checkbox] {
+    border: none !important;
 }

@@ -120,6 +120,68 @@
         </section>
         <section class="bg-secondary-800 rounded-3xl py-6 px-2 max-lg:w-[90%] mx-auto mt-8">
             <h2 class="text-lg font-bold text-white text-center mb-4">سوال خود را از ما بپرسید</h2>
+            <div class="flex flex-col mx-auto contact-form-mobile" id="contact-form-resize">
+
+                <basis core="schema" run="atclient"
+                    schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/D9700AE5-6785-48E6-B4F7-7A49C9AAFE53/fa/سوال-خود-را-از-ما-بپرسید"
+                    displaymode="new" button="[data-btn-uploadContact]" resultsourceid="upload.dataContact"
+                    OnRendered="RenderFormContact"></basis>
+                <basis core="api" if="{##cms.uploadContact.run|(false)##}" run="atclient"
+                    url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject" method="post"
+                    body="object_edit={##cms.uploadContact.value##}&captcha={##cms.uploadContact.captcha##}&captchaid={##cms.uploadContact.captchaid##}"
+                    content-type="application/x-www-form-urlencoded" triggers='cms.uploadContact'
+                    OnProcessed="OnProcessedEditObjectContact"></basis>
+                <basis core="callback" run="atclient" method="uploadDocumentContact" triggers="upload.dataContact">
+                </basis>
+
+                <div class="captcha-button flex flex-col gap-6 items-center justify-center">
+                    <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh w-auto"
+                        data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                        data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                        <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                            triggers="captcha.refreshContact">
+                            <member name="code" type="scalar" request="captcha"></member>
+                        </basis>
+                        <basis datamembername="captcha.code" core="print" run="atclient">
+                            <face>
+                                <script type="text/template">
+                                    <div class="d-inline-block">
+                                    <div class="flex gap-6">
+                
+                                    <div class="flex-1">
+                                        <input type="text" class="!w-[287px] contactUsInput codeinputm" name="captcha" maxlength="4" placeholder="کد امنیتی"/><input type="hidden" name="captchaid" value="@captcha@" />
+                                    </div>
+                                    <div class="flex flex-1 items-center gap-1">
+                                        <img src="/@captcha@" loading="lazy" width="120" height="60" alt="captcha" class="w-16" />
+                                        <svg width="48" height="48" onclick="refreshCaptchaContact()" class="cursor-pointer text-white">
+                                            <use href="/images/sprite-icons.svg#icon-refresh"></use>
+                                        </svg>
+                                    </div>
+                            </div>
+                        </div>
+                            </script>
+                            </face>
+                        </basis>
+                    </div>
+                    <button
+                        class="w-full px-4 text-white transition-all duration-300 data-body-btn h-12 bg-primary-800 rounded-xl hover:bg-specialcolor-1"
+                        type="button" data-btn-uploadContact><span class="">ارسال</span></button>
+                </div>
+                <div
+                    class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 rounded-2xl justify-center items-center gap-2.5">
+                    <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
+                        <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                        <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center text-primary-600 message-api"></div>
+            </div>
         </section>
     </main>
 

@@ -169,18 +169,25 @@
                 <layout>
                     <div>
                         @child
-                        <div class="text-sm text-zinc-900 mb-6">اطلاعات لازم جهت دریافت ویزای کانادا</div>
                     </div>
                 </layout>
                 <face filter="TypeID in(150)">
                     <h1 class="text-2xl font-bold text-zinc-900">@text</h1>
                 </face>
+                <face filter="TypeID in(200) and vocabulary in('توضیحات-فرعی')">
+                    <div class="text-sm text-zinc-900 mb-6">@text</div>
+                </face>
             </basis>
 
             <basis core="print" datamembername="view.gallery">
+                <else-layout>
+                    <img src="[##cms.cms.cdn##]/images/visa.jpg"
+                        class="w-full h-40 object-cover rounded-3xl shadow-visa" alt="visa-image" width="288" height="160"
+                        loading="lazy">
+                </else-layout>
                 <face filter="ord in(1)">
-                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full h-40 object-cover rounded-3xl shadow-visa" alt="@name"
-                    width="288" height="160" loading="lazy">
+                    <img src="[##cms.cms.cdn##]/@largeIMG" class="w-full h-40 object-cover rounded-3xl shadow-visa"
+                        alt="@name" width="288" height="160" loading="lazy">
                 </face>
             </basis>
 
@@ -229,10 +236,10 @@
                     </div>
                 </layout>
                 <face filter="TypeID in('144') and vocabulary in('توضیحات')">
-                        <div
-                            class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-6 leading-7">
-                            @largetext
-                        </div>
+                    <div
+                        class="flex flex-col gap-2 border border-solid border-zinc-400 px-3 py-2 rounded-xl shadow-visa mt-6 leading-7">
+                        @largetext
+                    </div>
                 </face>
             </basis>
 

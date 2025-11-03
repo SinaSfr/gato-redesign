@@ -110,11 +110,13 @@
                     <layout>
                         <div>
                             @child
-                            <div class="text-sm text-zinc-900">اطلاعات لازم جهت دریافت ویزای کانادا</div>
                         </div>
                     </layout>
                     <face filter="TypeID in(150)">
                         <h1 class="text-2xl font-bold text-zinc-900">@text</h1>
+                    </face>
+                    <face filter="TypeID in(200) and vocabulary in('توضیحات-فرعی')">
+                        <div class="text-sm text-zinc-900">@text</div>
                     </face>
                 </basis>
 
@@ -221,6 +223,11 @@
 
                 </div>
                 <basis core="print" datamembername="view.gallery">
+                    <else-layout>
+                        <img src="[##cms.cms.cdn##]/images/visa.jpg"
+                            class="flex-1 h-full object-cover rounded-3xl shadow-visa" alt="visa-image" width="628"
+                            height="439" loading="lazy">
+                    </else-layout>
                     <face filter="ord in(1)">
                         <img src="[##cms.cms.cdn##]/@largeIMG"
                             class="flex-1 h-full object-cover rounded-3xl shadow-visa" alt="@name" width="628"

@@ -68,6 +68,34 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
+  const nonRefreshPages = [
+    '/',
+    '/hotel',
+    '/flight',
+    '/tour',
+    '/flighthotel',
+    '/insurance',
+  ]
+
+  const isNotHome = !nonRefreshPages.includes(window.location.pathname)
+
+  const hotelItem = document.querySelector('li[data-id="hotel"]')
+
+  if (hotelItem) {
+    hotelItem.addEventListener('click', function (e) {
+      e.preventDefault()
+
+      if (isNotHome) {
+        window.location.href = '/hotel'
+      } else {
+        check_searchHistory('hotel')
+        check_landing('hotel')
+      }
+    })
+  }
+})
+
+document.addEventListener('DOMContentLoaded', function () {
   const headerMenu = document.querySelector('.header-menu')
   const headerMenuClose = document.querySelector('.header-menu-close')
   const bars3 = document.querySelector('.bars3')
@@ -247,10 +275,13 @@ document.addEventListener('DOMContentLoaded', function () {
 //----------fixed header-----------
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.querySelector('header')
+  const landingItems = document.querySelectorAll('.landing-item')
   let placeholder = null
   const headerHeight = header.offsetHeight
+  let isHeaderFixed = true
+
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 100) {
+    if (isHeaderFixed && window.scrollY > 100) {
       header.classList.add(
         'fixed',
         'top-0',
@@ -280,6 +311,26 @@ document.addEventListener('DOMContentLoaded', function () {
         placeholder = null
       }
     }
+  })
+
+  landingItems.forEach((item) => {
+    item.addEventListener('click', function () {
+      isHeaderFixed = false
+      header.classList.remove(
+        'fixed',
+        'top-0',
+        'left-0',
+        'w-full',
+        'z-50',
+        'bg-white',
+      )
+      header.classList.remove('shadow-lg')
+
+      if (placeholder) {
+        placeholder.remove()
+        placeholder = null
+      }
+    })
   })
 })
 
@@ -849,4 +900,165 @@ async function RenderFormVisa() {
     ' .completion-date-form input[data-bc-text-input]',
   )
   inputElementVisa7.setAttribute('placeholder', 'تاریخ تکمیل فرم')
+}
+
+// --------------swiper---------------
+if (document.querySelector('.swiper-article-cat')) {
+  var swiperArticleCat = new Swiper('.swiper-article-cat', {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 30,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next-custom',
+      prevEl: '.swiper-button-prev-custom',
+    },
+  })
+}
+if (document.querySelector('.swiper-offer-tours')) {
+  var swiperOfferTours = new Swiper('.swiper-offer-tours', {
+    slidesPerView: 4,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 24,
+    grabCursor: true,
+    loop: true,
+    watchOverflow: false,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  })
+}
+if (document.querySelector('.swiper-tour-cat')) {
+  var swiperTourCat = new Swiper('.swiper-tour-cat', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 0,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  })
+}
+if (document.querySelector('.swiper-tour-description-cat')) {
+  var swiperTourDescriptionCat = new Swiper('.swiper-tour-description-cat', {
+    slidesPerView: 1,
+    speed: 400,
+    direction: 'vertical',
+    centeredSlides: false,
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  })
+}
+if (document.querySelector('.swiper-exhibition-tours')) {
+  var swiperExhibitionTours = new Swiper('.swiper-exhibition-tours', {
+    slidesPerView: 4,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 24,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  })
+}
+if (document.querySelector('.swiper-popular-tours')) {
+  var swiperPopularTours = new Swiper('.swiper-popular-tours', {
+    slidesPerView: 1.45,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  })
+}
+if (document.querySelector('.swiper-tour-cat-mobile')) {
+  var swiperTourCatMobile = new Swiper('.swiper-tour-cat-mobile', {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 16,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  })
+}
+if (document.querySelector('.swiper-visa')) {
+  var swiperVisa = new Swiper('.swiper-visa', {
+    slidesPerView: 1.45,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 24,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 24,
+      },
+    },
+  })
 }

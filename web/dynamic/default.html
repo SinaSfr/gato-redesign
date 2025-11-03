@@ -33,7 +33,7 @@
     <member name="list" lefttblcol="db.exhibition-tours.prp_10000504" righttblcol="list.airline.name" format="join"
         jointype="leftjoin" />
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="20" name="High-demand-visas">
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="high-demand-visas">
     <member name="cat" type="tree" request="cat" parentid="213324" order="ord"></member>
 </basis>
 
@@ -97,7 +97,11 @@
 <body>
     <basis core="call" file="header.inc" />
     <main>
-        <h1 class="h1-tag">dssd</h1>
+        <basis core="print" datamembername="db.info">
+            <face filter="TypeID in(150)">
+                <h1 class="h1-tag">dssd</h1>
+            </face>
+        </basis>
         <section class="bg-default bg-cover bg-center py-56">
             <div class="search-banner mx-auto max-xl:w-[97%] xl:max-w-7xl">
                 <div class="search-box-container">
@@ -167,7 +171,7 @@
                         <a href="@name">
                             <img src="[##cms.cms.cdn##]/@largeIMG"
                                 class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-110"
-                                alt="@name" width="634" height="224" loading="lazy">
+                                alt="@largeIMG" width="634" height="224" loading="lazy">
                             <div
                                 class="absolute inset-0 bg-purple-shadow w-full h-full opacity-0 transition-all duration-300 group-hover:opacity-100">
                             </div>
@@ -178,10 +182,10 @@
             <basis core="print" datamembername="fixed-gallery.gallery">
                 <face filter="ord in(1)">
                     <a href="@name"
-                        class="group flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
+                        class="group block flex-1 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-95">
                         <img src="[##cms.cms.cdn##]/@largeIMG"
-                            class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125" alt=""
-                            width="634" height="224" loading="lazy">
+                            class="w-full h-56 object-cover transition-all duration-300 group-hover:scale-125"
+                            alt="@largeIMG" width="634" height="224" loading="lazy">
                     </a>
                 </face>
             </basis>
@@ -301,7 +305,7 @@
                         <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
                     </div>
                 </layout>
-                <face filter="[@db.offer-tours.00300X00160prp] is null">
+                <face filter="[db.offer-tours.00300X00160prp] is null">
                     <a href="/@db.offer-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
@@ -570,7 +574,7 @@
                         <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
                     </div>
                 </layout>
-                <face filter="[@db.exhibition-tours.00300X00160prp] is null">
+                <face filter="[db.exhibition-tours.00300X00160prp] is null">
                     <a href="/@db.exhibition-tours.link"
                         class="swiper-slide group flex flex-col border border-solid border-zinc-400 rounded-3xl overflow-hidden shadow-tour-card">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-40 object-cover"
@@ -715,7 +719,7 @@
                     سایر کشور ها
                 </a>
             </div>
-            <basis core="tree" datamembername="High-demand-visas.cat" idcol="catid" parentidcol="parentid"
+            <basis core="tree" datamembername="high-demand-visas.cat" idcol="catid" parentidcol="parentid"
                 nullvalue="213324">
                 <layout>
                     <div class="swiper swiper-visa mt-2 pb-8 pt-4">
@@ -878,7 +882,7 @@
                         </div>
                         <button
                             class="w-44 px-4 text-white transition-all duration-300 data-body-btn h-12 bg-primary-800 rounded-xl hover:bg-specialcolor-1"
-                            type="button" data-btn-uploadfooter><span class="">ارسال</span></button>
+                            type="button" data-btn-uploadfooter><span class="">عضویت در خبرنامه</span></button>
                     </div>
                     <div
                         class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 rounded-2xl justify-center items-center gap-2.5">
@@ -900,113 +904,6 @@
     </main>
 
     <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js"></script>
-    <script>
-        var swiperArticleCat = new Swiper(".swiper-article-cat", {
-            slidesPerView: 1,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 30,
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
-            },
-        });
-        var swiperOfferTours = new Swiper(".swiper-offer-tours", {
-            slidesPerView: 4,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 24,
-            grabCursor: true,
-            loop: true,
-            watchOverflow: false,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-        });
-        var swiperTourCat = new Swiper(".swiper-tour-cat", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            spaceBetween: 16,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 0,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-        });
-        var swiperTourDescriptionCat = new Swiper(".swiper-tour-description-cat", {
-            slidesPerView: 1,
-            speed: 400,
-            direction: "vertical",
-            centeredSlides: false,
-            spaceBetween: 16,
-            grabCursor: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-        var swiperExhibitionTours = new Swiper(".swiper-exhibition-tours", {
-            slidesPerView: 4,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 24,
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-        });
-        var swiperVisa = new Swiper(".swiper-visa", {
-            slidesPerView: 6,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 24,
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-        });
-    </script>
     <basis core="call" file="footer.inc" />
 </body>
 

@@ -1,5 +1,5 @@
-<basis core="group" if="'[##cms.cms.page_index##]' = 'نمایه پیش فرض'">
-    <footer class="bg-footer bg-cover bg-center py-3 mt-20">
+<basis core="group" if="'[##cms.cms.page_index##]' = 'desktop'">
+    <footer class="footer-landing-items bg-footer bg-cover bg-center py-3 mt-20">
         <div class="mx-auto max-xl:w-[97%] xl:max-w-7xl">
             <div class="grid grid-cols-4">
                 <section class="flex flex-col gap-4 py-2">
@@ -100,13 +100,14 @@
                                     class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                             </a>
                         </li>
-                        <li>
-                            <a href=""
-                                class="group relative text-sm text-white transition-all duration-300 hover:text-primary-600">رزرو
-                                هتل
+                        <li class="landing-item cursor-pointer" data-id="hotel" data-nav="hotel"
+                            onclick="check_searchHistory('hotel'); check_landing('hotel')">
+                            <span
+                                class="group relative text-sm text-white transition-all duration-300 hover:text-primary-600">
+                                رزرو هتل
                                 <span
                                     class="absolute -bottom-px right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </section>
@@ -145,8 +146,7 @@
                             <svg width="24" height="24" class="shrink-0">
                                 <use href="/images/sprite-icons.svg#icon-mail"></use>
                             </svg>
-                            <span
-                                class="underline transition-all duration-300 hover:text-primary-600">@text</span>
+                            <span class="underline transition-all duration-300 hover:text-primary-600">@text</span>
                         </a>
                     </face>
                 </basis>
@@ -173,8 +173,8 @@
                     <li class="transition-all duration-300 hover:scale-90">
                         <a href="https://www.cao.ir/paxrights" rel="noopener" target="_blank"
                             class="flex items-center justify-center w-14 h-14 bg-white rounded overflow-hidden">
-                            <img src="[##cms.cms.cdn##]/_images/samaneh-ziarat.png" class="w-14 h-auto" alt="samaneh-ziarat"
-                                width="54" height="54" loading="lazy">
+                            <img src="[##cms.cms.cdn##]/_images/samaneh-ziarat.png" class="w-14 h-auto"
+                                alt="samaneh-ziarat" width="54" height="54" loading="lazy">
                         </a>
                     </li>
                     <li class="transition-all duration-300 hover:scale-90">
@@ -194,8 +194,8 @@
                     <li class="transition-all duration-300 hover:scale-90">
                         <a href="https://www.cao.ir" rel="noopener" target="_blank"
                             class="flex items-center justify-center w-14 h-14 bg-white rounded overflow-hidden">
-                            <img src="[##cms.cms.cdn##]/_images/plane-association.png" class="w-14 h-auto" alt="plane-association"
-                                width="54" height="54" loading="lazy">
+                            <img src="[##cms.cms.cdn##]/_images/plane-association.png" class="w-14 h-auto"
+                                alt="plane-association" width="54" height="54" loading="lazy">
                         </a>
                     </li>
                 </ul>
@@ -218,6 +218,6 @@
     <basis core="call" file="script.inc"></basis>
 </basis>
 
-<basis core="group" if="'[##cms.cms.page_index##]' = 'موبایل'">
+<basis core="group" if="'[##cms.cms.page_index##]' = 'mobile phone'">
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"></basis>
 </basis>
