@@ -273,66 +273,37 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 //----------fixed header-----------
-document.addEventListener('DOMContentLoaded', function () {
-  const header = document.querySelector('header')
-  const landingItems = document.querySelectorAll('.landing-item')
-  let placeholder = null
-  const headerHeight = header.offsetHeight
-  let isHeaderFixed = true
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  if (!header) return;
 
-  window.addEventListener('scroll', function () {
-    if (isHeaderFixed && window.scrollY > 100) {
-      header.classList.add(
-        'fixed',
-        'top-0',
-        'left-0',
-        'w-full',
-        'z-50',
-        'bg-white',
-      )
-      header.classList.add('shadow-lg')
+  let placeholder = null;
+
+  function applyFixed() {
+    const headerHeight = header.offsetHeight;
+
+    if (window.scrollY > 100) {
+      header.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'bg-white', 'shadow-lg');
+
       if (!placeholder) {
-        placeholder = document.createElement('div')
-        placeholder.style.height = headerHeight + 'px'
-        header.parentNode.insertBefore(placeholder, header.nextSibling)
+        placeholder = document.createElement('div');
+        placeholder.style.height = headerHeight + 'px';
+        header.parentNode.insertBefore(placeholder, header.nextSibling);
       }
     } else {
-      header.classList.remove(
-        'fixed',
-        'top-0',
-        'left-0',
-        'w-full',
-        'z-50',
-        'bg-white',
-      )
-      header.classList.remove('shadow-lg')
+      header.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'bg-white', 'shadow-lg');
+
       if (placeholder) {
-        placeholder.remove()
-        placeholder = null
+        placeholder.remove();
+        placeholder = null;
       }
     }
-  })
+  }
 
-  landingItems.forEach((item) => {
-    item.addEventListener('click', function () {
-      isHeaderFixed = false
-      header.classList.remove(
-        'fixed',
-        'top-0',
-        'left-0',
-        'w-full',
-        'z-50',
-        'bg-white',
-      )
-      header.classList.remove('shadow-lg')
+  applyFixed();
+  window.addEventListener('scroll', applyFixed, { passive: true });
+});
 
-      if (placeholder) {
-        placeholder.remove()
-        placeholder = null
-      }
-    })
-  })
-})
 
 //-----------form contact--------
 document.addEventListener('DOMContentLoaded', () => {
