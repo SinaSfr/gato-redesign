@@ -315,6 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openForm(e) {
     e?.preventDefault?.()
+    document.body.style.overflow = 'hidden'
+    
     overlay?.classList.remove('hidden', 'opacity-0')
     form?.classList.remove('hidden', 'opacity-0', 'scale-90')
     form?.classList.add('flex')
@@ -332,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form?.classList.add('opacity-0', 'scale-90')
 
     setTimeout(() => {
+      document.body.style.overflow = ''
+      
       overlay?.classList.add('hidden')
       form?.classList.add('hidden')
       form?.classList.remove('flex')
@@ -350,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+//--------faq---------
 document.addEventListener('DOMContentLoaded', function () {
   const faqBoxes = document.querySelectorAll('.faq-box')
 
@@ -940,11 +945,9 @@ if (document.querySelector('.swiper-tour-cat')) {
     },
   });
 
+  // به‌روزرسانی سوییپر بدون نیاز به بارگذاری تصاویر
   window.addEventListener('load', () => swiperTourCat.update());
-  swiperEl.querySelectorAll('img').forEach(img => {
-    img.addEventListener('load', () => swiperTourCat.update());
-  });
-  setTimeout(() => swiperTourCat.update(), 1000);
+  setTimeout(() => swiperTourCat.update(), 1000); // برای به‌روزرسانی سوییپر پس از یک ثانیه
 }
 
 if (document.querySelector('.swiper-tour-description-cat')) {
@@ -958,7 +961,6 @@ if (document.querySelector('.swiper-tour-description-cat')) {
       delay: 4000,
       disableOnInteraction: false,
     },
-    loop: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -966,10 +968,12 @@ if (document.querySelector('.swiper-tour-description-cat')) {
   });
 }
 
+// هماهنگی اسلاید‌های دو سوییپر
 if (swiperTourCat && swiperTourDescriptionCat) {
   swiperTourCat.controller.control = swiperTourDescriptionCat;
   swiperTourDescriptionCat.controller.control = swiperTourCat;
 }
+
 if (document.querySelector('.swiper-exhibition-tours')) {
   var swiperExhibitionTours = new Swiper('.swiper-exhibition-tours', {
     slidesPerView: 4,

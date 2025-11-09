@@ -1103,7 +1103,7 @@
 
 .reserve-field.departure-route,
 .reserve-field.destination-route {
-    height: 48px !important;
+    height: 50px !important;
 }
 
 .reserve-field.departure-route,
@@ -1336,6 +1336,11 @@
     background-color: white !important;
 }
 
+.Wrapper-CheckHotelDate input:checked~.needhotel-label::after{
+    background-color: var(--primary-800) !important;
+    border-radius: 4px;
+}
+
 .Wrapper-CheckHotelDate input:checked~.needhotel-label::after,
 .Wrapper-CheckHotelDate input~.needhotel-label::before {
     top: 4px !important;
@@ -1412,6 +1417,10 @@
 
 .Add-Remove.reserve-field:hover .add-routs {
     color: white !important;
+}
+
+.Add-Remove.reserve-field>div:first-of-type{
+    width: 100%;
 }
 
 .addroute-icon,
