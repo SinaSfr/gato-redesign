@@ -557,3 +557,8 @@ i[class^="flaticon-"]:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.h_iframe-aparat_embed_frame{
+  width: 100% !important;
+  height: 190px !important;
+}

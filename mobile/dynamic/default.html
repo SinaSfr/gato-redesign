@@ -99,10 +99,10 @@
     <main>
         <basis core="print" datamembername="db.info">
             <face filter="TypeID in(150)">
-                <h1 class="h1-tag">dssd</h1>
+                <h1 class="h1-tag">@text</h1>
             </face>
         </basis>
-        <section class="relative bg-default bg-cover bg-center py-6">
+        <section class="relative bg-default bg-fixed bg-cover bg-center py-6">
             <div class="search-banner mx-auto max-lg:w-[90%]">
                 <div class="search-box-container mobile-search-box">
                     <div id="search-box" class="dir-rtl">
@@ -332,7 +332,7 @@
 
                         <div class="swiper-pagination !top-auto bottom-0 h-[6px]"></div>
                     </div>
-                    <a href=""
+                    <a href="/Travel-style-tours"
                         class="w-full h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-zinc-900 mt-6">همه
                         دسته بندی ها</a>
                 </layout>
@@ -375,21 +375,21 @@
                         class="w-full h-12 flex items-center justify-center border border-solid border-zinc-400 rounded-lg text-zinc-900 mt-11">همه
                         مقالات</a>
                 </layout>
-                <face filter="00288X00240prp is null and ord in(1,2,3)">
-                    <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
+                <face filter="[00288X00240prp] is null and ord in(1,2,3)">
+                    <a href="/@link" class="relative block shadow-tour-cat rounded-3xl overflow-hidden">
                         <img src="[##cms.cms.cdn##]/images/no-image-placeholder.jpg" class="w-full h-60 object-cover"
                             alt="@title" width="288" height="240" loading="lazy">
                         <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">@title</h2>
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
+                    </a>
                 </face>
                 <face filter="ord in(1,2,3)">
-                    <div class="relative shadow-tour-cat rounded-3xl overflow-hidden">
+                    <a href="/@link" class="relative block shadow-tour-cat rounded-3xl overflow-hidden">
                         <img src="[##cms.cms.cdn##]/@00288X00240prp" class="w-full h-60 object-cover" alt="@title"
                             width="288" height="240" loading="lazy">
                         <h2 class="absolute text-xl font-bold text-white right-4 bottom-4 z-20">@title</h2>
                         <div class="bg-light-purple-shadow absolute inset-0 w-full h-full"></div>
-                    </div>
+                    </a>
                 </face>
             </basis>
 

@@ -1070,6 +1070,10 @@ body {
   background-position: center;
 }
 
+.bg-fixed {
+  background-attachment: fixed;
+}
+
 .object-cover {
   -o-object-fit: cover;
   object-fit: cover;
@@ -1598,6 +1602,10 @@ body {
 
 .itemInput, .login-btn {
   font-family: 'IRANYekan' !important;
+}
+
+#mobile_add_to_screen img{
+  width: 100%;
 }
 
 .header-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
