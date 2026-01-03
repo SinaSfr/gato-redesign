@@ -945,9 +945,8 @@ if (document.querySelector('.swiper-tour-cat')) {
     },
   });
 
-  // به‌روزرسانی سوییپر بدون نیاز به بارگذاری تصاویر
   window.addEventListener('load', () => swiperTourCat.update());
-  setTimeout(() => swiperTourCat.update(), 1000); // برای به‌روزرسانی سوییپر پس از یک ثانیه
+  setTimeout(() => swiperTourCat.update(), 1000);
 }
 
 if (document.querySelector('.swiper-tour-description-cat')) {
@@ -957,10 +956,6 @@ if (document.querySelector('.swiper-tour-description-cat')) {
     direction: 'vertical',
     spaceBetween: 16,
     grabCursor: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -968,7 +963,6 @@ if (document.querySelector('.swiper-tour-description-cat')) {
   });
 }
 
-// هماهنگی اسلاید‌های دو سوییپر
 if (swiperTourCat && swiperTourDescriptionCat) {
   swiperTourCat.controller.control = swiperTourDescriptionCat;
   swiperTourDescriptionCat.controller.control = swiperTourCat;
